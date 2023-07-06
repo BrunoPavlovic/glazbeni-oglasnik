@@ -66,6 +66,8 @@ namespace GlazbeniOglasnik
                 frm.Dock = DockStyle.Fill;
                 panelForm.Controls.Add(frm);
                 panelForm.Tag = frm;
+                panelForm.Height = frm.Height;
+                panelForm.Width = frm.Width;
                 frm.BringToFront();
                 frm.Show();
             }
@@ -75,21 +77,25 @@ namespace GlazbeniOglasnik
         private void btnPocetna_Click(object sender, EventArgs e)
         {
             LoadAnotherForm(new FrmMain(),sender, true);
+            title.Text = "Početna";
         }
 
         private void btnPregledOglasa_Click(object sender, EventArgs e)
         {
             LoadAnotherForm(new UI.FrmPregledOglasa(),sender, false);
+            title.Text = "Pregled oglasa";
         }
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            title.Text = "Novi oglas";
         }
 
         private void btnProfil_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            title.Text = "Profil";
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
