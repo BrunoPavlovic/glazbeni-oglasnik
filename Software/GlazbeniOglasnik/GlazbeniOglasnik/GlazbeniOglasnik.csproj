@@ -55,6 +55,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\FrmNoviOglas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmNoviOglas.Designer.cs">
+      <DependentUpon>FrmNoviOglas.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FrmPregledOglasa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\FrmNoviOglas.resx">
+      <DependentUpon>FrmNoviOglas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmPregledOglasa.resx">
       <DependentUpon>FrmPregledOglasa.cs</DependentUpon>
     </EmbeddedResource>

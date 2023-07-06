@@ -88,7 +88,7 @@ namespace GlazbeniOglasnik
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            LoadAnotherForm(new UI.FrmNoviOglas(), sender, false);
             title.Text = "Novi oglas";
         }
 
