@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.tablePanelIzbornik = new System.Windows.Forms.TableLayoutPanel();
-            this.panelForm = new System.Windows.Forms.Panel();
-            this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
             this.title = new System.Windows.Forms.Label();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
-            this.btnPocetna = new System.Windows.Forms.Button();
-            this.btnPregledOglasa = new System.Windows.Forms.Button();
-            this.btnNoviOglas = new System.Windows.Forms.Button();
+            this.tablePanelIzbornik = new System.Windows.Forms.TableLayoutPanel();
             this.btnProfil = new System.Windows.Forms.Button();
+            this.btnNoviOglas = new System.Windows.Forms.Button();
+            this.btnPregledOglasa = new System.Windows.Forms.Button();
+            this.btnPocetna = new System.Windows.Forms.Button();
+            this.panelForm = new System.Windows.Forms.Panel();
+            this.btnPregledOdabranog = new System.Windows.Forms.Button();
+            this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
             this.panelTitle.SuspendLayout();
             this.tablePanelIzbornik.SuspendLayout();
             this.panelForm.SuspendLayout();
@@ -54,6 +54,18 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(832, 52);
             this.panelTitle.TabIndex = 1;
+            // 
+            // title
+            // 
+            this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.White;
+            this.title.Location = new System.Drawing.Point(363, 9);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(113, 29);
+            this.title.TabIndex = 0;
+            this.title.Text = "Početna";
             // 
             // tablePanelIzbornik
             // 
@@ -76,81 +88,21 @@
             this.tablePanelIzbornik.Size = new System.Drawing.Size(832, 75);
             this.tablePanelIzbornik.TabIndex = 2;
             // 
-            // panelForm
+            // btnProfil
             // 
-            this.panelForm.Controls.Add(this.btnPregledOdabranog);
-            this.panelForm.Controls.Add(this.dgvNajtrazeniji);
-            this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForm.Location = new System.Drawing.Point(0, 127);
-            this.panelForm.Name = "panelForm";
-            this.panelForm.Size = new System.Drawing.Size(832, 426);
-            this.panelForm.TabIndex = 3;
-            // 
-            // dgvNajtrazeniji
-            // 
-            this.dgvNajtrazeniji.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNajtrazeniji.Location = new System.Drawing.Point(81, 70);
-            this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
-            this.dgvNajtrazeniji.RowHeadersWidth = 51;
-            this.dgvNajtrazeniji.RowTemplate.Height = 24;
-            this.dgvNajtrazeniji.Size = new System.Drawing.Size(667, 261);
-            this.dgvNajtrazeniji.TabIndex = 0;
-            // 
-            // title
-            // 
-            this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.title.AutoSize = true;
-            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.ForeColor = System.Drawing.Color.White;
-            this.title.Location = new System.Drawing.Point(363, 9);
-            this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(113, 29);
-            this.title.TabIndex = 0;
-            this.title.Text = "Početna";
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(672, 354);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(150, 25);
-            this.btnPregledOdabranog.TabIndex = 1;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            // 
-            // btnPocetna
-            // 
-            this.btnPocetna.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPocetna.FlatAppearance.BorderSize = 0;
-            this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPocetna.ForeColor = System.Drawing.Color.White;
-            this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
-            this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPocetna.Location = new System.Drawing.Point(3, 3);
-            this.btnPocetna.Name = "btnPocetna";
-            this.btnPocetna.Size = new System.Drawing.Size(202, 69);
-            this.btnPocetna.TabIndex = 0;
-            this.btnPocetna.Text = "Početna";
-            this.btnPocetna.UseVisualStyleBackColor = true;
-            // 
-            // btnPregledOglasa
-            // 
-            this.btnPregledOglasa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPregledOglasa.FlatAppearance.BorderSize = 0;
-            this.btnPregledOglasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPregledOglasa.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOglasa.Image = ((System.Drawing.Image)(resources.GetObject("btnPregledOglasa.Image")));
-            this.btnPregledOglasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPregledOglasa.Location = new System.Drawing.Point(211, 3);
-            this.btnPregledOglasa.Name = "btnPregledOglasa";
-            this.btnPregledOglasa.Size = new System.Drawing.Size(202, 69);
-            this.btnPregledOglasa.TabIndex = 1;
-            this.btnPregledOglasa.Text = "Pregled oglasa";
-            this.btnPregledOglasa.UseVisualStyleBackColor = true;
+            this.btnProfil.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnProfil.FlatAppearance.BorderSize = 0;
+            this.btnProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfil.ForeColor = System.Drawing.Color.White;
+            this.btnProfil.Image = ((System.Drawing.Image)(resources.GetObject("btnProfil.Image")));
+            this.btnProfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfil.Location = new System.Drawing.Point(627, 3);
+            this.btnProfil.Name = "btnProfil";
+            this.btnProfil.Size = new System.Drawing.Size(202, 69);
+            this.btnProfil.TabIndex = 3;
+            this.btnProfil.Text = "Profil";
+            this.btnProfil.UseVisualStyleBackColor = true;
+            this.btnProfil.Click += new System.EventHandler(this.btnProfil_Click);
             // 
             // btnNoviOglas
             // 
@@ -166,21 +118,73 @@
             this.btnNoviOglas.TabIndex = 2;
             this.btnNoviOglas.Text = "Novi oglas";
             this.btnNoviOglas.UseVisualStyleBackColor = true;
+            this.btnNoviOglas.Click += new System.EventHandler(this.btnNoviOglas_Click);
             // 
-            // btnProfil
+            // btnPregledOglasa
             // 
-            this.btnProfil.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnProfil.FlatAppearance.BorderSize = 0;
-            this.btnProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfil.ForeColor = System.Drawing.Color.White;
-            this.btnProfil.Image = ((System.Drawing.Image)(resources.GetObject("btnProfil.Image")));
-            this.btnProfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProfil.Location = new System.Drawing.Point(627, 3);
-            this.btnProfil.Name = "btnProfil";
-            this.btnProfil.Size = new System.Drawing.Size(202, 69);
-            this.btnProfil.TabIndex = 3;
-            this.btnProfil.Text = "Profil";
-            this.btnProfil.UseVisualStyleBackColor = true;
+            this.btnPregledOglasa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPregledOglasa.FlatAppearance.BorderSize = 0;
+            this.btnPregledOglasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregledOglasa.ForeColor = System.Drawing.Color.White;
+            this.btnPregledOglasa.Image = ((System.Drawing.Image)(resources.GetObject("btnPregledOglasa.Image")));
+            this.btnPregledOglasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPregledOglasa.Location = new System.Drawing.Point(211, 3);
+            this.btnPregledOglasa.Name = "btnPregledOglasa";
+            this.btnPregledOglasa.Size = new System.Drawing.Size(202, 69);
+            this.btnPregledOglasa.TabIndex = 1;
+            this.btnPregledOglasa.Text = "Pregled oglasa";
+            this.btnPregledOglasa.UseVisualStyleBackColor = true;
+            this.btnPregledOglasa.Click += new System.EventHandler(this.btnPregledOglasa_Click);
+            // 
+            // btnPocetna
+            // 
+            this.btnPocetna.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPocetna.FlatAppearance.BorderSize = 0;
+            this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPocetna.ForeColor = System.Drawing.Color.White;
+            this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
+            this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPocetna.Location = new System.Drawing.Point(3, 3);
+            this.btnPocetna.Name = "btnPocetna";
+            this.btnPocetna.Size = new System.Drawing.Size(202, 69);
+            this.btnPocetna.TabIndex = 0;
+            this.btnPocetna.Text = "Početna";
+            this.btnPocetna.UseVisualStyleBackColor = true;
+            this.btnPocetna.Click += new System.EventHandler(this.btnPocetna_Click);
+            // 
+            // panelForm
+            // 
+            this.panelForm.Controls.Add(this.btnPregledOdabranog);
+            this.panelForm.Controls.Add(this.dgvNajtrazeniji);
+            this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelForm.Location = new System.Drawing.Point(0, 127);
+            this.panelForm.Name = "panelForm";
+            this.panelForm.Size = new System.Drawing.Size(832, 426);
+            this.panelForm.TabIndex = 3;
+            // 
+            // btnPregledOdabranog
+            // 
+            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(679, 389);
+            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
+            this.btnPregledOdabranog.Size = new System.Drawing.Size(150, 25);
+            this.btnPregledOdabranog.TabIndex = 1;
+            this.btnPregledOdabranog.Text = "Pregled odabranog";
+            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
+            // 
+            // dgvNajtrazeniji
+            // 
+            this.dgvNajtrazeniji.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNajtrazeniji.Location = new System.Drawing.Point(81, 70);
+            this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
+            this.dgvNajtrazeniji.RowHeadersWidth = 51;
+            this.dgvNajtrazeniji.RowTemplate.Height = 24;
+            this.dgvNajtrazeniji.Size = new System.Drawing.Size(667, 261);
+            this.dgvNajtrazeniji.TabIndex = 0;
             // 
             // FrmMain
             // 
@@ -194,6 +198,7 @@
             this.MinimumSize = new System.Drawing.Size(850, 600);
             this.Name = "FrmMain";
             this.Text = "Glazbeni oglasnik";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.tablePanelIzbornik.ResumeLayout(false);
