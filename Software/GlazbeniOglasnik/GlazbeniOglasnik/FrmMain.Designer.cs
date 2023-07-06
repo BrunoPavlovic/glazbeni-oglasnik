@@ -39,6 +39,7 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
+            this.labelOglasi = new System.Windows.Forms.Label();
             this.panelTitle.SuspendLayout();
             this.tablePanelIzbornik.SuspendLayout();
             this.panelForm.SuspendLayout();
@@ -93,6 +94,7 @@
             this.btnProfil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProfil.FlatAppearance.BorderSize = 0;
             this.btnProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfil.ForeColor = System.Drawing.Color.White;
             this.btnProfil.Image = ((System.Drawing.Image)(resources.GetObject("btnProfil.Image")));
             this.btnProfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -109,6 +111,7 @@
             this.btnNoviOglas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNoviOglas.FlatAppearance.BorderSize = 0;
             this.btnNoviOglas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoviOglas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNoviOglas.ForeColor = System.Drawing.Color.White;
             this.btnNoviOglas.Image = ((System.Drawing.Image)(resources.GetObject("btnNoviOglas.Image")));
             this.btnNoviOglas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,6 +128,7 @@
             this.btnPregledOglasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPregledOglasa.FlatAppearance.BorderSize = 0;
             this.btnPregledOglasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPregledOglasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOglasa.ForeColor = System.Drawing.Color.White;
             this.btnPregledOglasa.Image = ((System.Drawing.Image)(resources.GetObject("btnPregledOglasa.Image")));
             this.btnPregledOglasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -141,6 +145,7 @@
             this.btnPocetna.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPocetna.FlatAppearance.BorderSize = 0;
             this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPocetna.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPocetna.ForeColor = System.Drawing.Color.White;
             this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
             this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -154,6 +159,7 @@
             // 
             // panelForm
             // 
+            this.panelForm.Controls.Add(this.labelOglasi);
             this.panelForm.Controls.Add(this.btnPregledOdabranog);
             this.panelForm.Controls.Add(this.dgvNajtrazeniji);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -167,10 +173,11 @@
             this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(679, 389);
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(601, 374);
             this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(150, 25);
+            this.btnPregledOdabranog.Size = new System.Drawing.Size(219, 40);
             this.btnPregledOdabranog.TabIndex = 1;
             this.btnPregledOdabranog.Text = "Pregled odabranog";
             this.btnPregledOdabranog.UseVisualStyleBackColor = false;
@@ -179,12 +186,23 @@
             // 
             this.dgvNajtrazeniji.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNajtrazeniji.Location = new System.Drawing.Point(81, 70);
+            this.dgvNajtrazeniji.Location = new System.Drawing.Point(26, 70);
             this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
             this.dgvNajtrazeniji.RowHeadersWidth = 51;
             this.dgvNajtrazeniji.RowTemplate.Height = 24;
-            this.dgvNajtrazeniji.Size = new System.Drawing.Size(667, 261);
+            this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 261);
             this.dgvNajtrazeniji.TabIndex = 0;
+            // 
+            // labelOglasi
+            // 
+            this.labelOglasi.AutoSize = true;
+            this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOglasi.ForeColor = System.Drawing.Color.White;
+            this.labelOglasi.Location = new System.Drawing.Point(339, 32);
+            this.labelOglasi.Name = "labelOglasi";
+            this.labelOglasi.Size = new System.Drawing.Size(163, 25);
+            this.labelOglasi.TabIndex = 6;
+            this.labelOglasi.Text = "Najtraženiji oglasi";
             // 
             // FrmMain
             // 
@@ -197,12 +215,14 @@
             this.Controls.Add(this.panelTitle);
             this.MinimumSize = new System.Drawing.Size(850, 600);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glazbeni oglasnik";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.tablePanelIzbornik.ResumeLayout(false);
             this.panelForm.ResumeLayout(false);
+            this.panelForm.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNajtrazeniji)).EndInit();
             this.ResumeLayout(false);
 
@@ -220,6 +240,7 @@
         private System.Windows.Forms.Button btnProfil;
         private System.Windows.Forms.Button btnNoviOglas;
         private System.Windows.Forms.Button btnPregledOglasa;
+        private System.Windows.Forms.Label labelOglasi;
     }
 }
 

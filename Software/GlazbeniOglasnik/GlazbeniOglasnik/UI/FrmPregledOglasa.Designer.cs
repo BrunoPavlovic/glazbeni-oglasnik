@@ -41,7 +41,7 @@
             // txtSearch
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtSearch.Location = new System.Drawing.Point(64, 24);
+            this.txtSearch.Location = new System.Drawing.Point(71, 28);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(262, 22);
             this.txtSearch.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.dgvOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvOglasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOglasi.Location = new System.Drawing.Point(54, 73);
+            this.dgvOglasi.Location = new System.Drawing.Point(61, 77);
             this.dgvOglasi.Name = "dgvOglasi";
             this.dgvOglasi.RowHeadersWidth = 51;
             this.dgvOglasi.RowTemplate.Height = 24;
@@ -62,10 +62,11 @@
             this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(645, 351);
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(603, 355);
             this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(165, 25);
+            this.btnPregledOdabranog.Size = new System.Drawing.Size(214, 40);
             this.btnPregledOdabranog.TabIndex = 2;
             this.btnPregledOdabranog.Text = "Pregled odabranog";
             this.btnPregledOdabranog.UseVisualStyleBackColor = false;
@@ -75,7 +76,7 @@
             this.pbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbSearch.Image")));
             this.pbSearch.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbSearch.InitialImage")));
-            this.pbSearch.Location = new System.Drawing.Point(332, 24);
+            this.pbSearch.Location = new System.Drawing.Point(339, 28);
             this.pbSearch.Name = "pbSearch";
             this.pbSearch.Size = new System.Drawing.Size(32, 33);
             this.pbSearch.TabIndex = 3;
@@ -90,7 +91,7 @@
             "Datum objave silazno",
             "Cijena uzlazno",
             "Cijena silazno"});
-            this.cmbSortiraj.Location = new System.Drawing.Point(585, 24);
+            this.cmbSortiraj.Location = new System.Drawing.Point(592, 28);
             this.cmbSortiraj.Name = "cmbSortiraj";
             this.cmbSortiraj.Size = new System.Drawing.Size(164, 24);
             this.cmbSortiraj.TabIndex = 4;
@@ -100,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
-            this.ClientSize = new System.Drawing.Size(832, 403);
+            this.ClientSize = new System.Drawing.Size(847, 410);
             this.Controls.Add(this.cmbSortiraj);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.btnPregledOdabranog);

@@ -76,13 +76,13 @@ namespace GlazbeniOglasnik
 
         private void btnPocetna_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new FrmMain(),sender, true);
+            LoadAnotherForm(new FrmMain(), sender, true);
             title.Text = "Početna";
         }
 
         private void btnPregledOglasa_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new UI.FrmPregledOglasa(),sender, false);
+            LoadAnotherForm(new UI.FrmPregledOglasa(), sender, false);
             title.Text = "Pregled oglasa";
         }
 
@@ -94,7 +94,7 @@ namespace GlazbeniOglasnik
 
         private void btnProfil_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            LoadAnotherForm(new UI.FrmProfil(), sender, false);
             title.Text = "Profil";
         }
 
