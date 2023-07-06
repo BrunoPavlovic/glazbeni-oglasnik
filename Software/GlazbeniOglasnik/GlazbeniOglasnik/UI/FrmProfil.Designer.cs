@@ -45,6 +45,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(13, 36);
             this.pictureBox1.Name = "pictureBox1";
@@ -54,6 +55,7 @@
             // 
             // labelKorime
             // 
+            this.labelKorime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelKorime.AutoSize = true;
             this.labelKorime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKorime.ForeColor = System.Drawing.Color.White;
@@ -65,6 +67,7 @@
             // 
             // labelIme
             // 
+            this.labelIme.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelIme.AutoSize = true;
             this.labelIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelIme.ForeColor = System.Drawing.Color.White;
@@ -76,6 +79,7 @@
             // 
             // labelPrezime
             // 
+            this.labelPrezime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelPrezime.AutoSize = true;
             this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelPrezime.ForeColor = System.Drawing.Color.White;
@@ -87,6 +91,7 @@
             // 
             // labelTelefon
             // 
+            this.labelTelefon.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTelefon.AutoSize = true;
             this.labelTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelTelefon.ForeColor = System.Drawing.Color.White;
@@ -98,10 +103,11 @@
             // 
             // labelOglasi
             // 
+            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOglasi.AutoSize = true;
             this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOglasi.ForeColor = System.Drawing.Color.White;
-            this.labelOglasi.Location = new System.Drawing.Point(16, 230);
+            this.labelOglasi.Location = new System.Drawing.Point(16, 216);
             this.labelOglasi.Name = "labelOglasi";
             this.labelOglasi.Size = new System.Drawing.Size(154, 25);
             this.labelOglasi.TabIndex = 5;
@@ -109,8 +115,9 @@
             // 
             // dgvZanimljivi
             // 
+            this.dgvZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvZanimljivi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZanimljivi.Location = new System.Drawing.Point(21, 274);
+            this.dgvZanimljivi.Location = new System.Drawing.Point(21, 254);
             this.dgvZanimljivi.Name = "dgvZanimljivi";
             this.dgvZanimljivi.RowHeadersWidth = 51;
             this.dgvZanimljivi.RowTemplate.Height = 24;
@@ -124,7 +131,7 @@
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(583, 398);
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(583, 384);
             this.btnPregledOdabranog.Name = "btnPregledOdabranog";
             this.btnPregledOdabranog.Size = new System.Drawing.Size(205, 40);
             this.btnPregledOdabranog.TabIndex = 7;

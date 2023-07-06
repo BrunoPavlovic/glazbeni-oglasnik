@@ -195,6 +195,7 @@
             // 
             // labelOglasi
             // 
+            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOglasi.AutoSize = true;
             this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOglasi.ForeColor = System.Drawing.Color.White;
