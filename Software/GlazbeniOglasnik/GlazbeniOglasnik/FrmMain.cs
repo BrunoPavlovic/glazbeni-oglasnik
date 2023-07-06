@@ -13,6 +13,8 @@ namespace GlazbeniOglasnik
     public partial class FrmMain : Form
     {
         public Button currentButton;
+        public Form currentForm;
+        public bool isCurrentFormMain = true;
 
         public FrmMain()
         {
@@ -42,14 +44,42 @@ namespace GlazbeniOglasnik
             }
         }
 
+        public void LoadAnotherForm(Form frm, object sender, bool isMainForm)
+        {
+            if (currentForm!= null && isCurrentFormMain==false)
+                currentForm.Close();
+
+            ActivateButton(sender);
+
+            if (isMainForm)
+            {
+                currentForm = this;
+                isCurrentFormMain = true;
+            }
+            else 
+            {
+                currentForm = frm;
+                isCurrentFormMain = false;
+
+                frm.TopLevel = false;
+                frm.FormBorderStyle = FormBorderStyle.None;
+                frm.Dock = DockStyle.Fill;
+                panelForm.Controls.Add(frm);
+                panelForm.Tag = frm;
+                frm.BringToFront();
+                frm.Show();
+            }
+
+        }
+
         private void btnPocetna_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            LoadAnotherForm(new FrmMain(),sender, true);
         }
 
         private void btnPregledOglasa_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            LoadAnotherForm(new UI.FrmPregledOglasa(),sender, false);
         }
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
