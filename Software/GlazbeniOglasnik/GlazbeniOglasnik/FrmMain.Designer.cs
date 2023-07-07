@@ -193,6 +193,7 @@
             this.btnPregledOdabranog.TabIndex = 1;
             this.btnPregledOdabranog.Text = "Pregled odabranog";
             this.btnPregledOdabranog.UseVisualStyleBackColor = false;
+            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
             // 
             // dgvNajtrazeniji
             // 
@@ -214,7 +215,7 @@
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.tablePanelIzbornik);
             this.Controls.Add(this.panelTitle);
-            this.MinimumSize = new System.Drawing.Size(850, 600);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glazbeni oglasnik";

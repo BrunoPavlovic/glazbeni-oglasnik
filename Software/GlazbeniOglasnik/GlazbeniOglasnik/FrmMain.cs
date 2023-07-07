@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GlazbeniOglasnik.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -101,6 +102,12 @@ namespace GlazbeniOglasnik
         private void FrmMain_Load(object sender, EventArgs e)
         {
             ActivateButton(btnPocetna);
+        }
+
+        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        {
+            FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog();
+            frmPregledOdabranog.ShowDialog();
         }
     }
 }
