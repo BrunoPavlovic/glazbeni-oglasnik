@@ -215,6 +215,7 @@
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.tablePanelIzbornik);
             this.Controls.Add(this.panelTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
