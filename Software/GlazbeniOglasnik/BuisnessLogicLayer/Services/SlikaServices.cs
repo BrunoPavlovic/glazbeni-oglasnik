@@ -8,48 +8,47 @@ using System.Threading.Tasks;
 
 namespace BuisnessLogicLayer.Services
 {
-    public class KorisnikServices
+    public class SlikaServices
     {
-        public Korisnik GetKorisnikById(int id)
+        public List<Slike> GetSlikeForOglas(int oglasId)
         {
-            using (var repo = new KorisnikRepository())
+            using (var repo = new SlikaRepository())
             {
-                Korisnik korisnik = repo.GetKorisnikById(id).FirstOrDefault();
-
-                return korisnik;
+                List<Slike> slike = repo.GetSlikeForOglas(oglasId).ToList();
+                return slike;
             }
         }
 
-        public bool AddKorisnik(Korisnik korisnik)
+        public bool AddSlika(Slike slika)
         {
             bool isSuccesful = false;
-            using (var repo = new KorisnikRepository())
+            using (var repo = new SlikaRepository())
             {
-                int affectedRow = repo.Add(korisnik);
+                int affectedRow = repo.Add(slika);
                 isSuccesful = affectedRow > 0;
             }
 
             return isSuccesful;
         }
 
-        public bool UpdateKorisnik(Korisnik korisnik)
+        public bool UpdateSlika(Slike slika)
         {
             bool isSuccesful = false;
-            using (var repo = new KorisnikRepository())
+            using (var repo = new SlikaRepository())
             {
-                int affectedRow = repo.Update(korisnik);
+                int affectedRow = repo.Update(slika);
                 isSuccesful = affectedRow > 0;
             }
 
             return isSuccesful;
         }
 
-        public bool RemoveKorisnik(Korisnik korisnik)
+        public bool RemoveSlika(Slike slika)
         {
             bool isSuccesful = false;
-            using (var repo = new KorisnikRepository())
+            using (var repo = new SlikaRepository())
             {
-                int affectedRow = repo.Remove(korisnik);
+                int affectedRow = repo.Remove(slika);
                 isSuccesful = affectedRow > 0;
             }
 

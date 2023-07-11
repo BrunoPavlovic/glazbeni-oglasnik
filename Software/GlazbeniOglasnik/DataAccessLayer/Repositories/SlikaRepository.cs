@@ -13,10 +13,10 @@ namespace DataAccessLayer.Repositories
         {
         }
 
-        public IQueryable<Slike> GetSlikeForOglas(int idOglasa)
+        public IQueryable<Slike> GetSlikeForOglas(int oglasId)
         {
             var query = from e in Entities
-                        where e.Oglas_id == idOglasa
+                        where e.Oglas_id == oglasId
                         select e;
 
             return query;
