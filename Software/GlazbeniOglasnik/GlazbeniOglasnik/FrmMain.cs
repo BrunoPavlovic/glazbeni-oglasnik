@@ -107,26 +107,7 @@ namespace GlazbeniOglasnik
         {
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
-            HideAttributes();
-            RenameDgvHeaders();
-        }
-
-        private void RenameDgvHeaders()
-        {
-            dgvNajtrazeniji.Columns["Naziv_oglasa"].HeaderText = "Naziv oglasa";
-            dgvNajtrazeniji.Columns["Datum_objave"].HeaderText = "Datum objave";
-        }
-
-        private void HideAttributes()
-        {
-            dgvNajtrazeniji.Columns["Id"].Visible = false;
-            dgvNajtrazeniji.Columns["Korisnik_id"].Visible = false;
-            dgvNajtrazeniji.Columns["Korisnik"].Visible = false;
-            dgvNajtrazeniji.Columns["Korisnik1"].Visible = false;
-            dgvNajtrazeniji.Columns["Slike"].Visible = false;
-            dgvNajtrazeniji.Columns["Prodano"].Visible = false;
-            dgvNajtrazeniji.Columns["Opis"].Visible = false;
-            dgvNajtrazeniji.Columns["Broj_pregleda"].Visible = false;
+            new ManageDataGridView(dgvNajtrazeniji);
         }
 
         private void LoadMostWantedOglas()

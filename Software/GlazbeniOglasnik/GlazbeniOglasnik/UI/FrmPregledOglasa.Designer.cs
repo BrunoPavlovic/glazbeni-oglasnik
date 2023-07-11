@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPregledOglasa));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgvOglasi = new System.Windows.Forms.DataGridView();
             this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.cmbSortiraj = new System.Windows.Forms.ComboBox();
             this.cmbKategorija = new System.Windows.Forms.ComboBox();
             this.labelNaziv = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).BeginInit();
+            this.dgvOglasi = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -49,17 +52,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(262, 27);
             this.txtSearch.TabIndex = 0;
-            // 
-            // dgvOglasi
-            // 
-            this.dgvOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvOglasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOglasi.Location = new System.Drawing.Point(12, 129);
-            this.dgvOglasi.Name = "dgvOglasi";
-            this.dgvOglasi.RowHeadersWidth = 51;
-            this.dgvOglasi.RowTemplate.Height = 24;
-            this.dgvOglasi.Size = new System.Drawing.Size(1209, 312);
-            this.dgvOglasi.TabIndex = 1;
             // 
             // btnPregledOdabranog
             // 
@@ -139,25 +131,64 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Kategorija";
             // 
+            // dgvOglasi
+            // 
+            this.dgvOglasi.AllowUserToAddRows = false;
+            this.dgvOglasi.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvOglasi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvOglasi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.dgvOglasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOglasi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvOglasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOglasi.EnableHeadersVisualStyles = false;
+            this.dgvOglasi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
+            this.dgvOglasi.Location = new System.Drawing.Point(225, 126);
+            this.dgvOglasi.MultiSelect = false;
+            this.dgvOglasi.Name = "dgvOglasi";
+            this.dgvOglasi.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOglasi.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvOglasi.RowHeadersVisible = false;
+            this.dgvOglasi.RowHeadersWidth = 51;
+            this.dgvOglasi.RowTemplate.Height = 24;
+            this.dgvOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOglasi.Size = new System.Drawing.Size(794, 302);
+            this.dgvOglasi.TabIndex = 8;
+            // 
             // FrmPregledOglasa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(1244, 499);
+            this.Controls.Add(this.dgvOglasi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelNaziv);
             this.Controls.Add(this.cmbKategorija);
             this.Controls.Add(this.cmbSortiraj);
             this.Controls.Add(this.pbSearch);
             this.Controls.Add(this.btnPregledOdabranog);
-            this.Controls.Add(this.dgvOglasi);
             this.Controls.Add(this.txtSearch);
             this.Name = "FrmPregledOglasa";
             this.Text = "FrmPregledOglasa";
             this.Load += new System.EventHandler(this.FrmPregledOglasa_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,12 +197,12 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgvOglasi;
         private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.ComboBox cmbSortiraj;
         private System.Windows.Forms.ComboBox cmbKategorija;
         private System.Windows.Forms.Label labelNaziv;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvOglasi;
     }
 }

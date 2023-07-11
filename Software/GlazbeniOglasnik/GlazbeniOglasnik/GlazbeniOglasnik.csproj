@@ -89,6 +89,7 @@
     <Compile Include="UI\FrmProfil.Designer.cs">
       <DependentUpon>FrmProfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ManageDataGridView.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

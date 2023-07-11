@@ -23,6 +23,7 @@ namespace GlazbeniOglasnik.UI
         private void FrmPregledOglasa_Load(object sender, EventArgs e)
         {
             dgvOglasi.DataSource = oglasServices.GetOglas();
+            new ManageDataGridView(dgvOglasi);
         }
     }
 }
