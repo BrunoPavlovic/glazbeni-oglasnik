@@ -15,7 +15,8 @@ namespace GlazbeniOglasnik.UI
         {
             this.dgv = dataGridView;
             RenameDgvHeaders();
-            HideAttributes();   
+            HideAttributes();
+            dgv.Rows[0].Selected = false;
         }
 
         private void RenameDgvHeaders()

@@ -1,4 +1,5 @@
 ﻿using BuisnessLogicLayer.Services;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,6 +25,33 @@ namespace GlazbeniOglasnik.UI
         {
             dgvOglasi.DataSource = oglasServices.GetOglas();
             new ManageDataGridView(dgvOglasi);
+        }
+
+        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvOglasi.CurrentRow != null)
+                {
+                    Oglas odabrani = dgvOglasi.CurrentRow.DataBoundItem as Oglas;
+                    if (odabrani != null)
+                    {
+                        odabrani.Broj_pregleda = odabrani.Broj_pregleda + 1;
+                        oglasServices.UpdateOglasView(odabrani);
+                    }
+
+                    FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
+                    frmPregledOdabranog.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Odaberite jedan oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

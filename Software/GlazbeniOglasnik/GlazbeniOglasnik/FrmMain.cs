@@ -113,7 +113,6 @@ namespace GlazbeniOglasnik
         private void LoadMostWantedOglas()
         {
             dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
-            dgvNajtrazeniji.Rows[0].Selected = false;
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
