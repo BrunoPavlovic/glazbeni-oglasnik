@@ -22,28 +22,6 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
-        public override int Add(Korisnik entity, bool saveChanges = true)
-        {
-            var korisnikk = new Korisnik
-            {
-                Ime = entity.Ime,
-                Prezime = entity.Prezime,
-                Korime = entity.Korime,
-                Lozinka = entity.Lozinka,
-                Broj_telefona = entity.Broj_telefona
-            };
-
-            Entities.Add(korisnikk);
-            if (saveChanges)
-            {
-                return SaveChanges();
-            }
-            else
-            {
-                return 0;
-            }
-        }
-
         public override int Update(Korisnik entity, bool saveChanges = true)
         {
             var korisnik = Entities.SingleOrDefault(k => k.Id == entity.Id);
@@ -64,6 +42,5 @@ namespace DataAccessLayer.Repositories
                 return 0;
             }
         }
-
     }
 }
