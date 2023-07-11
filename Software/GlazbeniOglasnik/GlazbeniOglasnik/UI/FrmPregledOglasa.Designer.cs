@@ -155,6 +155,7 @@
             this.Controls.Add(this.txtSearch);
             this.Name = "FrmPregledOglasa";
             this.Text = "FrmPregledOglasa";
+            this.Load += new System.EventHandler(this.FrmPregledOglasa_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);

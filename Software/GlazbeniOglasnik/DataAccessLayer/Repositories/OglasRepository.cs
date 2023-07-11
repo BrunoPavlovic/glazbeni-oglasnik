@@ -22,6 +22,16 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Oglas> GetMostWantedOglas()
+        {
+            var query = from e in Entities
+                        .Include("Korisnik")
+                        orderby e.Broj_pregleda descending
+                        select e;
+
+            return query.Take(5);
+        }
+
         public override int Update(Oglas entity, bool saveChanges = true)
         {
             var oglas = Entities.SingleOrDefault(o => o.Id == entity.Id);

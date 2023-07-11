@@ -19,6 +19,15 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public List<Oglas> GetMostWantedOglas()
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> oglasi = repo.GetMostWantedOglas().ToList();
+                return oglasi;
+            }
+        }
+
         public bool AddOglas(Oglas oglas)
         {
             bool isSuccesful = false;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BuisnessLogicLayer.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace GlazbeniOglasnik.UI
 {
     public partial class FrmPregledOglasa : Form
     {
+        public OglasServices oglasServices = new OglasServices();
+
         public FrmPregledOglasa()
         {
             InitializeComponent();
+        }
+
+        private void FrmPregledOglasa_Load(object sender, EventArgs e)
+        {
+            dgvOglasi.DataSource = oglasServices.GetOglas();
         }
     }
 }

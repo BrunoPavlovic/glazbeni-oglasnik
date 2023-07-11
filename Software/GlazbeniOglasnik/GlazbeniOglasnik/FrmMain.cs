@@ -1,4 +1,5 @@
-﻿using GlazbeniOglasnik.UI;
+﻿using BuisnessLogicLayer.Services;
+using GlazbeniOglasnik.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace GlazbeniOglasnik
         public Button currentButton;
         public Form currentForm;
         public bool isCurrentFormMain = true;
+        public OglasServices oglasServices = new OglasServices();
 
         public FrmMain()
         {
@@ -102,6 +104,12 @@ namespace GlazbeniOglasnik
         private void FrmMain_Load(object sender, EventArgs e)
         {
             ActivateButton(btnPocetna);
+            LoadMostWantedOglas();
+        }
+
+        private void LoadMostWantedOglas()
+        {
+            dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
