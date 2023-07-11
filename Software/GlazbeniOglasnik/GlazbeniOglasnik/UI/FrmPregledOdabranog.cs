@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntitiesLayer.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,12 @@ namespace GlazbeniOglasnik.UI
 {
     public partial class FrmPregledOdabranog : Form
     {
-        public FrmPregledOdabranog()
+        public Oglas oglas;
+
+        public FrmPregledOdabranog(Oglas odabraniOglas)
         {
             InitializeComponent();
+            this.oglas = odabraniOglas;
         }
 
         private void pictureBoxUnchecked_Click(object sender, EventArgs e)
@@ -32,6 +36,21 @@ namespace GlazbeniOglasnik.UI
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmPregledOdabranog_Load(object sender, EventArgs e)
+        {
+            FillDetail();
+        }
+
+        private void FillDetail()
+        {
+            title.Text = oglas.Naziv_oglasa;
+            richTextOpis.Text = oglas.Opis;
+            txtLokacija.Text = oglas.Lokacija;
+            labelCijena.Text = oglas.Cijena.ToString() + "$";
+            labelBrojPregleda.Text = oglas.Broj_pregleda.ToString();
+            labelKorime.Text = oglas.Korisnik.Korime;
         }
     }
 }

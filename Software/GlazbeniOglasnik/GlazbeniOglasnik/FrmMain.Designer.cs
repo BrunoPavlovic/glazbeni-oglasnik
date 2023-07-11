@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.title = new System.Windows.Forms.Label();
             this.tablePanelIzbornik = new System.Windows.Forms.TableLayoutPanel();
@@ -174,7 +176,7 @@
             this.labelOglasi.AutoSize = true;
             this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOglasi.ForeColor = System.Drawing.Color.White;
-            this.labelOglasi.Location = new System.Drawing.Point(554, 92);
+            this.labelOglasi.Location = new System.Drawing.Point(553, 25);
             this.labelOglasi.Name = "labelOglasi";
             this.labelOglasi.Size = new System.Drawing.Size(163, 25);
             this.labelOglasi.TabIndex = 6;
@@ -187,7 +189,7 @@
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(816, 434);
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(1031, 483);
             this.btnPregledOdabranog.Name = "btnPregledOdabranog";
             this.btnPregledOdabranog.Size = new System.Drawing.Size(219, 40);
             this.btnPregledOdabranog.TabIndex = 1;
@@ -198,12 +200,31 @@
             // dgvNajtrazeniji
             // 
             this.dgvNajtrazeniji.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvNajtrazeniji.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.dgvNajtrazeniji.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNajtrazeniji.Location = new System.Drawing.Point(241, 130);
+            this.dgvNajtrazeniji.EnableHeadersVisualStyles = false;
+            this.dgvNajtrazeniji.Location = new System.Drawing.Point(26, 64);
             this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNajtrazeniji.RowHeadersWidth = 51;
             this.dgvNajtrazeniji.RowTemplate.Height = 24;
-            this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 261);
+            this.dgvNajtrazeniji.Size = new System.Drawing.Size(1203, 400);
             this.dgvNajtrazeniji.TabIndex = 0;
             // 
             // FrmMain

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPregledOdabranog));
             this.panelNaslov = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
             this.panelDetalji = new System.Windows.Forms.Panel();
             this.pictureBoxCijena = new System.Windows.Forms.PictureBox();
@@ -47,7 +48,6 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.pbOglas = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panelNaslov.SuspendLayout();
             this.panelDetalji.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCijena)).BeginInit();
@@ -68,6 +68,21 @@
             this.panelNaslov.Name = "panelNaslov";
             this.panelNaslov.Size = new System.Drawing.Size(1280, 81);
             this.panelNaslov.TabIndex = 0;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(1180, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(88, 63);
+            this.btnClose.TabIndex = 36;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // title
             // 
@@ -279,21 +294,6 @@
             this.pbOglas.TabIndex = 21;
             this.pbOglas.TabStop = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(1180, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(88, 63);
-            this.btnClose.TabIndex = 36;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // FrmPregledOdabranog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -306,6 +306,7 @@
             this.Name = "FrmPregledOdabranog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPregledOdabranog";
+            this.Load += new System.EventHandler(this.FrmPregledOdabranog_Load);
             this.panelNaslov.ResumeLayout(false);
             this.panelNaslov.PerformLayout();
             this.panelDetalji.ResumeLayout(false);
