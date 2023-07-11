@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,11 +107,32 @@ namespace GlazbeniOglasnik
         {
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
+            HideAttributes();
+            RenameDgvHeaders();
+        }
+
+        private void RenameDgvHeaders()
+        {
+            dgvNajtrazeniji.Columns["Naziv_oglasa"].HeaderText = "Naziv oglasa";
+            dgvNajtrazeniji.Columns["Datum_objave"].HeaderText = "Datum objave";
+        }
+
+        private void HideAttributes()
+        {
+            dgvNajtrazeniji.Columns["Id"].Visible = false;
+            dgvNajtrazeniji.Columns["Korisnik_id"].Visible = false;
+            dgvNajtrazeniji.Columns["Korisnik"].Visible = false;
+            dgvNajtrazeniji.Columns["Korisnik1"].Visible = false;
+            dgvNajtrazeniji.Columns["Slike"].Visible = false;
+            dgvNajtrazeniji.Columns["Prodano"].Visible = false;
+            dgvNajtrazeniji.Columns["Opis"].Visible = false;
+            dgvNajtrazeniji.Columns["Broj_pregleda"].Visible = false;
         }
 
         private void LoadMostWantedOglas()
         {
             dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
+            dgvNajtrazeniji.Rows[0].Selected = false;
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
