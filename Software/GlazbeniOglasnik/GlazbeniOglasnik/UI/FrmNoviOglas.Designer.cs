@@ -45,6 +45,7 @@
             this.cmbKategorija = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.btnObrisiSliku = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,12 +104,15 @@
             this.btnSlika.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSlika.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSlika.ForeColor = System.Drawing.Color.White;
-            this.btnSlika.Location = new System.Drawing.Point(993, 268);
+            this.btnSlika.Image = ((System.Drawing.Image)(resources.GetObject("btnSlika.Image")));
+            this.btnSlika.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSlika.Location = new System.Drawing.Point(620, 302);
             this.btnSlika.Name = "btnSlika";
-            this.btnSlika.Size = new System.Drawing.Size(165, 30);
+            this.btnSlika.Size = new System.Drawing.Size(170, 35);
             this.btnSlika.TabIndex = 9;
             this.btnSlika.Text = "Dodaj sliku";
             this.btnSlika.UseVisualStyleBackColor = false;
+            this.btnSlika.Click += new System.EventHandler(this.btnSlika_Click);
             // 
             // btnOdbaci
             // 
@@ -117,7 +121,7 @@
             this.btnOdbaci.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOdbaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOdbaci.ForeColor = System.Drawing.Color.White;
-            this.btnOdbaci.Location = new System.Drawing.Point(872, 444);
+            this.btnOdbaci.Location = new System.Drawing.Point(896, 444);
             this.btnOdbaci.Name = "btnOdbaci";
             this.btnOdbaci.Size = new System.Drawing.Size(165, 30);
             this.btnOdbaci.TabIndex = 10;
@@ -179,9 +183,9 @@
             // 
             this.pbOglas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbOglas.Image = ((System.Drawing.Image)(resources.GetObject("pbOglas.Image")));
-            this.pbOglas.Location = new System.Drawing.Point(946, 12);
+            this.pbOglas.Location = new System.Drawing.Point(676, 7);
             this.pbOglas.Name = "pbOglas";
-            this.pbOglas.Size = new System.Drawing.Size(250, 250);
+            this.pbOglas.Size = new System.Drawing.Size(275, 275);
             this.pbOglas.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbOglas.TabIndex = 16;
             this.pbOglas.TabStop = false;
@@ -215,31 +219,52 @@
             // 
             this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnBack.Enabled = false;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
             this.btnBack.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.Image")));
-            this.btnBack.Location = new System.Drawing.Point(890, 108);
+            this.btnBack.Location = new System.Drawing.Point(620, 127);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(50, 30);
             this.btnBack.TabIndex = 19;
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.btnNext.Enabled = false;
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.Color.White;
             this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Location = new System.Drawing.Point(1202, 108);
+            this.btnNext.Location = new System.Drawing.Point(957, 127);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(50, 30);
             this.btnNext.TabIndex = 20;
             this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnObrisiSliku
+            // 
+            this.btnObrisiSliku.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnObrisiSliku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnObrisiSliku.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnObrisiSliku.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisiSliku.ForeColor = System.Drawing.Color.White;
+            this.btnObrisiSliku.Image = ((System.Drawing.Image)(resources.GetObject("btnObrisiSliku.Image")));
+            this.btnObrisiSliku.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnObrisiSliku.Location = new System.Drawing.Point(796, 302);
+            this.btnObrisiSliku.Name = "btnObrisiSliku";
+            this.btnObrisiSliku.Size = new System.Drawing.Size(195, 35);
+            this.btnObrisiSliku.TabIndex = 21;
+            this.btnObrisiSliku.Text = "Obriši trenutnu";
+            this.btnObrisiSliku.UseVisualStyleBackColor = false;
+            this.btnObrisiSliku.Click += new System.EventHandler(this.btnObrisiSliku_Click);
             // 
             // FrmNoviOglas
             // 
@@ -247,6 +272,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(1244, 499);
+            this.Controls.Add(this.btnObrisiSliku);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.cmbKategorija);
@@ -289,5 +315,6 @@
         private System.Windows.Forms.ComboBox cmbKategorija;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Button btnObrisiSliku;
     }
 }
