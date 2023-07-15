@@ -16,6 +16,7 @@ namespace GlazbeniOglasnik.UI
     public partial class FrmNoviOglas : Form
     {
         public SlikaServices slikaServices = new SlikaServices();
+        public OglasServices oglasServices = new OglasServices();
         public int brojac = 0;
         public List<byte[]> slike = new List<byte[]>();
 
@@ -134,6 +135,41 @@ namespace GlazbeniOglasnik.UI
                 CheckIfFirst();
                 CheckIfLast();
             }
+        }
+
+        private void btnSpremi_Click(object sender, EventArgs e)
+        {
+            Oglas oglas = new Oglas
+            {
+                Naziv_oglasa = txtNaziv.Text,
+                Opis = richTextOpis.Text,
+                Cijena = Convert.ToDecimal(txtCijena.Text),
+                Lokacija = txtLokacija.Text,
+                Kategorija = cmbKategorija.Text,
+                Datum_objave = DateTime.Now,
+                Prodano = 0,
+                Broj_pregleda = 0,
+                Korisnik_id = 1
+            };
+
+            try
+            {
+                oglasServices.AddOglas(oglas);
+                CleanForm();
+
+            } catch { 
+                MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CleanForm()
+        {
+            txtNaziv.Text= "";
+            richTextOpis.Text = "";
+            txtCijena.Text= "";
+            txtLokacija.Text = "";
+            cmbKategorija.Text = "";
+            pbOglas.Image = null;
         }
     }
 }

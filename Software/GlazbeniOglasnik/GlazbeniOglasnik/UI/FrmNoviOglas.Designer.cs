@@ -141,6 +141,7 @@
             this.btnSpremi.TabIndex = 11;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = false;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
             // txtNaziv
             // 
