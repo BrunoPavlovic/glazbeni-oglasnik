@@ -1,9 +1,11 @@
-﻿using EntitiesLayer.Entities;
+﻿using BuisnessLogicLayer.Services;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ namespace GlazbeniOglasnik.UI
     public partial class FrmPregledOdabranog : Form
     {
         public Oglas oglas;
+        public SlikaServices slikaServices = new SlikaServices();
 
         public FrmPregledOdabranog(Oglas odabraniOglas)
         {
@@ -51,6 +54,31 @@ namespace GlazbeniOglasnik.UI
             labelCijena.Text = oglas.Cijena.ToString() + "$";
             labelBrojPregleda.Text = oglas.Broj_pregleda.ToString();
             labelKorime.Text = oglas.Korisnik.Korime;
+
+            ShowPicturesForOglas();
+        }
+
+        private void ShowPicturesForOglas()
+        {
+            try
+            {
+                var slikeOglasa = slikaServices.GetSlikeForOglas(oglas.Id);
+                Slike slika = slikeOglasa[0];
+                byte[] imageBytes = slika.Slika;
+
+                Image image;
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    image = Image.FromStream(ms);
+                }
+
+                pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
+                pbOglas.Image = image;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ne postoji slika za odabrani oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

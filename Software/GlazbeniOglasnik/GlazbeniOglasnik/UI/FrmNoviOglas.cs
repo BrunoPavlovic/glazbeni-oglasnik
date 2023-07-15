@@ -35,12 +35,7 @@ namespace GlazbeniOglasnik.UI
                 pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
                 pbOglas.Image = Image.FromFile(openFileDialog.FileName);
 
-                byte[] imageBytes;
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    pbOglas.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                    imageBytes = ms.ToArray();
-                }
+                byte[] imageBytes = ConvertToBytes();
 
                 slike.Add(imageBytes);
                 brojac = slike.Count - 1;
@@ -52,6 +47,18 @@ namespace GlazbeniOglasnik.UI
 
                 ShowPicture();
             }
+        }
+
+        private byte[] ConvertToBytes()
+        {
+            byte[] imageBytes;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                pbOglas.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                imageBytes = ms.ToArray();
+            }
+
+            return imageBytes;
         }
 
         private void ShowPicture()
@@ -155,10 +162,40 @@ namespace GlazbeniOglasnik.UI
             try
             {
                 oglasServices.AddOglas(oglas);
+                SavePictures();
                 CleanForm();
 
             } catch { 
                 MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SavePictures()
+        {
+            Oglas zadnjiOglas = oglasServices.GetOglas().ToList()[0];
+
+            if (slike.Count>0)
+            {
+                foreach (var item in slike)
+                {
+                    Slike slika = new Slike
+                    {
+                        Oglas_id = zadnjiOglas.Id,
+                        Slika = item
+                    };
+
+                    slikaServices.AddSlika(slika);
+                }
+            }
+            else
+            {
+                Slike slika = new Slike
+                {
+                    Oglas_id = zadnjiOglas.Id,
+                    Slika = ConvertToBytes()
+                };
+
+                slikaServices.AddSlika(slika);
             }
         }
 
