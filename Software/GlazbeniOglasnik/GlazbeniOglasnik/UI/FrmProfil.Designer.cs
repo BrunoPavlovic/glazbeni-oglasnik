@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfil));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.sidebarMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelProfil = new System.Windows.Forms.TableLayoutPanel();
             this.panelMenuProfil = new System.Windows.Forms.Panel();
             this.btnProfilPodaci = new System.Windows.Forms.Button();
@@ -37,23 +38,27 @@
             this.btnMojiOglasi = new System.Windows.Forms.Button();
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelProfilForm = new System.Windows.Forms.Panel();
+            this.sidebarMenu.SuspendLayout();
             this.tableLayoutPanelProfil.SuspendLayout();
             this.panelMenuProfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // sidebarMenu
             // 
-            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flowLayoutPanel1.Controls.Add(this.panelMenuProfil);
-            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanelProfil);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(354, 499);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.sidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.sidebarMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sidebarMenu.Controls.Add(this.panelMenuProfil);
+            this.sidebarMenu.Controls.Add(this.tableLayoutPanelProfil);
+            this.sidebarMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarMenu.Location = new System.Drawing.Point(0, 0);
+            this.sidebarMenu.MaximumSize = new System.Drawing.Size(354, 499);
+            this.sidebarMenu.MinimumSize = new System.Drawing.Size(76, 499);
+            this.sidebarMenu.Name = "sidebarMenu";
+            this.sidebarMenu.Size = new System.Drawing.Size(354, 499);
+            this.sidebarMenu.TabIndex = 0;
             // 
             // tableLayoutPanelProfil
             // 
@@ -99,6 +104,7 @@
             this.btnProfilPodaci.TabIndex = 4;
             this.btnProfilPodaci.Text = "Podaci";
             this.btnProfilPodaci.UseVisualStyleBackColor = false;
+            this.btnProfilPodaci.Click += new System.EventHandler(this.btnProfilPodaci_Click);
             // 
             // btnZanimljiviOglasi
             // 
@@ -116,6 +122,7 @@
             this.btnZanimljiviOglasi.TabIndex = 5;
             this.btnZanimljiviOglasi.Text = "Zanimljivi oglasi";
             this.btnZanimljiviOglasi.UseVisualStyleBackColor = false;
+            this.btnZanimljiviOglasi.Click += new System.EventHandler(this.btnZanimljiviOglasi_Click);
             // 
             // btnMojiOglasi
             // 
@@ -133,15 +140,18 @@
             this.btnMojiOglasi.TabIndex = 6;
             this.btnMojiOglasi.Text = "Moji oglasi";
             this.btnMojiOglasi.UseVisualStyleBackColor = false;
+            this.btnMojiOglasi.Click += new System.EventHandler(this.btnMojiOglasi_Click);
             // 
             // pbMenu
             // 
+            this.pbMenu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbMenu.Image")));
             this.pbMenu.Location = new System.Drawing.Point(9, 22);
             this.pbMenu.Name = "pbMenu";
             this.pbMenu.Size = new System.Drawing.Size(58, 50);
             this.pbMenu.TabIndex = 1;
             this.pbMenu.TabStop = false;
+            this.pbMenu.Click += new System.EventHandler(this.pbMenu_Click);
             // 
             // label1
             // 
@@ -154,16 +164,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Menu";
             // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // panelProfilForm
+            // 
+            this.panelProfilForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProfilForm.Location = new System.Drawing.Point(354, 0);
+            this.panelProfilForm.Name = "panelProfilForm";
+            this.panelProfilForm.Size = new System.Drawing.Size(890, 499);
+            this.panelProfilForm.TabIndex = 1;
+            // 
             // FrmProfil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(1244, 499);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panelProfilForm);
+            this.Controls.Add(this.sidebarMenu);
             this.Name = "FrmProfil";
             this.Text = "FrmProfil";
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.sidebarMenu.ResumeLayout(false);
             this.tableLayoutPanelProfil.ResumeLayout(false);
             this.panelMenuProfil.ResumeLayout(false);
             this.panelMenuProfil.PerformLayout();
@@ -174,7 +198,7 @@
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel sidebarMenu;
         private System.Windows.Forms.Panel panelMenuProfil;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProfil;
         private System.Windows.Forms.Button btnProfilPodaci;
@@ -182,5 +206,7 @@
         private System.Windows.Forms.Button btnZanimljiviOglasi;
         private System.Windows.Forms.PictureBox pbMenu;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private System.Windows.Forms.Panel panelProfilForm;
     }
 }
