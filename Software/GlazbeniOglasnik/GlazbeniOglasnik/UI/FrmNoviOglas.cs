@@ -152,7 +152,7 @@ namespace GlazbeniOglasnik.UI
                 Opis = richTextOpis.Text,
                 Cijena = Convert.ToDecimal(txtCijena.Text),
                 Lokacija = txtLokacija.Text,
-                Kategorija = cmbKategorija.Text,
+                Kategorija = cmbKategorija.SelectedItem.ToString(),
                 Datum_objave = DateTime.Now,
                 Prodano = 0,
                 Broj_pregleda = 0,
@@ -205,8 +205,13 @@ namespace GlazbeniOglasnik.UI
             richTextOpis.Text = "";
             txtCijena.Text= "";
             txtLokacija.Text = "";
-            cmbKategorija.Text = "";
+            cmbKategorija.SelectedIndex = -1;
             pbOglas.Image = null;
+        }
+
+        private void btnOdbaci_Click(object sender, EventArgs e)
+        {
+            CleanForm();
         }
     }
 }

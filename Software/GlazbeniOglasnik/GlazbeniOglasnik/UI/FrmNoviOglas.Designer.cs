@@ -127,6 +127,7 @@
             this.btnOdbaci.TabIndex = 10;
             this.btnOdbaci.Text = "Odbaci";
             this.btnOdbaci.UseVisualStyleBackColor = false;
+            this.btnOdbaci.Click += new System.EventHandler(this.btnOdbaci_Click);
             // 
             // btnSpremi
             // 
@@ -177,7 +178,7 @@
             this.richTextOpis.Location = new System.Drawing.Point(132, 184);
             this.richTextOpis.Name = "richTextOpis";
             this.richTextOpis.Size = new System.Drawing.Size(236, 148);
-            this.richTextOpis.TabIndex = 15;
+            this.richTextOpis.TabIndex = 16;
             this.richTextOpis.Text = "";
             // 
             // pbOglas
@@ -206,6 +207,7 @@
             // cmbKategorija
             // 
             this.cmbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorija.FormattingEnabled = true;
             this.cmbKategorija.Items.AddRange(new object[] {
@@ -214,7 +216,7 @@
             this.cmbKategorija.Location = new System.Drawing.Point(133, 129);
             this.cmbKategorija.Name = "cmbKategorija";
             this.cmbKategorija.Size = new System.Drawing.Size(235, 28);
-            this.cmbKategorija.TabIndex = 18;
+            this.cmbKategorija.TabIndex = 15;
             // 
             // btnBack
             // 

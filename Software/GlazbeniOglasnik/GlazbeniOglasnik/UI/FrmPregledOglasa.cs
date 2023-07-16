@@ -25,6 +25,8 @@ namespace GlazbeniOglasnik.UI
         {
             dgvOglasi.DataSource = oglasServices.GetOglas();
             new ManageDataGridView(dgvOglasi);
+            cmbSortiraj.SelectedIndex = 1;
+            cmbKategorija.SelectedIndex = 0;
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
