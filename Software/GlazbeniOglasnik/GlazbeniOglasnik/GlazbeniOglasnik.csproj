@@ -90,6 +90,24 @@
       <DependentUpon>FrmProfil.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ManageDataGridView.cs" />
+    <Compile Include="UI\Profil\FrmProfilMojiOglasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profil\FrmProfilMojiOglasi.Designer.cs">
+      <DependentUpon>FrmProfilMojiOglasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profil\FrmProfilPodaci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profil\FrmProfilPodaci.Designer.cs">
+      <DependentUpon>FrmProfilPodaci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profil\FrmProfilZanimljiviOglasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profil\FrmProfilZanimljiviOglasi.Designer.cs">
+      <DependentUpon>FrmProfilZanimljiviOglasi.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +131,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmProfil.resx">
       <DependentUpon>FrmProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profil\FrmProfilMojiOglasi.resx">
+      <DependentUpon>FrmProfilMojiOglasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profil\FrmProfilPodaci.resx">
+      <DependentUpon>FrmProfilPodaci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profil\FrmProfilZanimljiviOglasi.resx">
+      <DependentUpon>FrmProfilZanimljiviOglasi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
