@@ -49,6 +49,7 @@
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(328, 30);
             this.txtLozinka.TabIndex = 15;
+            this.txtLozinka.UseSystemPasswordChar = true;
             // 
             // txtKorime
             // 
