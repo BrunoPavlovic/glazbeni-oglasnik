@@ -291,7 +291,6 @@
             this.Controls.Add(this.labelNaziv);
             this.Name = "FrmNoviOglas";
             this.Text = "FrmNoviOglas";
-            this.Load += new System.EventHandler(this.FrmNoviOglas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

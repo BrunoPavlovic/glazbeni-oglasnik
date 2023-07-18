@@ -1,5 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using GlazbeniOglasnik.UI;
 using System;
 using System.Collections.Generic;
@@ -93,8 +94,16 @@ namespace GlazbeniOglasnik
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new UI.FrmNoviOglas(), sender, false);
-            title.Text = "Novi oglas";
+            if (PrijavljeniKorisnik.prijavljeniKorisnik != null)
+            {
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.ShowDialog();
+            }
+            else
+            {
+                LoadAnotherForm(new UI.FrmNoviOglas(), sender, false);
+                title.Text = "Novi oglas";
+            }
         }
 
         private void btnProfil_Click(object sender, EventArgs e)

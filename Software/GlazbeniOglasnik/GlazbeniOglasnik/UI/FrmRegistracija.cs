@@ -44,5 +44,10 @@ namespace GlazbeniOglasnik.UI
 
             this.Close();
         }
+
+        private void FrmRegistracija_Load(object sender, EventArgs e)
+        {
+            this.BringToFront();
+        }
     }
 }

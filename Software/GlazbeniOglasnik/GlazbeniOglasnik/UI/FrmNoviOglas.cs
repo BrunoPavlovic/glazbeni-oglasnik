@@ -136,14 +136,5 @@ namespace GlazbeniOglasnik.UI
                 CheckIfLast();
             }
         }
-
-        private void FrmNoviOglas_Load(object sender, EventArgs e)
-        {
-            if (PrijavljeniKorisnik.prijavljeniKorisnik != null)
-            {
-                FrmLogin frmLogin = new FrmLogin();
-                frmLogin.ShowDialog();
-            }
-        }
     }
 }

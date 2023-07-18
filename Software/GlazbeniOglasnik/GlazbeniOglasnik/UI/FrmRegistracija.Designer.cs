@@ -142,6 +142,7 @@
             this.txtLozinka.Name = "txtLozinka";
             this.txtLozinka.Size = new System.Drawing.Size(236, 27);
             this.txtLozinka.TabIndex = 24;
+            this.txtLozinka.UseSystemPasswordChar = true;
             // 
             // btnRegistracija
             // 
@@ -200,6 +201,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
+            this.Load += new System.EventHandler(this.FrmRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
