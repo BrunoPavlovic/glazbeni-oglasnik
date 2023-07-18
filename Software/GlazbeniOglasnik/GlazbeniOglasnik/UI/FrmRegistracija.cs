@@ -1,4 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
+using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace GlazbeniOglasnik.UI
     public partial class FrmRegistracija : Form
     {
         public KorisnikServices korisnikServices = new KorisnikServices();
+        public LozinkaHash lozinkaHash = new LozinkaHash();
 
         public FrmRegistracija()
         {
@@ -22,7 +25,24 @@ namespace GlazbeniOglasnik.UI
 
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
+            string lozinka = lozinkaHash.HashirajLozinku(txtLozinka.Text);
 
+            Korisnik noviKorisnik = new Korisnik
+            {
+                Ime = txtIme.Text,
+                Prezime = txtPrezime.Text,
+                Korime = txtKorime.Text,
+                Lozinka = lozinka,
+                Broj_telefona = txtBrojTelefona.Text,
+            };
+
+            korisnikServices.AddKorisnik(noviKorisnik);
+            MessageBox.Show("Uspješno ste se registrirali!");
+
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
+
+            this.Close();
         }
     }
 }

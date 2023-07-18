@@ -16,5 +16,13 @@ namespace GlazbeniOglasnik.UI
         {
             InitializeComponent();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRegistracija frmRegistracija = new FrmRegistracija();
+            frmRegistracija.Show();
+
+            this.Close();
+        }
     }
 }

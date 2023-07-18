@@ -97,6 +97,12 @@
     <Compile Include="UI\FrmProfil.Designer.cs">
       <DependentUpon>FrmProfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FrmRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FrmRegistracija.Designer.cs">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ManageDataGridView.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FrmProfil.resx">
       <DependentUpon>FrmProfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FrmRegistracija.resx">
+      <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
