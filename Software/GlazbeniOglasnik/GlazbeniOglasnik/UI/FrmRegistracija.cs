@@ -50,18 +50,5 @@ namespace GlazbeniOglasnik.UI
         {
             this.BringToFront();
         }
-
-        private void FrmRegistracija_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (brojac == 0)
-            {
-                FrmMain frm = new FrmMain();
-                frm.Show();
-
-                brojac++;
-
-                this.Close();
-            }
-        }
     }
 }

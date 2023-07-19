@@ -28,7 +28,7 @@ namespace GlazbeniOglasnik.UI
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmRegistracija frmRegistracija = new FrmRegistracija();
-            frmRegistracija.Show();
+            frmRegistracija.ShowDialog();
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
