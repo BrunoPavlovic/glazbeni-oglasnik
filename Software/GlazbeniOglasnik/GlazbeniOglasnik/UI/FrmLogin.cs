@@ -12,6 +12,14 @@ namespace GlazbeniOglasnik.UI
 {
     public partial class FrmLogin : Form
     {
+        public FrmMain frmMain = new FrmMain();
+
+        public FrmLogin(FrmMain frmMainCurrent)
+        {
+            InitializeComponent();
+            this.frmMain = frmMainCurrent;
+        }
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -20,9 +28,12 @@ namespace GlazbeniOglasnik.UI
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmRegistracija frmRegistracija = new FrmRegistracija();
-            frmRegistracija.ShowDialog();
+            frmRegistracija.Show();
+        }
 
-            this.Close();
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmMain.Show();
         }
     }
 }

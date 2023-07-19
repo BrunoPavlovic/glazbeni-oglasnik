@@ -96,7 +96,7 @@ namespace GlazbeniOglasnik
         {
             if (PrijavljeniKorisnik.prijavljeniKorisnik != null)
             {
-                FrmLogin frmLogin = new FrmLogin();
+                FrmLogin frmLogin = new FrmLogin(this);
                 frmLogin.Show();
 
                 this.Hide();

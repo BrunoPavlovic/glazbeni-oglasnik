@@ -17,6 +17,7 @@ namespace GlazbeniOglasnik.UI
     {
         public KorisnikServices korisnikServices = new KorisnikServices();
         public LozinkaHash lozinkaHash = new LozinkaHash();
+        public int brojac = 0;
 
         public FrmRegistracija()
         {
@@ -48,6 +49,19 @@ namespace GlazbeniOglasnik.UI
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
             this.BringToFront();
+        }
+
+        private void FrmRegistracija_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (brojac == 0)
+            {
+                FrmMain frm = new FrmMain();
+                frm.Show();
+
+                brojac++;
+
+                this.Close();
+            }
         }
     }
 }

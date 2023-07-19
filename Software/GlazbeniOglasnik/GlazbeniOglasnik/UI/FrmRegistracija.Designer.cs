@@ -201,6 +201,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegistracija_FormClosed);
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
