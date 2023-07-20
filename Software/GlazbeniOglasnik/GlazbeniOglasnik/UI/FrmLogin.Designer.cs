@@ -118,6 +118,7 @@
             this.btnPrijava.TabIndex = 16;
             this.btnPrijava.Text = "Prijavi se";
             this.btnPrijava.UseVisualStyleBackColor = false;
+            this.btnPrijava.Click += new System.EventHandler(this.btnPrijava_Click);
             // 
             // pictureBox1
             // 

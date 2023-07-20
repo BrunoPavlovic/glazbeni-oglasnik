@@ -21,6 +21,7 @@ namespace GlazbeniOglasnik
         public Form currentForm;
         public bool isCurrentFormMain = true;
         public OglasServices oglasServices = new OglasServices();
+        public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
 
         public FrmMain()
         {
@@ -94,7 +95,7 @@ namespace GlazbeniOglasnik
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
         {
-            if (PrijavljeniKorisnik.prijavljeniKorisnik != null)
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
             {
                 FrmLogin frmLogin = new FrmLogin(this);
                 frmLogin.Show();
