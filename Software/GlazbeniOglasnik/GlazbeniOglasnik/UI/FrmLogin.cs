@@ -40,6 +40,7 @@ namespace GlazbeniOglasnik.UI
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
             frmMain.Show();
+            frmMain.CheckLoggedUser();
         }
 
         private void btnPrijava_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace GlazbeniOglasnik.UI
             if (korisnik!=null)
             {
                 prijavljeniKorisnik.PrijaviKorisnika(korisnik);
+                MessageBox.Show("Uspješno ste se prijavili!", "Prijava", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
 
                 frmMain.Refresh();

@@ -120,6 +120,21 @@ namespace GlazbeniOglasnik
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
             new ManageDataGridView(dgvNajtrazeniji);
+            CheckLoggedUser();
+        }
+
+        public void CheckLoggedUser()
+        {
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
+            {
+                pbLogIn.Visible = true;
+                pbLogOut.Visible = false;
+            }
+            else
+            {
+                pbLogIn.Visible = false;
+                pbLogOut.Visible = true;
+            }
         }
 
         private void LoadMostWantedOglas()
@@ -152,6 +167,21 @@ namespace GlazbeniOglasnik
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pbLogIn_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin(this);
+            frmLogin.Show();
+
+            this.Hide();
+        }
+
+        private void pbLogOut_Click(object sender, EventArgs e)
+        {
+            prijavljeniKorisnik.PrijaviKorisnika(null);
+            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CheckLoggedUser();
         }
     }
 }
