@@ -20,6 +20,7 @@ namespace GlazbeniOglasnik.UI
     {
         public KorisnikServices korisnikServices = new KorisnikServices();
         public LozinkaHash lozinkaHash = new LozinkaHash();
+        public InputValidator inputValidator = new InputValidator();
         public int brojac = 0;
 
         public FrmRegistracija()
@@ -52,7 +53,11 @@ namespace GlazbeniOglasnik.UI
 
         private bool ValidateInput(string ime, string prezime, string korime, string lozinka, string brojTelefona)
         {
-            if (ValidateImePrezime(ime) && ValidateImePrezime(prezime) && ValidateKorime(korime) && ValidateLozinka(lozinka) && ValidateBrojTelefona(brojTelefona))
+            if (inputValidator.ValidateImePrezime(ime) &&
+                inputValidator.ValidateImePrezime(prezime) &&
+                inputValidator.ValidateKorime(korime) &&
+                inputValidator.ValidateLozinka(lozinka) && 
+                inputValidator.ValidateBrojTelefona(brojTelefona))
             {
                 return true;
             }
@@ -62,41 +67,24 @@ namespace GlazbeniOglasnik.UI
             }
         }
 
-        private bool ValidateBrojTelefona(string brojTelefona)
-        {
-            if (string.IsNullOrWhiteSpace(brojTelefona) || brojTelefona.Length < 9 || brojTelefona.Length > 13)
-                return false;
-
-            return Regex.IsMatch(brojTelefona, @"^\+?[0-9]+$");
-        }
-
-        private bool ValidateLozinka(string lozinka)
-        {
-            if (string.IsNullOrWhiteSpace(lozinka) || lozinka.Length < 6)
-                return false;
-
-            return true;
-        }
-
-        private bool ValidateKorime(string korime)
-        {
-            if (string.IsNullOrWhiteSpace(korime) || korime.Length < 6 || korime.Length > 50)
-                return false;
-
-            return true;
-        }
-
-        private bool ValidateImePrezime(string name)
-        {
-            if (string.IsNullOrWhiteSpace(name))
-                return false;
-
-            return Regex.IsMatch(name, @"^[a-zA-Z]{1,50}$");
-        }
-
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
             this.BringToFront();
+        }
+
+        private void txtIme_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = inputValidator.ValidateImePrezime(txtIme.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtIme, "Ime mora sadržavati samo slova!");
+                correctProvider.SetError(txtIme, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtIme, null);
+                correctProvider.SetError(txtIme, "Ispravno!");
+            }
         }
     }
 }

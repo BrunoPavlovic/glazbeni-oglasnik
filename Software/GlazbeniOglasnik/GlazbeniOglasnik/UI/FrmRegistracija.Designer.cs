@@ -71,6 +71,7 @@
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(236, 27);
             this.txtIme.TabIndex = 18;
+            this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // labelKorime
             // 
@@ -181,10 +182,12 @@
             // 
             // errorProvider
             // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider.ContainerControl = this;
             // 
             // correctProvider
             // 
+            this.correctProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.correctProvider.ContainerControl = this;
             this.correctProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("correctProvider.Icon")));
             // 
