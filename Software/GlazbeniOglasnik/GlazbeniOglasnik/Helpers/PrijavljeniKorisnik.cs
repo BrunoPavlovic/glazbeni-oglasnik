@@ -9,7 +9,7 @@ namespace GlazbeniOglasnik.Helpers
 {
     public class PrijavljeniKorisnik
     {
-        public static Korisnik prijavljeniKorisnik = new Korisnik();
+        public static Korisnik prijavljeniKorisnik = null;
 
         public void PrijaviKorisnika(Korisnik korisnik)
         {
