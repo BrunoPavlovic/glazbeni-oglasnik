@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistracija));
             this.txtBrojTelefona = new System.Windows.Forms.TextBox();
             this.txtPrezime = new System.Windows.Forms.TextBox();
@@ -41,6 +42,10 @@
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.btnRegistracija = new System.Windows.Forms.Button();
             this.title = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.correctProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBrojTelefona
@@ -174,6 +179,15 @@
             this.title.Text = "Registracija";
             this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // correctProvider
+            // 
+            this.correctProvider.ContainerControl = this;
+            this.correctProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("correctProvider.Icon")));
+            // 
             // FrmRegistracija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,6 +216,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registracija";
             this.Load += new System.EventHandler(this.FrmRegistracija_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +237,7 @@
         private System.Windows.Forms.TextBox txtLozinka;
         private System.Windows.Forms.Button btnRegistracija;
         private System.Windows.Forms.Label title;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ErrorProvider correctProvider;
     }
 }
