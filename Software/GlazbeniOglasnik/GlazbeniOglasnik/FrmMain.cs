@@ -83,6 +83,11 @@ namespace GlazbeniOglasnik
 
         private void btnPocetna_Click(object sender, EventArgs e)
         {
+            LoadPocetna(sender);
+        }
+
+        private void LoadPocetna(object sender)
+        {
             LoadAnotherForm(new FrmMain(), sender, true);
             title.Text = "Početna";
         }
@@ -180,6 +185,7 @@ namespace GlazbeniOglasnik
         private void pbLogOut_Click(object sender, EventArgs e)
         {
             prijavljeniKorisnik.OdjaviKorisnika();
+            LoadPocetna(btnPocetna);
             MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CheckLoggedUser();
         }
