@@ -67,6 +67,7 @@
             // 
             // pbLogOut
             // 
+            this.pbLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogOut.Image = ((System.Drawing.Image)(resources.GetObject("pbLogOut.Image")));
             this.pbLogOut.Location = new System.Drawing.Point(1162, 0);
             this.pbLogOut.Name = "pbLogOut";
@@ -79,6 +80,7 @@
             // 
             // pbLogIn
             // 
+            this.pbLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbLogIn.Image = ((System.Drawing.Image)(resources.GetObject("pbLogIn.Image")));
             this.pbLogIn.Location = new System.Drawing.Point(1159, 0);
             this.pbLogIn.Name = "pbLogIn";

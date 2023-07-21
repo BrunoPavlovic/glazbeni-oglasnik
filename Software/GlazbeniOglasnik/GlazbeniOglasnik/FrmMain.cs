@@ -179,7 +179,7 @@ namespace GlazbeniOglasnik
 
         private void pbLogOut_Click(object sender, EventArgs e)
         {
-            prijavljeniKorisnik.PrijaviKorisnika(null);
+            prijavljeniKorisnik.OdjaviKorisnika();
             MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CheckLoggedUser();
         }

@@ -44,7 +44,7 @@ namespace GlazbeniOglasnik.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message,"Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Korisničko ime već postoji!","Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

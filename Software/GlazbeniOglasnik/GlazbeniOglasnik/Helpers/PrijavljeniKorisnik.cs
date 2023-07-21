@@ -1,4 +1,4 @@
-﻿using EntitiesLayer.Entities;
+using EntitiesLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +19,11 @@ namespace GlazbeniOglasnik.Helpers
         public Korisnik DohvatiPrijavljenogKorisnika()
         {
             return prijavljeniKorisnik;
+        }
+
+        public void OdjaviKorisnika()
+        {
+            prijavljeniKorisnik = null;
         }
     }
 }
