@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.txtLozinka = new System.Windows.Forms.TextBox();
             this.txtKorime = new System.Windows.Forms.TextBox();
@@ -37,8 +38,12 @@
             this.btnPrijava = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.correctProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLozinka
@@ -50,6 +55,7 @@
             this.txtLozinka.Size = new System.Drawing.Size(328, 30);
             this.txtLozinka.TabIndex = 15;
             this.txtLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtLozinka_Validating);
             // 
             // txtKorime
             // 
@@ -59,6 +65,7 @@
             this.txtKorime.Name = "txtKorime";
             this.txtKorime.Size = new System.Drawing.Size(328, 30);
             this.txtKorime.TabIndex = 14;
+            this.txtKorime.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorime_Validating);
             // 
             // title
             // 
@@ -140,6 +147,19 @@
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.RightToLeft = true;
+            // 
+            // correctProvider
+            // 
+            this.correctProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.correctProvider.ContainerControl = this;
+            this.correctProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("correctProvider.Icon")));
+            this.correctProvider.RightToLeft = true;
+            // 
             // FrmLogin
             // 
             this.AcceptButton = this.btnPrijava;
@@ -166,6 +186,8 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +203,7 @@
         private System.Windows.Forms.Button btnPrijava;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ErrorProvider correctProvider;
     }
 }

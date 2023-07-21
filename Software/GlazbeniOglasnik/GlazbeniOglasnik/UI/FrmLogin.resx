@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAh1JREFUSEuVlb1qVFEUhYcUg0WKIaSwCHkCi9R5gJBCJEUeIZWFpUwR0qZOEaxT
+        vQAADr0BR/uQrQAAAh1JREFUSEuVlb1qVFEUhYcUg0WKIaSwCHkCi9R5gJBCJEUeIZWFpUwR0qZOEaxT
         iYX4AJapJFhYWQcRkRCCiIhI5vp9J+vqxXvPzGTB4uyz91r7nPt37mgRmqZ5CA9ns9k7xmvGa0bjQ2uR
         3R+Y5WN4CWuwpiauewDTDvwGG3btcMn4Cr40NhGo2YltOWBYpdGnYm+aX/AZHKdsfWwOjTU3oHY15cXA
         cKAR3MIjmMo/oHEha2pc5CCl+bAZfK0JfIXrKfVA03XqXxjV6kllDhCNMVxogudJV6Em2gu9SdeB0Pv7
@@ -136,7 +136,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAXJJREFUSEvNlKFLQ1EUxhdFZLxoMoqI0WgSMZvEKDLEYDIZbIuyICLDYDL4RxhM
+        vQAADr0BR/uQrQAAAXJJREFUSEvNlKFLQ1EUxhdFZLxoMoqI0WgSMZvEKDLEYDIZbIuyICLDYDL4RxhM
         ywaDDDGZxDDkZd/zd+77rl7f3Nx928AffJzDvd/57rt722r/gizLErSBGmg3z/N1VNf2eBC0RugT9Qes
         PVJWZasGAQsEvSIf6hT0L7TzssdDwLFLGwKeQ9njYf66iPmmdAPThezxkHPjg0qhodqyx0Nm3w3KcMC5
         7PEwf6UQK45yj1qyx0PGqULCwLJOZI+H4S2XPJgPtCl7PAzbL/jZntRT6h8oc7JXg4AjH2o17KEhW3UI
@@ -145,6 +145,9 @@
         McE+tXewR79PPaA6hf04smz3oqdHrfYJ08eUrqqJg8gAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQED6APoAAD/4QCORXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAAB
@@ -4268,6 +4271,33 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAA
+</value>
+  </data>
+  <metadata name="correctProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>163, 17</value>
+  </metadata>
+  <data name="correctProvider.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAALEAAACxAAAAAAAAAAAA
+        AAAAAAAAAAAAAE+vTABOsU0HT65MRk+uS5ZPrkvVT65L8k+uS/JPrkvVT65Llk6tS0hQrUgITq1KAAAA
+        AAAAAAAATbBNAFSsSABQrksZT65Lh0+uS+NPrkv/T65L/0+uS/9Prkv/T65L/0+uS/9PrkvlT65LiE6t
+        SxlOrU0AT65JAE+uSwBOrksZT65LqE+uS/tPrkv/T65L/0+uS/9Prkv/T65L/0+uS/9Prkv/T65L/0+u
+        S/tPrkuoUK5KGU+uSwBOsE0IT65LiE+uS/xPrkv/T65L/0+uS/9Rr03/T65L/0+uS/9Prkv/T65L/0+u
+        S/9Prkv/T65L/E+uS4hMq0kIT65LSE+uS+RPrkv/T65L/06uSv9gtl3/otSf/3jBdf9Orkr/T65L/0+u
+        S/9Prkv/T65L/0+uS/9PrkvjT65LR0+uS5dPrkv/T65L/06tSv9etVv/uN+3//3+/f/c79v/dsBz/06u
+        Sv9Prkv/T65L/0+uS/9Prkv/T65L/0+uS5VPrkvWT65L/06uSv9ftVz/uuC5//v9+////////////9zv
+        2/94wXX/Tq5K/0+uS/9Prkv/T65L/0+uS/9PrkvVT65L8k+uS/9OrUr/ntKb//z+/P/2+/X/weO//+Py
+        4///////3O/b/3bAc/9Prkr/T65L/0+uS/9Prkv/T65L8k+uS/NPrkv/Tq5K/2+8a//J5sf/ptak/1iy
+        VP+AxX3/5PPk///////d79z/ecF2/06uSv9Prkv/T65L/0+uS/NPrkvWT65L/0+uS/9Prkv/XrVa/1ey
+        U/9OrUr/T65L/4PGgP/k8+P//////93v3P93wXT/Tq5K/0+uS/9PrkvVT65LmE+uS/9Prkv/T65L/06u
+        Sv9Orkr/T65L/0+uS/9Prkv/gcV+/+Tz5P/8/vz/nNGZ/06tSv9Prkv/T65Llk6uS0lPrkvlT65L/0+u
+        S/9Prkv/T65L/0+uS/9Prkv/T65L/0+uS/+BxX//ntKc/1y0WP9Prkv/T65L5E6tS0hMqkwJT65LiU+u
+        S/xPrkv/T65L/0+uS/9Prkv/T65L/0+uS/9Prkv/T65L/1CvTP9Orkr/T65L/E+uS4lQrEgIT65LAFCu
+        ShlPrkupT65L+0+uS/9Prkv/T65L/0+uS/9Prkv/T65L/0+uS/9Prkv/T65L+0+uS6lOrksaT65LAFGs
+        SwBMr0sAT61LGk+uS4pPrkvlT65L/0+uS/9Prkv/T65L/0+uS/9Prkv/T65L6U+uS4tPr0waUa9KAE2w
+        TQAAAAAAAAAAAE6sSwBMqksJTq5LSE+uS5dPrkvWT65L80+uS/NPrkvWT65Ll1CuS0xSrUoKUK5LAAAA
+        AAAAAAAA4AcAAMADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAB
+        AADAAwAA4AcAAA==
 </value>
   </data>
 </root>
