@@ -55,6 +55,7 @@
             this.txtBrojTelefona.Name = "txtBrojTelefona";
             this.txtBrojTelefona.Size = new System.Drawing.Size(236, 27);
             this.txtBrojTelefona.TabIndex = 20;
+            this.txtBrojTelefona.Validating += new System.ComponentModel.CancelEventHandler(this.txtBrojTelefona_Validating);
             // 
             // txtPrezime
             // 
@@ -63,6 +64,7 @@
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(236, 27);
             this.txtPrezime.TabIndex = 19;
+            this.txtPrezime.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrezime_Validating);
             // 
             // txtIme
             // 
@@ -140,6 +142,7 @@
             this.txtKorime.Name = "txtKorime";
             this.txtKorime.Size = new System.Drawing.Size(236, 27);
             this.txtKorime.TabIndex = 23;
+            this.txtKorime.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorime_Validating);
             // 
             // txtLozinka
             // 
@@ -149,6 +152,7 @@
             this.txtLozinka.Size = new System.Drawing.Size(236, 27);
             this.txtLozinka.TabIndex = 24;
             this.txtLozinka.UseSystemPasswordChar = true;
+            this.txtLozinka.Validating += new System.ComponentModel.CancelEventHandler(this.txtLozinka_Validating);
             // 
             // btnRegistracija
             // 

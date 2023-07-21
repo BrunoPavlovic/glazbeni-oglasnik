@@ -30,7 +30,31 @@ namespace GlazbeniOglasnik.UI
 
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
-            ValidateInput(txtIme.Text, txtPrezime.Text, txtKorime.Text, txtLozinka.Text, txtBrojTelefona.Text);
+            bool isValid = ValidateInput(txtIme.Text, txtPrezime.Text, txtKorime.Text, txtLozinka.Text, txtBrojTelefona.Text);
+            if (isValid)
+            {
+                try
+                {
+                    RegistrirajKorisnika();
+
+                    FrmLogin frmLogin = new FrmLogin();
+                    frmLogin.Show();
+
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message,"Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unesite ispravne podatke!");
+            }
+        }
+
+        private void RegistrirajKorisnika()
+        {
             string lozinka = lozinkaHash.HashirajLozinku(txtLozinka.Text);
 
             Korisnik noviKorisnik = new Korisnik
@@ -44,11 +68,6 @@ namespace GlazbeniOglasnik.UI
 
             korisnikServices.AddKorisnik(noviKorisnik);
             MessageBox.Show("Uspješno ste se registrirali!");
-
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.Show();
-
-            this.Close();
         }
 
         private bool ValidateInput(string ime, string prezime, string korime, string lozinka, string brojTelefona)
@@ -84,6 +103,66 @@ namespace GlazbeniOglasnik.UI
             {
                 errorProvider.SetError(txtIme, null);
                 correctProvider.SetError(txtIme, "Ispravno!");
+            }
+        }
+
+        private void txtPrezime_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = inputValidator.ValidateImePrezime(txtPrezime.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtPrezime, "Prezime mora sadržavati samo slova!");
+                correctProvider.SetError(txtPrezime, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtPrezime, null);
+                correctProvider.SetError(txtPrezime, "Ispravno!");
+            }
+        }
+
+        private void txtBrojTelefona_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = inputValidator.ValidateBrojTelefona(txtBrojTelefona.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtBrojTelefona, "Broj telefona mora biti u ispravnom formatu (npr. +385XXXXXXXXX ili 0XXXXXXXXX)!");
+                correctProvider.SetError(txtBrojTelefona, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtBrojTelefona, null);
+                correctProvider.SetError(txtBrojTelefona, "Ispravno!");
+            }
+        }
+
+        private void txtKorime_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = inputValidator.ValidateKorime(txtKorime.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtKorime, "Korisničko ime mora biti u rasponu od 6-50 znakova!");
+                correctProvider.SetError(txtKorime, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtKorime, null);
+                correctProvider.SetError(txtKorime, "Ispravno!");
+            }
+        }
+
+        private void txtLozinka_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = inputValidator.ValidateLozinka(txtLozinka.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtLozinka, "Lozinka mora biti duža od 6 znakova!");
+                correctProvider.SetError(txtLozinka, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtLozinka, null);
+                correctProvider.SetError(txtLozinka, "Ispravno!");
             }
         }
     }
