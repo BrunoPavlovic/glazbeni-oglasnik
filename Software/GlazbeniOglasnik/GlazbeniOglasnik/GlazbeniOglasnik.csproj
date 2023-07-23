@@ -158,6 +158,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profil\FrmProfilZanimljiviOglasi.resx">
       <DependentUpon>FrmProfilZanimljiviOglasi.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="UI\FrmRegistracija.resx">
       <DependentUpon>FrmRegistracija.cs</DependentUpon>
     </EmbeddedResource>
