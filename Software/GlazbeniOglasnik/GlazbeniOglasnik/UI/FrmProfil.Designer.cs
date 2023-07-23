@@ -28,169 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfil));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelKorime = new System.Windows.Forms.Label();
-            this.labelIme = new System.Windows.Forms.Label();
-            this.labelPrezime = new System.Windows.Forms.Label();
-            this.labelTelefon = new System.Windows.Forms.Label();
-            this.labelOglasi = new System.Windows.Forms.Label();
-            this.dgvZanimljivi = new System.Windows.Forms.DataGridView();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
-            this.btnUrediProfil = new System.Windows.Forms.Button();
-            this.btnPromijeniLozinku = new System.Windows.Forms.Button();
+            this.sidebarMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelMenuProfil = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvMojiOglasi = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvZanimljivi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMojiOglasi)).BeginInit();
+            this.pbMenu = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanelProfil = new System.Windows.Forms.TableLayoutPanel();
+            this.btnMojiOglasi = new System.Windows.Forms.Button();
+            this.btnZanimljiviOglasi = new System.Windows.Forms.Button();
+            this.btnProfilPodaci = new System.Windows.Forms.Button();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.panelProfilForm = new System.Windows.Forms.Panel();
+            this.sidebarMenu.SuspendLayout();
+            this.panelMenuProfil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
+            this.tableLayoutPanelProfil.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // sidebarMenu
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(41, 41);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.sidebarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.sidebarMenu.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.sidebarMenu.Controls.Add(this.panelMenuProfil);
+            this.sidebarMenu.Controls.Add(this.tableLayoutPanelProfil);
+            this.sidebarMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sidebarMenu.Location = new System.Drawing.Point(0, 0);
+            this.sidebarMenu.MaximumSize = new System.Drawing.Size(354, 499);
+            this.sidebarMenu.MinimumSize = new System.Drawing.Size(76, 499);
+            this.sidebarMenu.Name = "sidebarMenu";
+            this.sidebarMenu.Size = new System.Drawing.Size(354, 499);
+            this.sidebarMenu.TabIndex = 0;
             // 
-            // labelKorime
+            // panelMenuProfil
             // 
-            this.labelKorime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelKorime.AutoSize = true;
-            this.labelKorime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKorime.ForeColor = System.Drawing.Color.White;
-            this.labelKorime.Location = new System.Drawing.Point(59, 12);
-            this.labelKorime.Name = "labelKorime";
-            this.labelKorime.Size = new System.Drawing.Size(97, 29);
-            this.labelKorime.TabIndex = 1;
-            this.labelKorime.Text = "Korime";
-            // 
-            // labelIme
-            // 
-            this.labelIme.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelIme.AutoSize = true;
-            this.labelIme.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelIme.ForeColor = System.Drawing.Color.White;
-            this.labelIme.Location = new System.Drawing.Point(12, 71);
-            this.labelIme.Name = "labelIme";
-            this.labelIme.Size = new System.Drawing.Size(44, 25);
-            this.labelIme.TabIndex = 2;
-            this.labelIme.Text = "Ime";
-            // 
-            // labelPrezime
-            // 
-            this.labelPrezime.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelPrezime.AutoSize = true;
-            this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelPrezime.ForeColor = System.Drawing.Color.White;
-            this.labelPrezime.Location = new System.Drawing.Point(73, 71);
-            this.labelPrezime.Name = "labelPrezime";
-            this.labelPrezime.Size = new System.Drawing.Size(83, 25);
-            this.labelPrezime.TabIndex = 3;
-            this.labelPrezime.Text = "Prezime";
-            // 
-            // labelTelefon
-            // 
-            this.labelTelefon.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTelefon.AutoSize = true;
-            this.labelTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelTelefon.ForeColor = System.Drawing.Color.White;
-            this.labelTelefon.Location = new System.Drawing.Point(12, 108);
-            this.labelTelefon.Name = "labelTelefon";
-            this.labelTelefon.Size = new System.Drawing.Size(144, 25);
-            this.labelTelefon.TabIndex = 4;
-            this.labelTelefon.Text = "+385 000 1111";
-            // 
-            // labelOglasi
-            // 
-            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelOglasi.AutoSize = true;
-            this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOglasi.ForeColor = System.Drawing.Color.White;
-            this.labelOglasi.Location = new System.Drawing.Point(12, 247);
-            this.labelOglasi.Name = "labelOglasi";
-            this.labelOglasi.Size = new System.Drawing.Size(154, 25);
-            this.labelOglasi.TabIndex = 5;
-            this.labelOglasi.Text = "Zanimljivi oglasi:";
-            // 
-            // dgvZanimljivi
-            // 
-            this.dgvZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvZanimljivi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZanimljivi.Location = new System.Drawing.Point(17, 290);
-            this.dgvZanimljivi.Name = "dgvZanimljivi";
-            this.dgvZanimljivi.RowHeadersWidth = 51;
-            this.dgvZanimljivi.RowTemplate.Height = 24;
-            this.dgvZanimljivi.Size = new System.Drawing.Size(1215, 135);
-            this.dgvZanimljivi.TabIndex = 6;
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(1027, 447);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(205, 40);
-            this.btnPregledOdabranog.TabIndex = 7;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            // 
-            // btnUrediProfil
-            // 
-            this.btnUrediProfil.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUrediProfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnUrediProfil.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnUrediProfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUrediProfil.ForeColor = System.Drawing.Color.White;
-            this.btnUrediProfil.Location = new System.Drawing.Point(242, 14);
-            this.btnUrediProfil.Name = "btnUrediProfil";
-            this.btnUrediProfil.Size = new System.Drawing.Size(165, 30);
-            this.btnUrediProfil.TabIndex = 8;
-            this.btnUrediProfil.Text = "Uredi profil";
-            this.btnUrediProfil.UseVisualStyleBackColor = false;
-            // 
-            // btnPromijeniLozinku
-            // 
-            this.btnPromijeniLozinku.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPromijeniLozinku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPromijeniLozinku.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPromijeniLozinku.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPromijeniLozinku.ForeColor = System.Drawing.Color.White;
-            this.btnPromijeniLozinku.Location = new System.Drawing.Point(242, 66);
-            this.btnPromijeniLozinku.Name = "btnPromijeniLozinku";
-            this.btnPromijeniLozinku.Size = new System.Drawing.Size(165, 30);
-            this.btnPromijeniLozinku.TabIndex = 9;
-            this.btnPromijeniLozinku.Text = "Promijeni lozinku";
-            this.btnPromijeniLozinku.UseVisualStyleBackColor = false;
+            this.panelMenuProfil.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenuProfil.Controls.Add(this.label1);
+            this.panelMenuProfil.Controls.Add(this.pbMenu);
+            this.panelMenuProfil.Location = new System.Drawing.Point(3, 3);
+            this.panelMenuProfil.Name = "panelMenuProfil";
+            this.panelMenuProfil.Size = new System.Drawing.Size(348, 92);
+            this.panelMenuProfil.TabIndex = 2;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(622, 28);
+            this.label1.Location = new System.Drawing.Point(73, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Moji oglasi:";
+            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Izbornik";
             // 
-            // dgvMojiOglasi
+            // pbMenu
             // 
-            this.dgvMojiOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvMojiOglasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMojiOglasi.Location = new System.Drawing.Point(627, 71);
-            this.dgvMojiOglasi.Name = "dgvMojiOglasi";
-            this.dgvMojiOglasi.RowHeadersWidth = 51;
-            this.dgvMojiOglasi.RowTemplate.Height = 24;
-            this.dgvMojiOglasi.Size = new System.Drawing.Size(605, 108);
-            this.dgvMojiOglasi.TabIndex = 11;
+            this.pbMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbMenu.Image = ((System.Drawing.Image)(resources.GetObject("pbMenu.Image")));
+            this.pbMenu.Location = new System.Drawing.Point(9, 22);
+            this.pbMenu.Name = "pbMenu";
+            this.pbMenu.Size = new System.Drawing.Size(58, 50);
+            this.pbMenu.TabIndex = 1;
+            this.pbMenu.TabStop = false;
+            this.pbMenu.Click += new System.EventHandler(this.pbMenu_Click);
+            // 
+            // tableLayoutPanelProfil
+            // 
+            this.tableLayoutPanelProfil.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.tableLayoutPanelProfil.ColumnCount = 1;
+            this.tableLayoutPanelProfil.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelProfil.Controls.Add(this.btnMojiOglasi, 0, 1);
+            this.tableLayoutPanelProfil.Controls.Add(this.btnZanimljiviOglasi, 0, 1);
+            this.tableLayoutPanelProfil.Controls.Add(this.btnProfilPodaci, 0, 0);
+            this.tableLayoutPanelProfil.Location = new System.Drawing.Point(3, 101);
+            this.tableLayoutPanelProfil.Name = "tableLayoutPanelProfil";
+            this.tableLayoutPanelProfil.RowCount = 1;
+            this.tableLayoutPanelProfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelProfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelProfil.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelProfil.Size = new System.Drawing.Size(348, 150);
+            this.tableLayoutPanelProfil.TabIndex = 1;
+            // 
+            // btnMojiOglasi
+            // 
+            this.btnMojiOglasi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnMojiOglasi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnMojiOglasi.FlatAppearance.BorderSize = 0;
+            this.btnMojiOglasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMojiOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMojiOglasi.ForeColor = System.Drawing.Color.White;
+            this.btnMojiOglasi.Image = ((System.Drawing.Image)(resources.GetObject("btnMojiOglasi.Image")));
+            this.btnMojiOglasi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMojiOglasi.Location = new System.Drawing.Point(3, 53);
+            this.btnMojiOglasi.Name = "btnMojiOglasi";
+            this.btnMojiOglasi.Size = new System.Drawing.Size(342, 44);
+            this.btnMojiOglasi.TabIndex = 6;
+            this.btnMojiOglasi.Text = "Moji oglasi";
+            this.btnMojiOglasi.UseVisualStyleBackColor = false;
+            this.btnMojiOglasi.Click += new System.EventHandler(this.btnMojiOglasi_Click);
+            // 
+            // btnZanimljiviOglasi
+            // 
+            this.btnZanimljiviOglasi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnZanimljiviOglasi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnZanimljiviOglasi.FlatAppearance.BorderSize = 0;
+            this.btnZanimljiviOglasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnZanimljiviOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZanimljiviOglasi.ForeColor = System.Drawing.Color.White;
+            this.btnZanimljiviOglasi.Image = ((System.Drawing.Image)(resources.GetObject("btnZanimljiviOglasi.Image")));
+            this.btnZanimljiviOglasi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnZanimljiviOglasi.Location = new System.Drawing.Point(3, 103);
+            this.btnZanimljiviOglasi.Name = "btnZanimljiviOglasi";
+            this.btnZanimljiviOglasi.Size = new System.Drawing.Size(342, 44);
+            this.btnZanimljiviOglasi.TabIndex = 5;
+            this.btnZanimljiviOglasi.Text = "Zanimljivi oglasi";
+            this.btnZanimljiviOglasi.UseVisualStyleBackColor = false;
+            this.btnZanimljiviOglasi.Click += new System.EventHandler(this.btnZanimljiviOglasi_Click);
+            // 
+            // btnProfilPodaci
+            // 
+            this.btnProfilPodaci.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnProfilPodaci.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnProfilPodaci.FlatAppearance.BorderSize = 0;
+            this.btnProfilPodaci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfilPodaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfilPodaci.ForeColor = System.Drawing.Color.White;
+            this.btnProfilPodaci.Image = ((System.Drawing.Image)(resources.GetObject("btnProfilPodaci.Image")));
+            this.btnProfilPodaci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProfilPodaci.Location = new System.Drawing.Point(3, 3);
+            this.btnProfilPodaci.Name = "btnProfilPodaci";
+            this.btnProfilPodaci.Size = new System.Drawing.Size(342, 44);
+            this.btnProfilPodaci.TabIndex = 4;
+            this.btnProfilPodaci.Text = "Podaci";
+            this.btnProfilPodaci.UseVisualStyleBackColor = false;
+            this.btnProfilPodaci.Click += new System.EventHandler(this.btnProfilPodaci_Click);
+            // 
+            // sidebarTimer
+            // 
+            this.sidebarTimer.Interval = 10;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
+            // 
+            // panelProfilForm
+            // 
+            this.panelProfilForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelProfilForm.Location = new System.Drawing.Point(354, 0);
+            this.panelProfilForm.Name = "panelProfilForm";
+            this.panelProfilForm.Size = new System.Drawing.Size(890, 499);
+            this.panelProfilForm.TabIndex = 1;
             // 
             // FrmProfil
             // 
@@ -198,41 +183,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(1244, 499);
-            this.Controls.Add(this.dgvMojiOglasi);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnPromijeniLozinku);
-            this.Controls.Add(this.btnUrediProfil);
-            this.Controls.Add(this.btnPregledOdabranog);
-            this.Controls.Add(this.dgvZanimljivi);
-            this.Controls.Add(this.labelOglasi);
-            this.Controls.Add(this.labelTelefon);
-            this.Controls.Add(this.labelPrezime);
-            this.Controls.Add(this.labelIme);
-            this.Controls.Add(this.labelKorime);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panelProfilForm);
+            this.Controls.Add(this.sidebarMenu);
             this.Name = "FrmProfil";
             this.Text = "FrmProfil";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvZanimljivi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMojiOglasi)).EndInit();
+            this.Load += new System.EventHandler(this.FrmProfil_Load);
+            this.sidebarMenu.ResumeLayout(false);
+            this.panelMenuProfil.ResumeLayout(false);
+            this.panelMenuProfil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
+            this.tableLayoutPanelProfil.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label labelKorime;
-        private System.Windows.Forms.Label labelIme;
-        private System.Windows.Forms.Label labelPrezime;
-        private System.Windows.Forms.Label labelTelefon;
-        private System.Windows.Forms.Label labelOglasi;
-        private System.Windows.Forms.DataGridView dgvZanimljivi;
-        private System.Windows.Forms.Button btnPregledOdabranog;
-        private System.Windows.Forms.Button btnUrediProfil;
-        private System.Windows.Forms.Button btnPromijeniLozinku;
+        private System.Windows.Forms.FlowLayoutPanel sidebarMenu;
+        private System.Windows.Forms.Panel panelMenuProfil;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelProfil;
+        private System.Windows.Forms.Button btnProfilPodaci;
+        private System.Windows.Forms.Button btnMojiOglasi;
+        private System.Windows.Forms.Button btnZanimljiviOglasi;
+        private System.Windows.Forms.PictureBox pbMenu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvMojiOglasi;
+        private System.Windows.Forms.Timer sidebarTimer;
+        private System.Windows.Forms.Panel panelProfilForm;
     }
 }
