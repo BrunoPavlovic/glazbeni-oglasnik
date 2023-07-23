@@ -187,6 +187,7 @@
             this.Controls.Add(this.sidebarMenu);
             this.Name = "FrmProfil";
             this.Text = "FrmProfil";
+            this.Load += new System.EventHandler(this.FrmProfil_Load);
             this.sidebarMenu.ResumeLayout(false);
             this.panelMenuProfil.ResumeLayout(false);
             this.panelMenuProfil.PerformLayout();

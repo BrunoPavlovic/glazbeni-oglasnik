@@ -79,5 +79,10 @@ namespace GlazbeniOglasnik.UI
         {
             LoadAnotherForm(new UI.Profil.FrmProfilZanimljiviOglasi(), sender);
         }
+
+        private void FrmProfil_Load(object sender, EventArgs e)
+        {
+            LoadAnotherForm(new UI.Profil.FrmProfilPodaci(), sender);
+        }
     }
 }
