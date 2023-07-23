@@ -1,5 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using GlazbeniOglasnik.UI;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace GlazbeniOglasnik
         public Form currentForm;
         public bool isCurrentFormMain = true;
         public OglasServices oglasServices = new OglasServices();
+        public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
 
         public FrmMain()
         {
@@ -81,6 +83,11 @@ namespace GlazbeniOglasnik
 
         private void btnPocetna_Click(object sender, EventArgs e)
         {
+            LoadPocetna(sender);
+        }
+
+        private void LoadPocetna(object sender)
+        {
             LoadAnotherForm(new FrmMain(), sender, true);
             title.Text = "Početna";
         }
@@ -93,8 +100,18 @@ namespace GlazbeniOglasnik
 
         private void btnNoviOglas_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new UI.FrmNoviOglas(), sender, false);
-            title.Text = "Novi oglas";
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
+            {
+                FrmLogin frmLogin = new FrmLogin(this);
+                frmLogin.Show();
+
+                this.Hide();
+            }
+            else
+            {
+                LoadAnotherForm(new UI.FrmNoviOglas(), sender, false);
+                title.Text = "Novi oglas";
+            }
         }
 
         private void btnProfil_Click(object sender, EventArgs e)
@@ -108,6 +125,21 @@ namespace GlazbeniOglasnik
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
             new ManageDataGridView(dgvNajtrazeniji);
+            CheckLoggedUser();
+        }
+
+        public void CheckLoggedUser()
+        {
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
+            {
+                pbLogIn.Visible = true;
+                pbLogOut.Visible = false;
+            }
+            else
+            {
+                pbLogIn.Visible = false;
+                pbLogOut.Visible = true;
+            }
         }
 
         private void LoadMostWantedOglas()
@@ -140,6 +172,22 @@ namespace GlazbeniOglasnik
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pbLogIn_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin(this);
+            frmLogin.Show();
+
+            this.Hide();
+        }
+
+        private void pbLogOut_Click(object sender, EventArgs e)
+        {
+            prijavljeniKorisnik.OdjaviKorisnika();
+            LoadPocetna(btnPocetna);
+            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CheckLoggedUser();
         }
     }
 }

@@ -20,6 +20,16 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public Korisnik PrijaviKorisnika(string korime, string lozinka)
+        {
+            using (var repo = new KorisnikRepository())
+            {
+                Korisnik korisnik = repo.PrijaviKorisnika(korime, lozinka).FirstOrDefault();
+
+                return korisnik;
+            }
+        }
+
         public bool AddKorisnik(Korisnik korisnik)
         {
             bool isSuccesful = false;

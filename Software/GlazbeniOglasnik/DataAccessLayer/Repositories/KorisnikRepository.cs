@@ -22,6 +22,15 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Korisnik> PrijaviKorisnika(string korime, string lozinka)
+        {
+            var query = from e in Entities
+                        where e.Korime == korime && e.Lozinka == lozinka
+                        select e;
+
+            return query;
+        }
+
         public override int Update(Korisnik entity, bool saveChanges = true)
         {
             var korisnik = Entities.SingleOrDefault(k => k.Id == entity.Id);
