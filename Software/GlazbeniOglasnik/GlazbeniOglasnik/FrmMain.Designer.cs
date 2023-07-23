@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.pbLogOut = new System.Windows.Forms.PictureBox();
+            this.pbLogIn = new System.Windows.Forms.PictureBox();
             this.title = new System.Windows.Forms.Label();
             this.tablePanelIzbornik = new System.Windows.Forms.TableLayoutPanel();
             this.btnProfil = new System.Windows.Forms.Button();
@@ -44,6 +46,8 @@
             this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
             this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogIn)).BeginInit();
             this.tablePanelIzbornik.SuspendLayout();
             this.panelForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNajtrazeniji)).BeginInit();
@@ -52,12 +56,39 @@
             // panelTitle
             // 
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.panelTitle.Controls.Add(this.pbLogOut);
+            this.panelTitle.Controls.Add(this.pbLogIn);
             this.panelTitle.Controls.Add(this.title);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1262, 52);
             this.panelTitle.TabIndex = 1;
+            // 
+            // pbLogOut
+            // 
+            this.pbLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLogOut.Image = ((System.Drawing.Image)(resources.GetObject("pbLogOut.Image")));
+            this.pbLogOut.Location = new System.Drawing.Point(1162, 0);
+            this.pbLogOut.Name = "pbLogOut";
+            this.pbLogOut.Size = new System.Drawing.Size(100, 50);
+            this.pbLogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbLogOut.TabIndex = 2;
+            this.pbLogOut.TabStop = false;
+            this.pbLogOut.Visible = false;
+            this.pbLogOut.Click += new System.EventHandler(this.pbLogOut_Click);
+            // 
+            // pbLogIn
+            // 
+            this.pbLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbLogIn.Image = ((System.Drawing.Image)(resources.GetObject("pbLogIn.Image")));
+            this.pbLogIn.Location = new System.Drawing.Point(1159, 0);
+            this.pbLogIn.Name = "pbLogIn";
+            this.pbLogIn.Size = new System.Drawing.Size(100, 50);
+            this.pbLogIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbLogIn.TabIndex = 1;
+            this.pbLogIn.TabStop = false;
+            this.pbLogIn.Click += new System.EventHandler(this.pbLogIn_Click);
             // 
             // title
             // 
@@ -256,6 +287,8 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogIn)).EndInit();
             this.tablePanelIzbornik.ResumeLayout(false);
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
@@ -277,6 +310,8 @@
         private System.Windows.Forms.Button btnNoviOglas;
         private System.Windows.Forms.Button btnPregledOglasa;
         private System.Windows.Forms.Label labelOglasi;
+        private System.Windows.Forms.PictureBox pbLogIn;
+        private System.Windows.Forms.PictureBox pbLogOut;
     }
 }
 
