@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace GlazbeniOglasnik.UI
 {
@@ -149,6 +150,18 @@ namespace GlazbeniOglasnik.UI
             bool isValid = ValidateInput(txtNaziv.Text, txtCijena.Text, txtLokacija.Text, cmbKategorija.Text);
             if (isValid)
             {
+                SaveOglas();
+            }
+            else
+            {
+                MessageBox.Show("Unesite ispravne podatke!","Upozorenje",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void SaveOglas()
+        {
+            try
+            {
                 Oglas oglas = new Oglas
                 {
                     Naziv_oglasa = txtNaziv.Text,
@@ -162,17 +175,14 @@ namespace GlazbeniOglasnik.UI
                     Korisnik_id = 1
                 };
 
-                try
-                {
-                    oglasServices.AddOglas(oglas);
-                    SavePictures();
-                    CleanForm();
+                oglasServices.AddOglas(oglas);
+                SavePictures();
+                CleanForm();
 
-                }
-                catch
-                {
-                    MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch
+            {
+                MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -188,22 +198,37 @@ namespace GlazbeniOglasnik.UI
 
         private bool ValidateKategorija(string kategorija)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(kategorija))
+                return false;
+
+            return true;
         }
 
         private bool ValidateLokacija(string lokacija)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(lokacija) || lokacija.Length>50)
+                return false;
+
+            return true;
         }
 
         private bool ValidateCijena(string cijena)
         {
-            throw new NotImplementedException();
+            if (!decimal.TryParse(cijena, out decimal cijenaParsed))
+                return false;
+
+            if (cijenaParsed < 0)
+                return false;
+
+            return true;
         }
 
         private bool ValidateNaziv(string naziv)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(naziv) || naziv.Length>100)
+                return false;
+
+            return true;
         }
 
         private void SavePictures()
@@ -243,11 +268,88 @@ namespace GlazbeniOglasnik.UI
             txtLokacija.Text = "";
             cmbKategorija.SelectedIndex = -1;
             pbOglas.Image = null;
+
+            CleanProviders();
+        }
+
+        private void CleanProviders()
+        {
+            errorProvider.SetError(txtNaziv, null);
+            correctProvider.SetError(txtNaziv, null);
+
+            errorProvider.SetError(txtCijena, null);
+            correctProvider.SetError(txtCijena, null);
+
+            errorProvider.SetError(txtLokacija, null);
+            correctProvider.SetError(txtLokacija, null);
+
+            errorProvider.SetError(cmbKategorija, null);
+            correctProvider.SetError(cmbKategorija, null);
         }
 
         private void btnOdbaci_Click(object sender, EventArgs e)
         {
             CleanForm();
+        }
+
+        private void txtNaziv_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = ValidateNaziv(txtNaziv.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtNaziv, "Naziv oglasa je obavezan i broj znakova mora biti manji ili jednak 100!");
+                correctProvider.SetError(txtNaziv, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtNaziv, null);
+                correctProvider.SetError(txtNaziv, "Ispravno!");
+            }
+        }
+
+        private void txtCijena_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = ValidateCijena(txtCijena.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtCijena, "Cijena oglasa je obavezna , mora biti pozitivan broj te u slučaju decimala sa zarezom!");
+                correctProvider.SetError(txtCijena, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtCijena, null);
+                correctProvider.SetError(txtCijena, "Ispravno!");
+            }
+        }
+
+        private void txtLokacija_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = ValidateLokacija(txtLokacija.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(txtLokacija, "Lokacija je obavezna i smije sadržavati do 50 znakova");
+                correctProvider.SetError(txtLokacija, null);
+            }
+            else
+            {
+                errorProvider.SetError(txtLokacija, null);
+                correctProvider.SetError(txtLokacija, "Ispravno!");
+            }
+        }
+
+        private void cmbKategorija_Validating(object sender, CancelEventArgs e)
+        {
+            bool valid = ValidateKategorija(cmbKategorija.Text);
+            if (!valid)
+            {
+                errorProvider.SetError(cmbKategorija, "Kategorija je obavezna!");
+                correctProvider.SetError(cmbKategorija, null);
+            }
+            else
+            {
+                errorProvider.SetError(cmbKategorija, null);
+                correctProvider.SetError(cmbKategorija, "Ispravno!");
+            }
         }
     }
 }

@@ -157,6 +157,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(236, 27);
             this.txtNaziv.TabIndex = 12;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // txtCijena
             // 
@@ -166,6 +167,7 @@
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(236, 27);
             this.txtCijena.TabIndex = 13;
+            this.txtCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijena_Validating);
             // 
             // txtLokacija
             // 
@@ -175,6 +177,7 @@
             this.txtLokacija.Name = "txtLokacija";
             this.txtLokacija.Size = new System.Drawing.Size(236, 27);
             this.txtLokacija.TabIndex = 14;
+            this.txtLokacija.Validating += new System.ComponentModel.CancelEventHandler(this.txtLokacija_Validating);
             // 
             // richTextOpis
             // 
@@ -222,6 +225,7 @@
             this.cmbKategorija.Name = "cmbKategorija";
             this.cmbKategorija.Size = new System.Drawing.Size(235, 28);
             this.cmbKategorija.TabIndex = 15;
+            this.cmbKategorija.Validating += new System.ComponentModel.CancelEventHandler(this.cmbKategorija_Validating);
             // 
             // btnBack
             // 
