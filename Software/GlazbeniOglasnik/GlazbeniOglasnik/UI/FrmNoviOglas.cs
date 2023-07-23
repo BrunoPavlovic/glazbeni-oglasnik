@@ -146,28 +146,64 @@ namespace GlazbeniOglasnik.UI
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            Oglas oglas = new Oglas
+            bool isValid = ValidateInput(txtNaziv.Text, txtCijena.Text, txtLokacija.Text, cmbKategorija.Text);
+            if (isValid)
             {
-                Naziv_oglasa = txtNaziv.Text,
-                Opis = richTextOpis.Text,
-                Cijena = Convert.ToDecimal(txtCijena.Text),
-                Lokacija = txtLokacija.Text,
-                Kategorija = cmbKategorija.SelectedItem.ToString(),
-                Datum_objave = DateTime.Now,
-                Prodano = 0,
-                Broj_pregleda = 0,
-                Korisnik_id = 1
-            };
+                Oglas oglas = new Oglas
+                {
+                    Naziv_oglasa = txtNaziv.Text,
+                    Opis = richTextOpis.Text,
+                    Cijena = Convert.ToDecimal(txtCijena.Text),
+                    Lokacija = txtLokacija.Text,
+                    Kategorija = cmbKategorija.SelectedItem.ToString(),
+                    Datum_objave = DateTime.Now,
+                    Prodano = 0,
+                    Broj_pregleda = 0,
+                    Korisnik_id = 1
+                };
 
-            try
-            {
-                oglasServices.AddOglas(oglas);
-                SavePictures();
-                CleanForm();
+                try
+                {
+                    oglasServices.AddOglas(oglas);
+                    SavePictures();
+                    CleanForm();
 
-            } catch { 
-                MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch
+                {
+                    MessageBox.Show("Greška prilikom spremanja oglasa!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+
+        private bool ValidateInput(string naziv, string cijena, string lokacija, string kategorija)
+        {
+            if (ValidateNaziv(naziv) && ValidateCijena(cijena) && ValidateLokacija(lokacija) && ValidateKategorija(kategorija))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool ValidateKategorija(string kategorija)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool ValidateLokacija(string lokacija)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool ValidateCijena(string cijena)
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool ValidateNaziv(string naziv)
+        {
+            throw new NotImplementedException();
         }
 
         private void SavePictures()
