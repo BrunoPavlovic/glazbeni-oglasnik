@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace GlazbeniOglasnik.UI
     public partial class FrmPregledOglasa : Form
     {
         public OglasServices oglasServices = new OglasServices();
+        public SlikaServices slikaServices = new SlikaServices();
 
         public FrmPregledOglasa()
         {
@@ -23,10 +25,39 @@ namespace GlazbeniOglasnik.UI
 
         private void FrmPregledOglasa_Load(object sender, EventArgs e)
         {
-            dgvOglasi.DataSource = oglasServices.GetOglas();
+            var oglasi = oglasServices.GetOglas();
+            dgvOglasi.DataSource = oglasi;
+            LoadPictures(oglasi);
             new ManageDataGridView(dgvOglasi);
             cmbSortiraj.SelectedIndex = 1;
             cmbKategorija.SelectedIndex = 0;
+        }
+
+        private void LoadPictures(List<Oglas> oglasi)
+        {
+            try
+            {
+                foreach (var item in oglasi)
+                {
+                    var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
+                    if (slikeOglasa.Count > 0)
+                    {
+                        Slike slika = slikeOglasa[0];
+                        byte[] imageBytes = slika.Slika;
+
+                        Image image;
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            image = Image.FromStream(ms);
+                        }
+
+                        dgvOglasi.Rows[oglasi.IndexOf(item)].Cells[0].Value = image;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)

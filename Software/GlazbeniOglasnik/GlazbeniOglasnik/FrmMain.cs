@@ -20,6 +20,7 @@ namespace GlazbeniOglasnik
         public Form currentForm;
         public bool isCurrentFormMain = true;
         public OglasServices oglasServices = new OglasServices();
+        public SlikaServices slikaServices = new SlikaServices();
 
         public FrmMain()
         {
@@ -112,7 +113,36 @@ namespace GlazbeniOglasnik
 
         private void LoadMostWantedOglas()
         {
-            dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
+            List<Oglas> oglasi = oglasServices.GetMostWantedOglas();
+            LoadPicturesForMostWantedOglas(oglasi);
+            dgvNajtrazeniji.DataSource = oglasi;
+        }
+
+        private void LoadPicturesForMostWantedOglas(List<Oglas> oglasi)
+        {
+            try
+            {
+                foreach (var item in oglasi)
+                {
+                    var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
+                    if (slikeOglasa.Count > 0)
+                    {
+                        Slike slika = slikeOglasa[0];
+                        byte[] imageBytes = slika.Slika;
+
+                        Image image;
+                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        {
+                            image = Image.FromStream(ms);
+                        }
+
+                        dgvNajtrazeniji.Rows[oglasi.IndexOf(item)].Cells[0].Value = image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
