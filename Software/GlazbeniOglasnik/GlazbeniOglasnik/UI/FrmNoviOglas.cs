@@ -187,7 +187,7 @@ namespace GlazbeniOglasnik.UI
                     slikaServices.AddSlika(slika);
                 }
             }
-            else
+            /*else
             {
                 Slike slika = new Slike
                 {
@@ -196,7 +196,7 @@ namespace GlazbeniOglasnik.UI
                 };
 
                 slikaServices.AddSlika(slika);
-            }
+            }*/
         }
 
         private void CleanForm()

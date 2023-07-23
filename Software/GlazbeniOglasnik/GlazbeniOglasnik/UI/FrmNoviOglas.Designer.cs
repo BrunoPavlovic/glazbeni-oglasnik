@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNoviOglas));
             this.labelNaziv = new System.Windows.Forms.Label();
             this.labelCijena = new System.Windows.Forms.Label();
@@ -46,7 +47,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnObrisiSliku = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.correctProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNaziv
@@ -269,6 +274,17 @@
             this.btnObrisiSliku.UseVisualStyleBackColor = false;
             this.btnObrisiSliku.Click += new System.EventHandler(this.btnObrisiSliku_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // correctProvider
+            // 
+            this.correctProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.correctProvider.ContainerControl = this;
+            this.correctProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("correctProvider.Icon")));
+            // 
             // FrmNoviOglas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -295,6 +311,8 @@
             this.Name = "FrmNoviOglas";
             this.Text = "FrmNoviOglas";
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +337,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnObrisiSliku;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ErrorProvider correctProvider;
     }
 }
