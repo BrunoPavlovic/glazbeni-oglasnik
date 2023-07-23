@@ -40,6 +40,7 @@
             this.labelNaziv = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvOglasi = new System.Windows.Forms.DataGridView();
+            this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOglasi)).BeginInit();
             this.SuspendLayout();
@@ -152,6 +153,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvOglasi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOglasi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOglasi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SlikeOglasa});
             this.dgvOglasi.EnableHeadersVisualStyles = false;
             this.dgvOglasi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
             this.dgvOglasi.Location = new System.Drawing.Point(225, 126);
@@ -172,6 +175,17 @@
             this.dgvOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOglasi.Size = new System.Drawing.Size(794, 302);
             this.dgvOglasi.TabIndex = 8;
+            // 
+            // SlikeOglasa
+            // 
+            this.SlikeOglasa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SlikeOglasa.HeaderText = "Slika oglasa";
+            this.SlikeOglasa.Image = ((System.Drawing.Image)(resources.GetObject("SlikeOglasa.Image")));
+            this.SlikeOglasa.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.SlikeOglasa.MinimumWidth = 6;
+            this.SlikeOglasa.Name = "SlikeOglasa";
+            this.SlikeOglasa.ReadOnly = true;
+            this.SlikeOglasa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FrmPregledOglasa
             // 
@@ -207,5 +221,6 @@
         private System.Windows.Forms.Label labelNaziv;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvOglasi;
+        private System.Windows.Forms.DataGridViewImageColumn SlikeOglasa;
     }
 }

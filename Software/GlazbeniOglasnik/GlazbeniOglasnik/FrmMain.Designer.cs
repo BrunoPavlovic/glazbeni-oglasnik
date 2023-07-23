@@ -43,6 +43,7 @@
             this.labelOglasi = new System.Windows.Forms.Label();
             this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
+            this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
             this.panelTitle.SuspendLayout();
             this.tablePanelIzbornik.SuspendLayout();
             this.panelForm.SuspendLayout();
@@ -162,9 +163,9 @@
             // 
             // panelForm
             // 
+            this.panelForm.Controls.Add(this.dgvNajtrazeniji);
             this.panelForm.Controls.Add(this.labelOglasi);
             this.panelForm.Controls.Add(this.btnPregledOdabranog);
-            this.panelForm.Controls.Add(this.dgvNajtrazeniji);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 127);
             this.panelForm.Name = "panelForm";
@@ -216,9 +217,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNajtrazeniji.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SlikeOglasa});
             this.dgvNajtrazeniji.EnableHeadersVisualStyles = false;
             this.dgvNajtrazeniji.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
-            this.dgvNajtrazeniji.Location = new System.Drawing.Point(244, 64);
+            this.dgvNajtrazeniji.Location = new System.Drawing.Point(234, 122);
             this.dgvNajtrazeniji.MultiSelect = false;
             this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
             this.dgvNajtrazeniji.ReadOnly = true;
@@ -235,7 +238,18 @@
             this.dgvNajtrazeniji.RowTemplate.Height = 24;
             this.dgvNajtrazeniji.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 400);
-            this.dgvNajtrazeniji.TabIndex = 0;
+            this.dgvNajtrazeniji.TabIndex = 9;
+            // 
+            // SlikeOglasa
+            // 
+            this.SlikeOglasa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SlikeOglasa.HeaderText = "Slika oglasa";
+            this.SlikeOglasa.Image = ((System.Drawing.Image)(resources.GetObject("SlikeOglasa.Image")));
+            this.SlikeOglasa.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.SlikeOglasa.MinimumWidth = 6;
+            this.SlikeOglasa.Name = "SlikeOglasa";
+            this.SlikeOglasa.ReadOnly = true;
+            this.SlikeOglasa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // FrmMain
             // 
@@ -270,13 +284,14 @@
         private System.Windows.Forms.TableLayoutPanel tablePanelIzbornik;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel panelForm;
-        private System.Windows.Forms.DataGridView dgvNajtrazeniji;
         private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.Button btnPocetna;
         private System.Windows.Forms.Button btnProfil;
         private System.Windows.Forms.Button btnNoviOglas;
         private System.Windows.Forms.Button btnPregledOglasa;
         private System.Windows.Forms.Label labelOglasi;
+        private System.Windows.Forms.DataGridView dgvNajtrazeniji;
+        private System.Windows.Forms.DataGridViewImageColumn SlikeOglasa;
     }
 }
 
