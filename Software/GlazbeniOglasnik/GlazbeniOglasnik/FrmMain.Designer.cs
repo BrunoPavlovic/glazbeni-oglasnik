@@ -40,10 +40,10 @@
             this.btnPregledOglasa = new System.Windows.Forms.Button();
             this.btnPocetna = new System.Windows.Forms.Button();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.labelOglasi = new System.Windows.Forms.Label();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
             this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
+            this.labelOglasi = new System.Windows.Forms.Label();
+            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             this.tablePanelIzbornik.SuspendLayout();
             this.panelForm.SuspendLayout();
@@ -172,33 +172,6 @@
             this.panelForm.Size = new System.Drawing.Size(1262, 546);
             this.panelForm.TabIndex = 3;
             // 
-            // labelOglasi
-            // 
-            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelOglasi.AutoSize = true;
-            this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOglasi.ForeColor = System.Drawing.Color.White;
-            this.labelOglasi.Location = new System.Drawing.Point(553, 25);
-            this.labelOglasi.Name = "labelOglasi";
-            this.labelOglasi.Size = new System.Drawing.Size(163, 25);
-            this.labelOglasi.TabIndex = 6;
-            this.labelOglasi.Text = "Najtraženiji oglasi";
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(1031, 483);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(219, 40);
-            this.btnPregledOdabranog.TabIndex = 1;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
-            // 
             // dgvNajtrazeniji
             // 
             this.dgvNajtrazeniji.AllowUserToAddRows = false;
@@ -250,6 +223,33 @@
             this.SlikeOglasa.Name = "SlikeOglasa";
             this.SlikeOglasa.ReadOnly = true;
             this.SlikeOglasa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // labelOglasi
+            // 
+            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelOglasi.AutoSize = true;
+            this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOglasi.ForeColor = System.Drawing.Color.White;
+            this.labelOglasi.Location = new System.Drawing.Point(553, 25);
+            this.labelOglasi.Name = "labelOglasi";
+            this.labelOglasi.Size = new System.Drawing.Size(163, 25);
+            this.labelOglasi.TabIndex = 6;
+            this.labelOglasi.Text = "Najtraženiji oglasi";
+            // 
+            // btnPregledOdabranog
+            // 
+            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
+            this.btnPregledOdabranog.Location = new System.Drawing.Point(1031, 483);
+            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
+            this.btnPregledOdabranog.Size = new System.Drawing.Size(219, 40);
+            this.btnPregledOdabranog.TabIndex = 1;
+            this.btnPregledOdabranog.Text = "Pregled odabranog";
+            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
+            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
             // 
             // FrmMain
             // 

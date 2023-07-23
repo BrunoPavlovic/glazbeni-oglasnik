@@ -120,10 +120,12 @@ namespace GlazbeniOglasnik
 
         private void LoadPicturesForMostWantedOglas(List<Oglas> oglasi)
         {
+            int brojac = -1;
             try
             {
                 foreach (var item in oglasi)
                 {
+                    brojac++;
                     var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
                     if (slikeOglasa.Count > 0)
                     {
@@ -136,12 +138,13 @@ namespace GlazbeniOglasnik
                             image = Image.FromStream(ms);
                         }
 
-                        dgvNajtrazeniji.Rows[oglasi.IndexOf(item)].Cells[0].Value = image;
+                        //dgvNajtrazeniji.Rows[brojac].Cells[0].Value = imageBytes;
                     }
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
