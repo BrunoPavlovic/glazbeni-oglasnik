@@ -208,7 +208,7 @@
             this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNajtrazeniji.RowHeadersVisible = false;
             this.dgvNajtrazeniji.RowHeadersWidth = 51;
-            this.dgvNajtrazeniji.RowTemplate.Height = 24;
+            this.dgvNajtrazeniji.RowTemplate.Height = 50;
             this.dgvNajtrazeniji.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 400);
             this.dgvNajtrazeniji.TabIndex = 9;

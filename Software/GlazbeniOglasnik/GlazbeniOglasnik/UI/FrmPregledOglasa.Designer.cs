@@ -171,7 +171,7 @@
             this.dgvOglasi.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOglasi.RowHeadersVisible = false;
             this.dgvOglasi.RowHeadersWidth = 51;
-            this.dgvOglasi.RowTemplate.Height = 24;
+            this.dgvOglasi.RowTemplate.Height = 50;
             this.dgvOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOglasi.Size = new System.Drawing.Size(794, 302);
             this.dgvOglasi.TabIndex = 8;

@@ -16,7 +16,10 @@ namespace GlazbeniOglasnik.UI
             this.dgv = dataGridView;
             RenameDgvHeaders();
             HideAttributes();
+
             dgv.Rows[0].Selected = false;
+            dgv.Columns["Naziv_oglasa"].Width = 130;
+            dgv.Columns["Cijena"].Width = 65;
         }
 
         private void RenameDgvHeaders()
