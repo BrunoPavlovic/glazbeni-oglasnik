@@ -17,6 +17,7 @@ namespace GlazbeniOglasnik.UI
     {
         public OglasServices oglasServices = new OglasServices();
         public SlikaServices slikaServices = new SlikaServices();
+        public bool isEverythingSelected = false;
 
         public FrmPregledOglasa()
         {
@@ -29,7 +30,7 @@ namespace GlazbeniOglasnik.UI
             new ManageDataGridView(dgvOglasi);
 
             dgvOglasi.Visible = true;
-            cmbSortiraj.SelectedIndex = 1;
+            cmbSortiraj.SelectedIndex = 0;
             cmbKategorija.SelectedIndex = 0;
         }
 
@@ -97,6 +98,50 @@ namespace GlazbeniOglasnik.UI
         private void dgvOglasi_VisibleChanged(object sender, EventArgs e)
         {
             LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+        }
+
+        private void cmbSortiraj_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isEverythingSelected)
+            {
+                txtSearch.Text = "";
+
+                dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
+                new ManageDataGridView(dgvOglasi);
+                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+            }
+        }
+
+        private void cmbKategorija_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isEverythingSelected)
+            {
+                txtSearch.Text = "";
+                dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
+                new ManageDataGridView(dgvOglasi);
+                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+            }
+            else
+                isEverythingSelected = true;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dgvOglasi.DataSource = oglasServices.SearchOglas(txtSearch.Text);
+
+            cmbKategorija.SelectedIndex = 0;
+            cmbSortiraj.SelectedIndex = 0;
+
+            if (dgvOglasi.Rows.Count == 0)
+            {
+                txtSearch.Text = "";
+                MessageBox.Show("Ne postoji oglas koji sadrži pretraženu frazu!","Upozorenje",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                new ManageDataGridView(dgvOglasi);
+                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+            }
         }
     }
 }

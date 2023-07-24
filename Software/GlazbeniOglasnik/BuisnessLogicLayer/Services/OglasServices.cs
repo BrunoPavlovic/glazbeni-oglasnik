@@ -28,6 +28,24 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public List<Oglas> FilterOglas(string filter, string kategorija)
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> filtriraniOglasi = repo.FilterOglas(filter, kategorija).ToList();
+                return filtriraniOglasi;
+            }
+        }
+
+        public List<Oglas> SearchOglas(string nazivOglasa)
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> oglasi = repo.GetOglasByName(nazivOglasa).ToList();
+                return oglasi;
+            }
+        }
+
         public bool AddOglas(Oglas oglas)
         {
             bool isSuccesful = false;

@@ -17,7 +17,6 @@ namespace DataAccessLayer.Repositories
         {
             var query = from e in Entities
                         .Include("Korisnik")
-                        orderby e.Datum_objave descending
                         select e;
 
             return query;
@@ -31,6 +30,59 @@ namespace DataAccessLayer.Repositories
                         select e;
 
             return query.Take(5);
+        }
+
+        public IQueryable<Oglas> GetOglasByName(string nazivOglasa)
+        {
+              var query = from e in Entities
+                        .Include("Korisnik")
+                        where e.Naziv_oglasa.Contains(nazivOglasa)
+                        orderby e.Datum_objave descending
+                        select e;
+
+            return query;
+        }
+
+        public IQueryable<Oglas> FilterOglas(string filter, string kategorija) 
+        {
+            var query = GetOglasByKategorija(kategorija);
+
+            switch (filter)
+            {
+                case "Datum objave silazno":
+                    query = query.OrderByDescending(e => e.Datum_objave);
+                    break;
+                case "Datum objave uzlazno":
+                    query = query.OrderBy(e => e.Datum_objave);
+                    break;
+                case "Cijena silazno":
+                    query = query.OrderByDescending(e => e.Cijena);
+                    break;
+                case "Cijena uzlazno":
+                    query = query.OrderBy(e => e.Cijena);
+                    break;
+            }
+
+            return query;
+        }
+
+        public IQueryable<Oglas> GetOglasByKategorija(string kategorija)
+        {
+            if (kategorija == "Svi")
+            {
+                var query = GetAll();
+                
+                return query;
+            }
+            else
+            {
+                var query = from e in Entities
+                            .Include("Korisnik")
+                            where e.Kategorija.Contains(kategorija)
+                            select e;
+
+                return query;
+            }
         }
 
         public override int Update(Oglas entity, bool saveChanges = true)
