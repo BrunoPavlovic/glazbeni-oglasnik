@@ -10,6 +10,15 @@ namespace BuisnessLogicLayer.Services
 {
     public class SlikaServices
     {
+        public List<int> GetSlikaOglasId()
+        {
+            using (var repo = new SlikaRepository())
+            {
+                List<int> slike = repo.GetSlikaOglasId().ToList();
+                return slike;
+            }
+        }
+
         public List<Slike> GetSlikeForOglas(int oglasId)
         {
             using (var repo = new SlikaRepository())

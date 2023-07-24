@@ -1,4 +1,4 @@
-﻿using BuisnessLogicLayer.Services;
+using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
 using GlazbeniOglasnik.Helpers;
 using GlazbeniOglasnik.UI;
@@ -22,6 +22,7 @@ namespace GlazbeniOglasnik
         public bool isCurrentFormMain = true;
         public OglasServices oglasServices = new OglasServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+        public SlikaServices slikaServices = new SlikaServices();
 
         public FrmMain()
         {
@@ -126,6 +127,7 @@ namespace GlazbeniOglasnik
             LoadMostWantedOglas();
             new ManageDataGridView(dgvNajtrazeniji);
             CheckLoggedUser();
+            dgvNajtrazeniji.Visible = true;
         }
 
         public void CheckLoggedUser()
@@ -145,6 +147,40 @@ namespace GlazbeniOglasnik
         private void LoadMostWantedOglas()
         {
             dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
+        }
+
+        private void LoadPicturesForMostWantedOglas(List<Oglas> oglasi)
+        {
+            int brojac = -1;
+            try
+            {
+                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
+                foreach (var item in oglasi)
+                {
+                    brojac++;
+                    if (slikeOglasId.Contains(item.Id))
+                    {
+                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
+                        if (slikeOglasa.Count > 0)
+                        {
+                            Slike slika = slikeOglasa[0];
+                            byte[] imageBytes = slika.Slika;
+
+                            Image image;
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                image = Image.FromStream(ms);
+                            }
+
+                            dgvNajtrazeniji.Rows[brojac].Cells[0].Value = image;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
@@ -188,6 +224,11 @@ namespace GlazbeniOglasnik
             LoadPocetna(btnPocetna);
             MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CheckLoggedUser();
+        }
+
+        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadPicturesForMostWantedOglas(dgvNajtrazeniji.DataSource as List<Oglas>);
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNoviOglas));
             this.labelNaziv = new System.Windows.Forms.Label();
             this.labelCijena = new System.Windows.Forms.Label();
@@ -46,7 +47,11 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnObrisiSliku = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.correctProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNaziv
@@ -127,6 +132,7 @@
             this.btnOdbaci.TabIndex = 10;
             this.btnOdbaci.Text = "Odbaci";
             this.btnOdbaci.UseVisualStyleBackColor = false;
+            this.btnOdbaci.Click += new System.EventHandler(this.btnOdbaci_Click);
             // 
             // btnSpremi
             // 
@@ -141,6 +147,7 @@
             this.btnSpremi.TabIndex = 11;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = false;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
             // txtNaziv
             // 
@@ -150,6 +157,7 @@
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(236, 27);
             this.txtNaziv.TabIndex = 12;
+            this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // txtCijena
             // 
@@ -159,6 +167,7 @@
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(236, 27);
             this.txtCijena.TabIndex = 13;
+            this.txtCijena.Validating += new System.ComponentModel.CancelEventHandler(this.txtCijena_Validating);
             // 
             // txtLokacija
             // 
@@ -168,6 +177,7 @@
             this.txtLokacija.Name = "txtLokacija";
             this.txtLokacija.Size = new System.Drawing.Size(236, 27);
             this.txtLokacija.TabIndex = 14;
+            this.txtLokacija.Validating += new System.ComponentModel.CancelEventHandler(this.txtLokacija_Validating);
             // 
             // richTextOpis
             // 
@@ -176,7 +186,7 @@
             this.richTextOpis.Location = new System.Drawing.Point(132, 184);
             this.richTextOpis.Name = "richTextOpis";
             this.richTextOpis.Size = new System.Drawing.Size(236, 148);
-            this.richTextOpis.TabIndex = 15;
+            this.richTextOpis.TabIndex = 16;
             this.richTextOpis.Text = "";
             // 
             // pbOglas
@@ -205,6 +215,7 @@
             // cmbKategorija
             // 
             this.cmbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorija.FormattingEnabled = true;
             this.cmbKategorija.Items.AddRange(new object[] {
@@ -213,7 +224,8 @@
             this.cmbKategorija.Location = new System.Drawing.Point(133, 129);
             this.cmbKategorija.Name = "cmbKategorija";
             this.cmbKategorija.Size = new System.Drawing.Size(235, 28);
-            this.cmbKategorija.TabIndex = 18;
+            this.cmbKategorija.TabIndex = 15;
+            this.cmbKategorija.Validating += new System.ComponentModel.CancelEventHandler(this.cmbKategorija_Validating);
             // 
             // btnBack
             // 
@@ -266,6 +278,17 @@
             this.btnObrisiSliku.UseVisualStyleBackColor = false;
             this.btnObrisiSliku.Click += new System.EventHandler(this.btnObrisiSliku_Click);
             // 
+            // errorProvider
+            // 
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            // 
+            // correctProvider
+            // 
+            this.correctProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.correctProvider.ContainerControl = this;
+            this.correctProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("correctProvider.Icon")));
+            // 
             // FrmNoviOglas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,6 +315,8 @@
             this.Name = "FrmNoviOglas";
             this.Text = "FrmNoviOglas";
             ((System.ComponentModel.ISupportInitialize)(this.pbOglas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.correctProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -316,5 +341,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnObrisiSliku;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ErrorProvider correctProvider;
     }
 }

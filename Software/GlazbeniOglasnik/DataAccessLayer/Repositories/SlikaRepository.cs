@@ -13,6 +13,14 @@ namespace DataAccessLayer.Repositories
         {
         }
 
+        public IQueryable<int> GetSlikaOglasId()
+        {
+            var query = from e in Entities
+                        select e.Oglas_id;
+
+            return query;
+        }
+
         public IQueryable<Slike> GetSlikeForOglas(int oglasId)
         {
             var query = from e in Entities
