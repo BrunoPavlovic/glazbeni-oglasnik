@@ -1,5 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,9 @@ namespace GlazbeniOglasnik.UI
     {
         public Oglas oglas;
         public SlikaServices slikaServices = new SlikaServices();
+        public ZanimljiviOglasiServices zanimljiviOglasiServices = new ZanimljiviOglasiServices();
+        public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+
         public int brojac = 0;
         public List<byte[]> slike = new List<byte[]>();
 
@@ -29,8 +33,38 @@ namespace GlazbeniOglasnik.UI
 
         private void pictureBoxUnchecked_Click(object sender, EventArgs e)
         {
-            pictureBoxUnchecked.Visible = false;
-            pictureBoxChecked.Visible = true;
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() != null)
+            {
+                pictureBoxUnchecked.Visible = false;
+                pictureBoxChecked.Visible = true;
+
+                DodajOglasUZanimljive();
+            }
+            else
+            {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli označiti oglas kao zanimljivi!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void DodajOglasUZanimljive()
+        {
+            var korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            try
+            {
+                Zanimljivi_oglasi zanimljivi = new Zanimljivi_oglasi
+                {
+                    Korisnik_id = korisnik.Id,
+                    Oglas_id = oglas.Id
+                };
+
+                zanimljiviOglasiServices.AddZanimljiviOglas(zanimljivi);
+
+                MessageBox.Show("Oglas je označen zanimljivim, popis možete pogledati na stranici profila", "Uspjeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void pictureBoxChecked_Click(object sender, EventArgs e)
@@ -90,7 +124,7 @@ namespace GlazbeniOglasnik.UI
 
         private void CheckPictures(List<Slike> slikeOglasa)
         {
-            if (slikeOglasa.Count==1)
+            if (slikeOglasa.Count == 1)
                 btnNext.Enabled = false;
             else
             {
@@ -104,8 +138,8 @@ namespace GlazbeniOglasnik.UI
 
         private void ShowPicture()
         {
-           pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
-           pbOglas.Image = Image.FromStream(new MemoryStream(slike[brojac]));
+            pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
+            pbOglas.Image = Image.FromStream(new MemoryStream(slike[brojac]));
         }
 
         private void CheckIfFirst()

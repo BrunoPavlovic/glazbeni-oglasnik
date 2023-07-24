@@ -22,6 +22,25 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public override int Add(Zanimljivi_oglasi entity, bool saveChanges = true)
+        {
+            var zanimiljiviOglas = new Zanimljivi_oglasi
+            {
+                Korisnik_id = entity.Korisnik_id,
+                Oglas_id = entity.Oglas_id
+            };
+
+            Entities.Add(zanimiljiviOglas);
+            if (saveChanges)
+            {
+                return SaveChanges();
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
         public override int Update(Zanimljivi_oglasi entity, bool saveChanges = true)
         {
             var zanimljiviOglasi = Entities.SingleOrDefault(z => z.Oglas_id == entity.Oglas_id);
