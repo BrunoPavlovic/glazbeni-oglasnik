@@ -212,6 +212,8 @@
             this.dgvNajtrazeniji.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 400);
             this.dgvNajtrazeniji.TabIndex = 9;
+            this.dgvNajtrazeniji.Visible = false;
+            this.dgvNajtrazeniji.VisibleChanged += new System.EventHandler(this.dgvNajtrazeniji_VisibleChanged);
             // 
             // SlikeOglasa
             // 

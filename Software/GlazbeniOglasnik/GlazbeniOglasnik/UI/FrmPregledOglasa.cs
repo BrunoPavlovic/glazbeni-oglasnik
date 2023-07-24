@@ -25,10 +25,10 @@ namespace GlazbeniOglasnik.UI
 
         private void FrmPregledOglasa_Load(object sender, EventArgs e)
         {
-            var oglasi = oglasServices.GetOglas();
-            dgvOglasi.DataSource = oglasi;
-            LoadPictures(oglasi);
+            dgvOglasi.DataSource = oglasServices.GetOglas();
             new ManageDataGridView(dgvOglasi);
+
+            dgvOglasi.Visible = true;
             cmbSortiraj.SelectedIndex = 1;
             cmbKategorija.SelectedIndex = 0;
         }
@@ -38,22 +38,26 @@ namespace GlazbeniOglasnik.UI
             int brojac = -1;
             try
             {
+                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
                 foreach (var item in oglasi)
                 {
                     brojac++;
-                    var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
-                    if (slikeOglasa.Count > 0)
+                    if (slikeOglasId.Contains(item.Id))
                     {
-                        Slike slika = slikeOglasa[0];
-                        byte[] imageBytes = slika.Slika;
-
-                        Image image;
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
+                        if (slikeOglasa.Count > 0)
                         {
-                            image = Image.FromStream(ms);
-                        }
+                            Slike slika = slikeOglasa[0];
+                            byte[] imageBytes = slika.Slika;
 
-                       // dgvOglasi.Rows[brojac].Cells[0].Value = image;
+                            Image image;
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                image = Image.FromStream(ms);
+                            }
+
+                            dgvOglasi.Rows[brojac].Cells[0].Value = image;
+                        }
                     }
                 }
             }
@@ -88,6 +92,11 @@ namespace GlazbeniOglasnik.UI
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvOglasi_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadPictures(dgvOglasi.DataSource as List<Oglas>);
         }
     }
 }

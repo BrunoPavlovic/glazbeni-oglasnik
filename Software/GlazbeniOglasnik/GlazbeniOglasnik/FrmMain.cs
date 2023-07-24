@@ -109,13 +109,12 @@ namespace GlazbeniOglasnik
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
             new ManageDataGridView(dgvNajtrazeniji);
+            dgvNajtrazeniji.Visible = true;
         }
 
         private void LoadMostWantedOglas()
         {
-            List<Oglas> oglasi = oglasServices.GetMostWantedOglas();
-            LoadPicturesForMostWantedOglas(oglasi);
-            dgvNajtrazeniji.DataSource = oglasi;
+            dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
         }
 
         private void LoadPicturesForMostWantedOglas(List<Oglas> oglasi)
@@ -123,22 +122,26 @@ namespace GlazbeniOglasnik
             int brojac = -1;
             try
             {
+                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
                 foreach (var item in oglasi)
                 {
                     brojac++;
-                    var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
-                    if (slikeOglasa.Count > 0)
+                    if (slikeOglasId.Contains(item.Id))
                     {
-                        Slike slika = slikeOglasa[0];
-                        byte[] imageBytes = slika.Slika;
-
-                        Image image;
-                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
+                        if (slikeOglasa.Count > 0)
                         {
-                            image = Image.FromStream(ms);
-                        }
+                            Slike slika = slikeOglasa[0];
+                            byte[] imageBytes = slika.Slika;
 
-                        //dgvNajtrazeniji.Rows[brojac].Cells[0].Value = imageBytes;
+                            Image image;
+                            using (MemoryStream ms = new MemoryStream(imageBytes))
+                            {
+                                image = Image.FromStream(ms);
+                            }
+
+                            dgvNajtrazeniji.Rows[brojac].Cells[0].Value = image;
+                        }
                     }
                 }
             }
@@ -173,6 +176,11 @@ namespace GlazbeniOglasnik
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
+        {
+            LoadPicturesForMostWantedOglas(dgvNajtrazeniji.DataSource as List<Oglas>);
         }
     }
 }
