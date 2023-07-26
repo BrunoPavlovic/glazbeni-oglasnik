@@ -17,7 +17,11 @@ namespace GlazbeniOglasnik.UI
             RenameDgvHeaders();
             HideAttributes();
 
-            dgv.Rows[0].Selected = false;
+            if (dgv.Rows.Count > 0)
+            {
+                dgv.Rows[0].Selected = false;
+            }
+            
             dgv.Columns["Naziv_oglasa"].Width = 130;
             dgv.Columns["Cijena"].Width = 65;
         }

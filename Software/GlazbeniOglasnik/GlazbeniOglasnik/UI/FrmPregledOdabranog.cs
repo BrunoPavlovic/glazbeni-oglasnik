@@ -104,7 +104,13 @@ namespace GlazbeniOglasnik.UI
 
         private void RemoveZanimljivi()
         {
-            throw new NotImplementedException();
+            var zanimljiviOglas = new Zanimljivi_oglasi
+            {
+                Korisnik_id = korisnik.Id,
+                Oglas_id = oglas.Id
+            };
+
+            zanimljiviOglasiServices.RemoveZanimljiviOglas(zanimljiviOglas);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
