@@ -80,6 +80,9 @@ namespace GlazbeniOglasnik.UI
                 {
                     pictureBoxUnchecked.Visible = false;
                     pictureBoxChecked.Visible = false;
+
+                    labelKorime.Enabled = false;
+                    pictureBox2.Enabled = false;
                 }
             }
 

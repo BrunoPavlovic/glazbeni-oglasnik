@@ -27,8 +27,71 @@ namespace GlazbeniOglasnik.UI.Profil
         private void FrmProfilMojiOglasi_Load(object sender, EventArgs e)
         {
             korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            SetData();
+        }
+
+        private void SetData()
+        {
             dgvMojiOglasi.DataSource = oglasServices.GetOglasForKorisnik(korisnik.Id);
             new ManageDataGridView(dgvMojiOglasi);
+            CheckData();
+        }
+
+        private void CheckData()
+        {
+            if (dgvMojiOglasi.Rows.Count == 0)
+            {
+                SetVisibility();
+            }
+        }
+
+        private void SetVisibility()
+        {
+            dgvMojiOglasi.Visible = false;
+            btnObrisiOglas.Visible = false;
+            btnUrediOglas.Visible = false;
+            btnPregledOdabranog.Visible = false;
+
+            labelObavijest.Visible = true;
+        }
+
+        private void btnObrisiOglas_Click(object sender, EventArgs e)
+        {
+            var oglas = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
+            if (oglas != null)
+            {
+                RemoveMyOglas(oglas);
+            }
+            else
+            {
+                MessageBox.Show("Niste odabrali oglas za brisanje!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void RemoveMyOglas(Oglas oglas)
+        {
+            oglasServices.RemoveOglas(oglas);
+            SetData();
+        }
+
+        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        {
+            if (dgvMojiOglasi.CurrentRow != null)
+            {
+                Oglas odabrani = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
+                if (odabrani != null)
+                {
+                    odabrani.Broj_pregleda = odabrani.Broj_pregleda + 1;
+                    oglasServices.UpdateOglasView(odabrani);
+                }
+
+                FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
+                frmPregledOdabranog.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
