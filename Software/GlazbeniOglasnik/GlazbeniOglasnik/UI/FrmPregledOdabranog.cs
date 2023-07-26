@@ -116,7 +116,10 @@ namespace GlazbeniOglasnik.UI
             btnBack.Enabled = false;
 
             korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
-            CheckZanimljivi(korisnik);
+            if (korisnik != null)
+            {
+                CheckZanimljivi(korisnik);
+            }
         }
 
         private void FillDetail()

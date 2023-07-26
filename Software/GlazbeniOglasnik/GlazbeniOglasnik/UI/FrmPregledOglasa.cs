@@ -30,7 +30,7 @@ namespace GlazbeniOglasnik.UI
             new ManageDataGridView(dgvOglasi);
 
             dgvOglasi.Visible = true;
-            cmbSortiraj.SelectedIndex = 0;
+            cmbSortiraj.SelectedIndex = 1;
             cmbKategorija.SelectedIndex = 0;
         }
 
@@ -125,17 +125,17 @@ namespace GlazbeniOglasnik.UI
                 isEverythingSelected = true;
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
+        private void pbSearch_Click(object sender, EventArgs e)
         {
             dgvOglasi.DataSource = oglasServices.SearchOglas(txtSearch.Text);
 
             cmbKategorija.SelectedIndex = 0;
-            cmbSortiraj.SelectedIndex = 0;
+            cmbSortiraj.SelectedIndex = 1;
 
             if (dgvOglasi.Rows.Count == 0)
             {
                 txtSearch.Text = "";
-                MessageBox.Show("Ne postoji oglas koji sadrži pretraženu frazu!","Upozorenje",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ne postoji oglas koji sadrži pretraženi pojam!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

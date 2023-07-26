@@ -27,6 +27,7 @@ namespace DataAccessLayer.Repositories
             var query = from e in Entities
                         .Include("Korisnik")
                         where e.Id == oglasId
+                        orderby e.Datum_objave descending
                         select e;
 
             return query;
