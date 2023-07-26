@@ -103,6 +103,7 @@ namespace GlazbeniOglasnik
         {
             if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
             {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli kreirati oglas", "Kreiranje oglasa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmLogin frmLogin = new FrmLogin(this);
                 frmLogin.Show();
 
@@ -117,8 +118,19 @@ namespace GlazbeniOglasnik
 
         private void btnProfil_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new UI.FrmProfil(), sender, false);
-            title.Text = "Profil";
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
+            {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli pristupiti profilu","Profil",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                FrmLogin frmLogin = new FrmLogin(this);
+                frmLogin.Show();
+
+                this.Hide();
+            }
+            else
+            {
+                LoadAnotherForm(new UI.FrmProfil(), sender, false);
+                title.Text = "Profil";
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
