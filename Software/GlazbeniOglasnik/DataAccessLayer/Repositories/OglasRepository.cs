@@ -22,6 +22,16 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Oglas> GetOglasById(int oglasId)
+        {
+            var query = from e in Entities
+                        .Include("Korisnik")
+                        where e.Id == oglasId
+                        select e;
+
+            return query;
+        }
+
         public IQueryable<Oglas> GetMostWantedOglas()
         {
             var query = from e in Entities

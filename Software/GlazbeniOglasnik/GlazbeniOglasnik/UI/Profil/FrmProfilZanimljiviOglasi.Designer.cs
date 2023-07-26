@@ -29,23 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProfilZanimljiviOglasi));
-            this.dgvZanimljivi = new System.Windows.Forms.DataGridView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelOglasi = new System.Windows.Forms.Label();
             this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.btnObrisiSliku = new System.Windows.Forms.Button();
+            this.dgvZanimljivi = new System.Windows.Forms.DataGridView();
+            this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanimljivi)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgvZanimljivi
-            // 
-            this.dgvZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dgvZanimljivi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvZanimljivi.Location = new System.Drawing.Point(17, 76);
-            this.dgvZanimljivi.Name = "dgvZanimljivi";
-            this.dgvZanimljivi.RowHeadersWidth = 51;
-            this.dgvZanimljivi.RowTemplate.Height = 24;
-            this.dgvZanimljivi.Size = new System.Drawing.Size(771, 292);
-            this.dgvZanimljivi.TabIndex = 8;
             // 
             // labelOglasi
             // 
@@ -89,18 +82,71 @@
             this.btnObrisiSliku.Text = "Ukloni sa popisa";
             this.btnObrisiSliku.UseVisualStyleBackColor = false;
             // 
+            // dgvZanimljivi
+            // 
+            this.dgvZanimljivi.AllowUserToAddRows = false;
+            this.dgvZanimljivi.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvZanimljivi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvZanimljivi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
+            this.dgvZanimljivi.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZanimljivi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvZanimljivi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZanimljivi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SlikeOglasa});
+            this.dgvZanimljivi.EnableHeadersVisualStyles = false;
+            this.dgvZanimljivi.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
+            this.dgvZanimljivi.Location = new System.Drawing.Point(12, 78);
+            this.dgvZanimljivi.MultiSelect = false;
+            this.dgvZanimljivi.Name = "dgvZanimljivi";
+            this.dgvZanimljivi.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvZanimljivi.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvZanimljivi.RowHeadersVisible = false;
+            this.dgvZanimljivi.RowHeadersWidth = 51;
+            this.dgvZanimljivi.RowTemplate.Height = 50;
+            this.dgvZanimljivi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvZanimljivi.Size = new System.Drawing.Size(776, 294);
+            this.dgvZanimljivi.TabIndex = 25;
+            // 
+            // SlikeOglasa
+            // 
+            this.SlikeOglasa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SlikeOglasa.HeaderText = "Slika oglasa";
+            this.SlikeOglasa.Image = ((System.Drawing.Image)(resources.GetObject("SlikeOglasa.Image")));
+            this.SlikeOglasa.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.SlikeOglasa.MinimumWidth = 6;
+            this.SlikeOglasa.Name = "SlikeOglasa";
+            this.SlikeOglasa.ReadOnly = true;
+            this.SlikeOglasa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // FrmProfilZanimljiviOglasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvZanimljivi);
             this.Controls.Add(this.btnObrisiSliku);
             this.Controls.Add(this.btnPregledOdabranog);
-            this.Controls.Add(this.dgvZanimljivi);
             this.Controls.Add(this.labelOglasi);
             this.Name = "FrmProfilZanimljiviOglasi";
             this.Text = "FrmProfilZanimljiviOglasi";
+            this.Load += new System.EventHandler(this.FrmProfilZanimljiviOglasi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanimljivi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,10 +154,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgvZanimljivi;
         private System.Windows.Forms.Label labelOglasi;
         private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.Button btnObrisiSliku;
+        private System.Windows.Forms.DataGridView dgvZanimljivi;
+        private System.Windows.Forms.DataGridViewImageColumn SlikeOglasa;
     }
 }

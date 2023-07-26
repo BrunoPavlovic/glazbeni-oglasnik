@@ -19,6 +19,15 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public Oglas GetOglasById(int id)
+        {
+            using (var repo = new OglasRepository())
+            {
+                Oglas oglas = repo.GetOglasById(id).FirstOrDefault();
+                return oglas;
+            }
+        }
+
         public List<Oglas> GetMostWantedOglas()
         {
             using (var repo = new OglasRepository())
