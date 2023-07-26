@@ -138,8 +138,11 @@
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.labelKorime);
             this.Controls.Add(this.pictureBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmProfilPodaci";
-            this.Text = "FrmProfilPodaci";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Podaci o prodavatelju";
             this.Load += new System.EventHandler(this.FrmProfilPodaci_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

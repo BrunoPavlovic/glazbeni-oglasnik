@@ -235,6 +235,7 @@
             // 
             this.labelKorime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelKorime.AutoSize = true;
+            this.labelKorime.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelKorime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKorime.ForeColor = System.Drawing.Color.White;
             this.labelKorime.Location = new System.Drawing.Point(584, 567);
@@ -242,16 +243,19 @@
             this.labelKorime.Size = new System.Drawing.Size(97, 29);
             this.labelKorime.TabIndex = 25;
             this.labelKorime.Text = "Korime";
+            this.labelKorime.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(537, 567);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 41);
             this.pictureBox2.TabIndex = 24;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // btnNext
             // 

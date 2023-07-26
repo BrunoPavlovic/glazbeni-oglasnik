@@ -1,6 +1,7 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
 using GlazbeniOglasnik.Helpers;
+using GlazbeniOglasnik.UI.Profil;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace GlazbeniOglasnik.UI
     {
         public Oglas oglas;
         public SlikaServices slikaServices = new SlikaServices();
+        public KorisnikServices korisnikServices = new KorisnikServices();
         public OglasServices oglasServices = new OglasServices();
         public ZanimljiviOglasiServices zanimljiviOglasiServices = new ZanimljiviOglasiServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
@@ -210,6 +212,13 @@ namespace GlazbeniOglasnik.UI
             btnNext.Enabled = true;
             CheckIfFirst();
             ShowPicture();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var korisnikProdavatelj = korisnikServices.GetKorisnikByUsername(labelKorime.Text);
+            FrmProfilPodaci frmProfilPodaci = new FrmProfilPodaci(korisnikProdavatelj);
+            frmProfilPodaci.ShowDialog();
         }
     }
 }

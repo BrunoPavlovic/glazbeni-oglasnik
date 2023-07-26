@@ -1,4 +1,5 @@
-﻿using GlazbeniOglasnik.Helpers;
+﻿using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,20 +15,30 @@ namespace GlazbeniOglasnik.UI.Profil
     public partial class FrmProfilPodaci : Form
     {
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+        public Korisnik korisnik = new Korisnik();
 
         public FrmProfilPodaci()
         {
             InitializeComponent();
+            korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+        }
+
+        public FrmProfilPodaci(Korisnik korisnikProdavatelj)
+        {
+            InitializeComponent();
+            korisnik = korisnikProdavatelj;
+
+            btnUrediProfil.Visible = false;
+            btnPromijeniLozinku.Visible = false;
         }
 
         private void FrmProfilPodaci_Load(object sender, EventArgs e)
         {
-            FillDetail();
+            FillDetail(korisnik);
         }
 
-        private void FillDetail()
+        private void FillDetail(Korisnik korisnik)
         {
-            var korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
 
             labelKorime.Text = korisnik.Korime;
             labelIme.Text = korisnik.Ime;
