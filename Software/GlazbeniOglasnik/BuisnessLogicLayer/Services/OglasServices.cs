@@ -46,6 +46,15 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public List<Oglas> GetOglasForKorisnik(int id) 
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> oglasi = repo.GetOglasForKorisnik(id).ToList();
+                return oglasi;
+            }
+        }
+
         public bool AddOglas(Oglas oglas)
         {
             bool isSuccesful = false;

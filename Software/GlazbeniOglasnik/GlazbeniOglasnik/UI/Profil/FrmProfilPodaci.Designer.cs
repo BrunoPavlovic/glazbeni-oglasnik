@@ -85,7 +85,7 @@
             this.labelPrezime.AutoSize = true;
             this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelPrezime.ForeColor = System.Drawing.Color.White;
-            this.labelPrezime.Location = new System.Drawing.Point(264, 224);
+            this.labelPrezime.Location = new System.Drawing.Point(291, 220);
             this.labelPrezime.Name = "labelPrezime";
             this.labelPrezime.Size = new System.Drawing.Size(83, 25);
             this.labelPrezime.TabIndex = 13;
@@ -109,7 +109,7 @@
             this.labelKorime.AutoSize = true;
             this.labelKorime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKorime.ForeColor = System.Drawing.Color.White;
-            this.labelKorime.Location = new System.Drawing.Point(250, 165);
+            this.labelKorime.Location = new System.Drawing.Point(277, 165);
             this.labelKorime.Name = "labelKorime";
             this.labelKorime.Size = new System.Drawing.Size(97, 29);
             this.labelKorime.TabIndex = 11;

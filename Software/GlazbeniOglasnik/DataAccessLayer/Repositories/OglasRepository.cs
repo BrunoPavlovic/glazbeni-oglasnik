@@ -85,6 +85,16 @@ namespace DataAccessLayer.Repositories
             }
         }
 
+        public IQueryable<Oglas> GetOglasForKorisnik(int id)
+        {
+            var query = from e in Entities
+                        .Include("Korisnik")
+                        where e.Korisnik.Id == id
+                        select e;
+
+            return query;
+        }
+
         public override int Update(Oglas entity, bool saveChanges = true)
         {
             var oglas = Entities.SingleOrDefault(o => o.Id == entity.Id);
