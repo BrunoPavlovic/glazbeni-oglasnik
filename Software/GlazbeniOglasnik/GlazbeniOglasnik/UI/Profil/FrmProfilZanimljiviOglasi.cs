@@ -86,7 +86,12 @@ namespace GlazbeniOglasnik.UI.Profil
             zanimljiviOglasiServices.RemoveZanimljiviOglas(zanimljiviOglas);
 
             MessageBox.Show("Uspješno ste uklonili zanimljivi oglas!", "Brisanje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
+
+            RefreshZanimljivi();
+        }
+
+        private void RefreshZanimljivi()
+        {
             oglasi.Clear();
             dgvZanimljivi.DataSource = null;
 
@@ -106,6 +111,8 @@ namespace GlazbeniOglasnik.UI.Profil
 
                 FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
                 frmPregledOdabranog.ShowDialog();
+
+                RefreshZanimljivi();
             }
             else
             {
