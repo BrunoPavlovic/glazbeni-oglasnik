@@ -30,6 +30,8 @@ namespace GlazbeniOglasnik.UI.Profil
 
             btnUrediProfil.Visible = false;
             btnPromijeniLozinku.Visible = false;
+            this.Width = 400;
+            this.Height = 400;
         }
 
         private void FrmProfilPodaci_Load(object sender, EventArgs e)

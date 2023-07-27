@@ -141,7 +141,10 @@
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "FrmProfilPodaci";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Podaci o prodavatelju";
             this.Load += new System.EventHandler(this.FrmProfilPodaci_Load);
