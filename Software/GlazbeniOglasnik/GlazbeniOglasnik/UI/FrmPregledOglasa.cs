@@ -1,5 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace GlazbeniOglasnik.UI
     {
         public OglasServices oglasServices = new OglasServices();
         public SlikaServices slikaServices = new SlikaServices();
+        public PictureLoader pictureLoader = new PictureLoader();
         public bool isEverythingSelected = false;
 
         public FrmPregledOglasa()
@@ -32,40 +34,6 @@ namespace GlazbeniOglasnik.UI
             dgvOglasi.Visible = true;
             cmbSortiraj.SelectedIndex = 1;
             cmbKategorija.SelectedIndex = 0;
-        }
-
-        private void LoadPictures(List<Oglas> oglasi)
-        {
-            int brojac = -1;
-            try
-            {
-                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
-                foreach (var item in oglasi)
-                {
-                    brojac++;
-                    if (slikeOglasId.Contains(item.Id))
-                    {
-                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
-                        if (slikeOglasa.Count > 0)
-                        {
-                            Slike slika = slikeOglasa[0];
-                            byte[] imageBytes = slika.Slika;
-
-                            Image image;
-                            using (MemoryStream ms = new MemoryStream(imageBytes))
-                            {
-                                image = Image.FromStream(ms);
-                            }
-
-                            dgvOglasi.Rows[brojac].Cells[0].Value = image;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
@@ -97,7 +65,7 @@ namespace GlazbeniOglasnik.UI
 
         private void dgvOglasi_VisibleChanged(object sender, EventArgs e)
         {
-            LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+            pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
         }
 
         private void cmbSortiraj_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,7 +76,7 @@ namespace GlazbeniOglasnik.UI
 
                 dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
                 new ManageDataGridView(dgvOglasi);
-                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
             }
         }
 
@@ -119,7 +87,7 @@ namespace GlazbeniOglasnik.UI
                 txtSearch.Text = "";
                 dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
                 new ManageDataGridView(dgvOglasi);
-                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
             }
             else
                 isEverythingSelected = true;
@@ -140,7 +108,7 @@ namespace GlazbeniOglasnik.UI
             else
             {
                 new ManageDataGridView(dgvOglasi);
-                LoadPictures(dgvOglasi.DataSource as List<Oglas>);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
             }
         }
     }

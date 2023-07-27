@@ -143,6 +143,8 @@
             this.dgvMojiOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMojiOglasi.Size = new System.Drawing.Size(776, 294);
             this.dgvMojiOglasi.TabIndex = 24;
+            this.dgvMojiOglasi.Visible = false;
+            this.dgvMojiOglasi.VisibleChanged += new System.EventHandler(this.dgvMojiOglasi_VisibleChanged);
             // 
             // SlikeOglasa
             // 

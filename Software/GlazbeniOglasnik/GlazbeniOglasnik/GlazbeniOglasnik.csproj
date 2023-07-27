@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Helpers\InputValidator.cs" />
     <Compile Include="Helpers\LozinkaHash.cs" />
+    <Compile Include="Helpers\PictureLoader.cs" />
     <Compile Include="Helpers\PrijavljeniKorisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -17,6 +17,7 @@ namespace GlazbeniOglasnik.UI.Profil
     {
         public OglasServices oglasServices = new OglasServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+        public PictureLoader pictureLoader = new PictureLoader();
         public Korisnik korisnik = new Korisnik();
 
         public FrmProfilMojiOglasi()
@@ -42,12 +43,14 @@ namespace GlazbeniOglasnik.UI.Profil
             if (dgvMojiOglasi.Rows.Count == 0)
             {
                 SetVisibility();
+                return;
             }
+
+            dgvMojiOglasi.Visible = true;
         }
 
         private void SetVisibility()
         {
-            dgvMojiOglasi.Visible = false;
             btnObrisiOglas.Visible = false;
             btnUrediOglas.Visible = false;
             btnPregledOdabranog.Visible = false;
@@ -97,11 +100,19 @@ namespace GlazbeniOglasnik.UI.Profil
 
                 FrmNoviOglas frmNovi = new FrmNoviOglas(odabrani);
                 frmNovi.ShowDialog();
+
+                dgvMojiOglasi.Visible = false;
+                SetData();
             }
             else
             {
                 MessageBox.Show("Odaberite oglas za uređivanje!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvMojiOglasi_VisibleChanged(object sender, EventArgs e)
+        {
+            pictureLoader.LoadPictures(dgvMojiOglasi.DataSource as List<Oglas>, dgvMojiOglasi);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace GlazbeniOglasnik.UI.Profil
         public ZanimljiviOglasiServices zanimljiviOglasiServices = new ZanimljiviOglasiServices();
         public OglasServices oglasServices = new OglasServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+        public PictureLoader pictureLoader = new PictureLoader();
         public Korisnik korisnik = new Korisnik();
         public List<Oglas> oglasi = new List<Oglas>();
 
@@ -31,6 +32,8 @@ namespace GlazbeniOglasnik.UI.Profil
         {
             korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
             ShowZanimljivi(korisnik.Id);
+
+            dgvZanimljivi.Visible = true;
         }
 
         private void ShowZanimljivi(int korisnikId)
@@ -56,7 +59,6 @@ namespace GlazbeniOglasnik.UI.Profil
 
         private void SetVisibility()
         {
-            dgvZanimljivi.Visible = false;
             btnObrisiZanimljivi.Visible = false;
             btnPregledOdabranog.Visible = false;
             labelObavijest.Visible = true;
@@ -96,6 +98,7 @@ namespace GlazbeniOglasnik.UI.Profil
             dgvZanimljivi.DataSource = null;
 
             ShowZanimljivi(korisnik.Id);
+            pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
         }
 
         private void btnPregledOdabranog_Click(object sender, EventArgs e)
@@ -118,6 +121,11 @@ namespace GlazbeniOglasnik.UI.Profil
             {
                 MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvZanimljivi_VisibleChanged(object sender, EventArgs e)
+        {
+            pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
         }
     }
 }
