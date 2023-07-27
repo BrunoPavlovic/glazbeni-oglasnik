@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,12 +20,22 @@ namespace GlazbeniOglasnik.UI
     {
         public SlikaServices slikaServices = new SlikaServices();
         public OglasServices oglasServices = new OglasServices();
-        public int brojac = 0;
         public List<byte[]> slike = new List<byte[]>();
+        public int brojac = 0;
+
+        public Oglas oglasZaUredivanje = new Oglas();
+        public bool isUpdate = false;
 
         public FrmNoviOglas()
         {
             InitializeComponent();
+        }
+
+        public FrmNoviOglas(Oglas odabrani)
+        {
+            InitializeComponent();
+            this.oglasZaUredivanje = odabrani;
+            isUpdate = true;
         }
 
         private void btnSlika_Click(object sender, EventArgs e)
@@ -151,11 +162,101 @@ namespace GlazbeniOglasnik.UI
             bool isValid = ValidateInput(txtNaziv.Text, txtCijena.Text, txtLokacija.Text, cmbKategorija.Text);
             if (isValid)
             {
-                SaveOglas();
+                if (isUpdate)
+                {
+                    UpdateOglas();   
+                }
+                else
+                {
+                    SaveOglas();
+                }
             }
             else
             {
                 MessageBox.Show("Unesite ispravne podatke!","Upozorenje",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void UpdateOglas()
+        {
+            oglasZaUredivanje.Naziv_oglasa = txtNaziv.Text;
+            oglasZaUredivanje.Opis = richTextOpis.Text;
+            oglasZaUredivanje.Cijena = Convert.ToDecimal(txtCijena.Text);
+            oglasZaUredivanje.Lokacija = txtLokacija.Text;
+            oglasZaUredivanje.Kategorija = cmbKategorija.SelectedItem.ToString();
+
+            oglasServices.UpdateOglas(oglasZaUredivanje);
+            UpdatePictures();
+
+            MessageBox.Show("Uspješno ste uredili oglas!", "Obavijest", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void UpdatePictures()
+        {
+            var slikeOglasa = slikaServices.GetSlikeForOglas(oglasZaUredivanje.Id);
+
+            UpdateRemovePictures(slikeOglasa);
+            UpdateSavePictures(slikeOglasa);
+        }
+
+        private void UpdateSavePictures(List<Slike> slikeOglasa)
+        {
+            MD5 md5 = MD5.Create();
+
+            foreach (var item in slike)
+            {
+                bool postoji = false;
+
+                foreach (var slikaOglasa in slikeOglasa)
+                {
+                    byte[] hashOglasa = md5.ComputeHash(slikaOglasa.Slika);
+                    byte[] hashSlike = md5.ComputeHash(item);
+
+                    if (Enumerable.SequenceEqual(hashOglasa, hashSlike))
+                    {
+                        postoji = true;
+                        break;
+                    }
+                }
+
+                if (!postoji)
+                {
+                    Slike novaSlika = new Slike
+                    {
+                        Oglas_id = oglasZaUredivanje.Id,
+                        Slika = item
+                    };
+
+                    slikaServices.AddSlika(novaSlika);
+                }
+            }
+        }
+
+        private void UpdateRemovePictures(List<Slike> slikeOglasa)
+        {
+            MD5 md5 = MD5.Create();
+
+            foreach (var slikaOglasa in slikeOglasa)
+            {
+                bool postoji = false;
+
+                foreach (var item in slike)
+                {
+                    byte[] hashOglasa = md5.ComputeHash(slikaOglasa.Slika);
+                    byte[] hashSlike = md5.ComputeHash(item);
+
+                    if (Enumerable.SequenceEqual(hashOglasa, hashSlike))
+                    {
+                        postoji = true;
+                        break; 
+                    }
+                }
+
+                if (!postoji)
+                {
+                    slikaServices.RemoveSlika(slikaOglasa);
+                }
             }
         }
 
@@ -178,8 +279,11 @@ namespace GlazbeniOglasnik.UI
 
                 oglasServices.AddOglas(oglas);
                 SavePictures();
-                CleanForm();
 
+                MessageBox.Show("Uspješno kreiran oglas!", "Novi oglas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+                CleanForm();
             }
             catch
             {
@@ -350,6 +454,70 @@ namespace GlazbeniOglasnik.UI
             {
                 errorProvider.SetError(cmbKategorija, null);
                 correctProvider.SetError(cmbKategorija, "Ispravno!");
+            }
+        }
+
+        private void FrmNoviOglas_Load(object sender, EventArgs e)
+        {
+            if (isUpdate)
+            {
+                FillForm();
+            }
+        }
+
+        private void FillForm()
+        {
+            txtNaziv.Text = oglasZaUredivanje.Naziv_oglasa;
+            txtCijena.Text = oglasZaUredivanje.Cijena.ToString();
+            txtLokacija.Text = oglasZaUredivanje.Lokacija;
+            cmbKategorija.Text = oglasZaUredivanje.Kategorija;
+            richTextOpis.Text = oglasZaUredivanje.Opis;
+
+            btnOdbaci.Visible = false;
+            btnSpremi.Text = "Ažuriraj";
+            this.Text = oglasZaUredivanje.Naziv_oglasa;
+
+            LoadPicturesForOglas();
+        }
+
+        private void LoadPicturesForOglas()
+        {
+            try
+            {
+                var slikeOglasa = slikaServices.GetSlikeForOglas(oglasZaUredivanje.Id);
+
+                Slike slika = slikeOglasa[0];
+                byte[] imageBytes = slika.Slika;
+
+                Image image;
+                using (MemoryStream ms = new MemoryStream(imageBytes))
+                {
+                    image = Image.FromStream(ms);
+                }
+
+                pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
+                pbOglas.Image = image;
+
+                CheckPictures(slikeOglasa);
+            }
+            catch (Exception)
+            {
+                btnBack.Enabled = false;
+                btnNext.Enabled = false;
+            }
+        }
+
+        private void CheckPictures(List<Slike> slikeOglasa)
+        {
+            if (slikeOglasa.Count == 1)
+                btnNext.Enabled = false;
+            else
+            {
+                btnNext.Enabled = true;
+                foreach (var item in slikeOglasa)
+                {
+                    slike.Add(item.Slika);
+                }
             }
         }
     }

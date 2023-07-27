@@ -79,11 +79,6 @@ namespace GlazbeniOglasnik.UI.Profil
             if (dgvMojiOglasi.CurrentRow != null)
             {
                 Oglas odabrani = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
-                if (odabrani != null)
-                {
-                    odabrani.Broj_pregleda = odabrani.Broj_pregleda + 1;
-                    oglasServices.UpdateOglasView(odabrani);
-                }
 
                 FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
                 frmPregledOdabranog.ShowDialog();
@@ -91,6 +86,21 @@ namespace GlazbeniOglasnik.UI.Profil
             else
             {
                 MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnUrediOglas_Click(object sender, EventArgs e)
+        {
+            if (dgvMojiOglasi.CurrentRow != null)
+            {
+                Oglas odabrani = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
+
+                FrmNoviOglas frmNovi = new FrmNoviOglas(odabrani);
+                frmNovi.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Odaberite oglas za uređivanje!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
