@@ -20,6 +20,8 @@ namespace GlazbeniOglasnik.UI
     {
         public SlikaServices slikaServices = new SlikaServices();
         public OglasServices oglasServices = new OglasServices();
+        public InputValidator inputValidator = new InputValidator();
+        public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public List<byte[]> slike = new List<byte[]>();
         public int brojac = 0;
 
@@ -274,7 +276,7 @@ namespace GlazbeniOglasnik.UI
                     Datum_objave = DateTime.Now,
                     Prodano = 0,
                     Broj_pregleda = 0,
-                    Korisnik_id = 1
+                    Korisnik_id = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika().Id
                 };
 
                 oglasServices.AddOglas(oglas);
@@ -293,47 +295,15 @@ namespace GlazbeniOglasnik.UI
 
         private bool ValidateInput(string naziv, string cijena, string lokacija, string kategorija)
         {
-            if (ValidateNaziv(naziv) && ValidateCijena(cijena) && ValidateLokacija(lokacija) && ValidateKategorija(kategorija))
+            if (inputValidator.ValidateNaziv(naziv) && 
+                inputValidator.ValidateCijena(cijena) &&
+                inputValidator.ValidateLokacija(lokacija) &&
+                inputValidator.ValidateKategorija(kategorija))
             {
                 return true;
             }
 
             return false;
-        }
-
-        private bool ValidateKategorija(string kategorija)
-        {
-            if (string.IsNullOrEmpty(kategorija))
-                return false;
-
-            return true;
-        }
-
-        private bool ValidateLokacija(string lokacija)
-        {
-            if (string.IsNullOrEmpty(lokacija) || lokacija.Length>50)
-                return false;
-
-            return true;
-        }
-
-        private bool ValidateCijena(string cijena)
-        {
-            if (!decimal.TryParse(cijena, out decimal cijenaParsed))
-                return false;
-
-            if (cijenaParsed < 0)
-                return false;
-
-            return true;
-        }
-
-        private bool ValidateNaziv(string naziv)
-        {
-            if (string.IsNullOrEmpty(naziv) || naziv.Length>100)
-                return false;
-
-            return true;
         }
 
         private void SavePictures()
@@ -399,7 +369,7 @@ namespace GlazbeniOglasnik.UI
 
         private void txtNaziv_Validating(object sender, CancelEventArgs e)
         {
-            bool valid = ValidateNaziv(txtNaziv.Text);
+            bool valid = inputValidator.ValidateNaziv(txtNaziv.Text);
             if (!valid)
             {
                 errorProvider.SetError(txtNaziv, "Naziv oglasa je obavezan i broj znakova mora biti manji ili jednak 100!");
@@ -414,7 +384,7 @@ namespace GlazbeniOglasnik.UI
 
         private void txtCijena_Validating(object sender, CancelEventArgs e)
         {
-            bool valid = ValidateCijena(txtCijena.Text);
+            bool valid = inputValidator.ValidateCijena(txtCijena.Text);
             if (!valid)
             {
                 errorProvider.SetError(txtCijena, "Cijena oglasa je obavezna , mora biti pozitivan broj te u slučaju decimala sa zarezom!");
@@ -429,7 +399,7 @@ namespace GlazbeniOglasnik.UI
 
         private void txtLokacija_Validating(object sender, CancelEventArgs e)
         {
-            bool valid = ValidateLokacija(txtLokacija.Text);
+            bool valid = inputValidator.ValidateLokacija(txtLokacija.Text);
             if (!valid)
             {
                 errorProvider.SetError(txtLokacija, "Lokacija je obavezna i smije sadržavati do 50 znakova");
@@ -444,7 +414,7 @@ namespace GlazbeniOglasnik.UI
 
         private void cmbKategorija_Validating(object sender, CancelEventArgs e)
         {
-            bool valid = ValidateKategorija(cmbKategorija.Text);
+            bool valid = inputValidator.ValidateKategorija(cmbKategorija.Text);
             if (!valid)
             {
                 errorProvider.SetError(cmbKategorija, "Kategorija je obavezna!");
