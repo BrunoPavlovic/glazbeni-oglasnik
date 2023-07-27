@@ -45,5 +45,14 @@ namespace GlazbeniOglasnik.UI.Profil
             labelPrezime.Text = korisnik.Prezime;
             labelTelefon.Text = korisnik.Broj_telefona;
         }
+
+        private void btnUrediProfil_Click(object sender, EventArgs e)
+        {
+            FrmRegistracija frmRegistracija = new FrmRegistracija(korisnik);
+            frmRegistracija.ShowDialog();
+
+            korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            FillDetail(korisnik);
+        }
     }
 }

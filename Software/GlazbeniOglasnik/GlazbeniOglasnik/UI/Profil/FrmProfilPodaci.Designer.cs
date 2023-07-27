@@ -66,6 +66,7 @@
             this.btnUrediProfil.TabIndex = 15;
             this.btnUrediProfil.Text = "Uredi profil";
             this.btnUrediProfil.UseVisualStyleBackColor = false;
+            this.btnUrediProfil.Click += new System.EventHandler(this.btnUrediProfil_Click);
             // 
             // labelTelefon
             // 
@@ -85,7 +86,7 @@
             this.labelPrezime.AutoSize = true;
             this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelPrezime.ForeColor = System.Drawing.Color.White;
-            this.labelPrezime.Location = new System.Drawing.Point(291, 220);
+            this.labelPrezime.Location = new System.Drawing.Point(291, 224);
             this.labelPrezime.Name = "labelPrezime";
             this.labelPrezime.Size = new System.Drawing.Size(83, 25);
             this.labelPrezime.TabIndex = 13;
