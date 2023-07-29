@@ -43,7 +43,6 @@
             // 
             // labelOglasi
             // 
-            this.labelOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOglasi.AutoSize = true;
             this.labelOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOglasi.ForeColor = System.Drawing.Color.White;
@@ -55,7 +54,7 @@
             // 
             // btnPregledOdabranog
             // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPregledOdabranog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,7 +69,7 @@
             // 
             // btnObrisiZanimljivi
             // 
-            this.btnObrisiZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnObrisiZanimljivi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObrisiZanimljivi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnObrisiZanimljivi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnObrisiZanimljivi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -91,7 +90,7 @@
             this.dgvZanimljivi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvZanimljivi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvZanimljivi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvZanimljivi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dgvZanimljivi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvZanimljivi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;

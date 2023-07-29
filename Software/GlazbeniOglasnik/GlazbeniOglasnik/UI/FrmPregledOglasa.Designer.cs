@@ -47,7 +47,6 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(12, 21);
             this.txtSearch.Name = "txtSearch";
@@ -56,7 +55,7 @@
             // 
             // btnPregledOdabranog
             // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPregledOdabranog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -71,7 +70,6 @@
             // 
             // pbSearch
             // 
-            this.pbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbSearch.Image")));
             this.pbSearch.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbSearch.InitialImage")));
@@ -84,7 +82,7 @@
             // 
             // cmbSortiraj
             // 
-            this.cmbSortiraj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbSortiraj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSortiraj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortiraj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortiraj.FormattingEnabled = true;
@@ -101,7 +99,7 @@
             // 
             // cmbKategorija
             // 
-            this.cmbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbKategorija.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorija.FormattingEnabled = true;
@@ -117,7 +115,7 @@
             // 
             // labelNaziv
             // 
-            this.labelNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelNaziv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNaziv.AutoSize = true;
             this.labelNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelNaziv.ForeColor = System.Drawing.Color.White;
@@ -129,7 +127,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -145,7 +143,10 @@
             this.dgvOglasi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvOglasi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvOglasi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOglasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOglasi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvOglasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;

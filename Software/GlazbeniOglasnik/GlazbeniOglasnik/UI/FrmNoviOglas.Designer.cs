@@ -56,7 +56,6 @@
             // 
             // labelNaziv
             // 
-            this.labelNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelNaziv.AutoSize = true;
             this.labelNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelNaziv.ForeColor = System.Drawing.Color.White;
@@ -68,7 +67,6 @@
             // 
             // labelCijena
             // 
-            this.labelCijena.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCijena.AutoSize = true;
             this.labelCijena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelCijena.ForeColor = System.Drawing.Color.White;
@@ -80,7 +78,6 @@
             // 
             // labelLokacija
             // 
-            this.labelLokacija.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLokacija.AutoSize = true;
             this.labelLokacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelLokacija.ForeColor = System.Drawing.Color.White;
@@ -92,7 +89,6 @@
             // 
             // labelOpis
             // 
-            this.labelOpis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelOpis.AutoSize = true;
             this.labelOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelOpis.ForeColor = System.Drawing.Color.White;
@@ -104,7 +100,7 @@
             // 
             // btnSlika
             // 
-            this.btnSlika.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSlika.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSlika.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnSlika.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSlika.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,7 +117,7 @@
             // 
             // btnOdbaci
             // 
-            this.btnOdbaci.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOdbaci.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOdbaci.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnOdbaci.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnOdbaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,7 +132,7 @@
             // 
             // btnSpremi
             // 
-            this.btnSpremi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSpremi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSpremi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnSpremi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSpremi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,7 +147,6 @@
             // 
             // txtNaziv
             // 
-            this.txtNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNaziv.Location = new System.Drawing.Point(132, 7);
             this.txtNaziv.Name = "txtNaziv";
@@ -161,7 +156,6 @@
             // 
             // txtCijena
             // 
-            this.txtCijena.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCijena.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCijena.Location = new System.Drawing.Point(132, 46);
             this.txtCijena.Name = "txtCijena";
@@ -171,7 +165,6 @@
             // 
             // txtLokacija
             // 
-            this.txtLokacija.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtLokacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLokacija.Location = new System.Drawing.Point(132, 90);
             this.txtLokacija.Name = "txtLokacija";
@@ -181,7 +174,6 @@
             // 
             // richTextOpis
             // 
-            this.richTextOpis.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.richTextOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextOpis.Location = new System.Drawing.Point(132, 184);
             this.richTextOpis.Name = "richTextOpis";
@@ -191,7 +183,7 @@
             // 
             // pbOglas
             // 
-            this.pbOglas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbOglas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbOglas.Image = ((System.Drawing.Image)(resources.GetObject("pbOglas.Image")));
             this.pbOglas.Location = new System.Drawing.Point(676, 7);
             this.pbOglas.Name = "pbOglas";
@@ -202,7 +194,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -214,7 +205,6 @@
             // 
             // cmbKategorija
             // 
-            this.cmbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorija.FormattingEnabled = true;
@@ -229,7 +219,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.btnBack.Enabled = false;
             this.btnBack.FlatAppearance.BorderSize = 0;
@@ -246,7 +236,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.btnNext.Enabled = false;
             this.btnNext.FlatAppearance.BorderSize = 0;
@@ -263,7 +253,7 @@
             // 
             // btnObrisiSliku
             // 
-            this.btnObrisiSliku.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnObrisiSliku.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnObrisiSliku.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
             this.btnObrisiSliku.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnObrisiSliku.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

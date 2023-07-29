@@ -162,6 +162,9 @@ namespace GlazbeniOglasnik.UI
             txtBrojTelefona.Text = korisnik.Broj_telefona;
 
             btnRegistracija.Text = "Ažuriraj";
+            title.Text = "Ažuriraj podatke";
+            this.Text = "Ažuriraj podatke";
+
             txtLozinka.Visible = false;
             label1.Visible = false;
         }
