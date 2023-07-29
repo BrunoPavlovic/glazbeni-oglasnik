@@ -214,6 +214,7 @@
             this.Controls.Add(this.labelKorime);
             this.Controls.Add(this.labelPrezime);
             this.Controls.Add(this.labelNaziv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(510, 500);
             this.MinimizeBox = false;
