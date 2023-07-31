@@ -27,6 +27,8 @@ namespace DataAccessLayer.Repositories
         {
             var query = from e in Entities
                         .Include("Korisnik")
+                        .Include("Korisnik1")
+                        .Include("Slike")
                         where e.Id == oglasId
                         select e;
 
