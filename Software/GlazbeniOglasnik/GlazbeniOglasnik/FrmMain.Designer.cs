@@ -29,9 +29,10 @@ namespace GlazbeniOglasnik
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.pbLogIn = new System.Windows.Forms.PictureBox();
@@ -130,7 +131,7 @@ namespace GlazbeniOglasnik
             this.btnProfil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProfil.FlatAppearance.BorderSize = 0;
             this.btnProfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfil.ForeColor = System.Drawing.Color.White;
             this.btnProfil.Image = ((System.Drawing.Image)(resources.GetObject("btnProfil.Image")));
             this.btnProfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -147,7 +148,7 @@ namespace GlazbeniOglasnik
             this.btnNoviOglas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNoviOglas.FlatAppearance.BorderSize = 0;
             this.btnNoviOglas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNoviOglas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoviOglas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNoviOglas.ForeColor = System.Drawing.Color.White;
             this.btnNoviOglas.Image = ((System.Drawing.Image)(resources.GetObject("btnNoviOglas.Image")));
             this.btnNoviOglas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +165,7 @@ namespace GlazbeniOglasnik
             this.btnPregledOglasa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPregledOglasa.FlatAppearance.BorderSize = 0;
             this.btnPregledOglasa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPregledOglasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPregledOglasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPregledOglasa.ForeColor = System.Drawing.Color.White;
             this.btnPregledOglasa.Image = ((System.Drawing.Image)(resources.GetObject("btnPregledOglasa.Image")));
             this.btnPregledOglasa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -181,7 +182,7 @@ namespace GlazbeniOglasnik
             this.btnPocetna.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPocetna.FlatAppearance.BorderSize = 0;
             this.btnPocetna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPocetna.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPocetna.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPocetna.ForeColor = System.Drawing.Color.White;
             this.btnPocetna.Image = ((System.Drawing.Image)(resources.GetObject("btnPocetna.Image")));
             this.btnPocetna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -207,44 +208,52 @@ namespace GlazbeniOglasnik
             // 
             this.dgvNajtrazeniji.AllowUserToAddRows = false;
             this.dgvNajtrazeniji.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvNajtrazeniji.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvNajtrazeniji.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNajtrazeniji.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNajtrazeniji.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvNajtrazeniji.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvNajtrazeniji.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNajtrazeniji.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SlikeOglasa});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvNajtrazeniji.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNajtrazeniji.EnableHeadersVisualStyles = false;
             this.dgvNajtrazeniji.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(204)))), ((int)(((byte)(197)))));
-            this.dgvNajtrazeniji.Location = new System.Drawing.Point(234, 122);
+            this.dgvNajtrazeniji.Location = new System.Drawing.Point(85, 122);
             this.dgvNajtrazeniji.MultiSelect = false;
             this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
             this.dgvNajtrazeniji.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNajtrazeniji.RowHeadersVisible = false;
             this.dgvNajtrazeniji.RowHeadersWidth = 51;
             this.dgvNajtrazeniji.RowTemplate.Height = 50;
             this.dgvNajtrazeniji.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 400);
+            this.dgvNajtrazeniji.Size = new System.Drawing.Size(1098, 400);
             this.dgvNajtrazeniji.TabIndex = 9;
             this.dgvNajtrazeniji.Visible = false;
             this.dgvNajtrazeniji.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNajtrazeniji_CellDoubleClick);
@@ -289,6 +298,7 @@ namespace GlazbeniOglasnik
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glazbeni oglasnik";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Resize += new System.EventHandler(this.FrmMain_Resize);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).EndInit();

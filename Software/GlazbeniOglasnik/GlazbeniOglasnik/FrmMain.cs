@@ -24,6 +24,7 @@ namespace GlazbeniOglasnik
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public SlikaServices slikaServices = new SlikaServices();
         public PictureLoader pictureLoader = new PictureLoader();
+        private ManageDataGridView manageDataGridView;
 
         public FrmMain()
         {
@@ -138,7 +139,7 @@ namespace GlazbeniOglasnik
         {
             ActivateButton(btnPocetna);
             LoadMostWantedOglas();
-            new ManageDataGridView(dgvNajtrazeniji);
+            manageDataGridView = new ManageDataGridView(dgvNajtrazeniji);
             CheckLoggedUser();
             dgvNajtrazeniji.Visible = true;
         }
@@ -207,6 +208,14 @@ namespace GlazbeniOglasnik
             catch (Exception ex)
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmMain_Resize(object sender, EventArgs e)
+        {
+            if (manageDataGridView != null)
+            {
+                manageDataGridView.CheckFormSize(dgvNajtrazeniji, this.WindowState == FormWindowState.Maximized);
             }
         }
     }

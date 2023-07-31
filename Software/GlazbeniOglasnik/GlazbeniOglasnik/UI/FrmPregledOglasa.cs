@@ -19,6 +19,7 @@ namespace GlazbeniOglasnik.UI
         public OglasServices oglasServices = new OglasServices();
         public SlikaServices slikaServices = new SlikaServices();
         public PictureLoader pictureLoader = new PictureLoader();
+        public ManageDataGridView manageDataGridView;
         public bool isEverythingSelected = false;
 
         public FrmPregledOglasa()
@@ -29,7 +30,9 @@ namespace GlazbeniOglasnik.UI
         private void FrmPregledOglasa_Load(object sender, EventArgs e)
         {
             dgvOglasi.DataSource = oglasServices.GetOglas();
-            new ManageDataGridView(dgvOglasi);
+            manageDataGridView = new ManageDataGridView(dgvOglasi);
+
+            manageDataGridView.CheckFormSize(dgvOglasi, this.WindowState == FormWindowState.Maximized);
 
             dgvOglasi.Visible = true;
             cmbSortiraj.SelectedIndex = 1;
@@ -110,6 +113,11 @@ namespace GlazbeniOglasnik.UI
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmPregledOglasa_Resize(object sender, EventArgs e)
+        {
+            manageDataGridView?.CheckFormSize(dgvOglasi, FrmMain.ActiveForm.WindowState == FormWindowState.Maximized);
         }
     }
 }

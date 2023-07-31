@@ -43,5 +43,19 @@ namespace GlazbeniOglasnik.UI
             dgv.Columns["Opis"].Visible = false;
             dgv.Columns["Broj_pregleda"].Visible = false;
         }
+
+        public void CheckFormSize(DataGridView dgvCheck, bool isWindowMaximized)
+        {
+            if (isWindowMaximized)
+            {
+                dgvCheck.DefaultCellStyle.Font = new System.Drawing.Font(dgvCheck.DefaultCellStyle.Font.FontFamily, 12);
+                dgvCheck.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font(dgvCheck.ColumnHeadersDefaultCellStyle.Font.FontFamily, 13);
+            }
+            else
+            {
+                dgvCheck.DefaultCellStyle.Font = new System.Drawing.Font(dgvCheck.DefaultCellStyle.Font.FontFamily, 10);
+                dgvCheck.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font(dgvCheck.ColumnHeadersDefaultCellStyle.Font.FontFamily, 11);
+            }
+        }
     }
 }
