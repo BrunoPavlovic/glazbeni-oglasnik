@@ -162,7 +162,28 @@ namespace GlazbeniOglasnik
             dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
         }
 
-        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        private void pbLogIn_Click(object sender, EventArgs e)
+        {
+            FrmLogin frmLogin = new FrmLogin(this);
+            frmLogin.Show();
+
+            this.Hide();
+        }
+
+        private void pbLogOut_Click(object sender, EventArgs e)
+        {
+            prijavljeniKorisnik.OdjaviKorisnika();
+            LoadPocetna(btnPocetna);
+            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CheckLoggedUser();
+        }
+
+        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
+        {
+            pictureLoader.LoadPictures(dgvNajtrazeniji.DataSource as List<Oglas>, dgvNajtrazeniji);
+        }
+
+        private void dgvNajtrazeniji_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -187,27 +208,6 @@ namespace GlazbeniOglasnik
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void pbLogIn_Click(object sender, EventArgs e)
-        {
-            FrmLogin frmLogin = new FrmLogin(this);
-            frmLogin.Show();
-
-            this.Hide();
-        }
-
-        private void pbLogOut_Click(object sender, EventArgs e)
-        {
-            prijavljeniKorisnik.OdjaviKorisnika();
-            LoadPocetna(btnPocetna);
-            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CheckLoggedUser();
-        }
-
-        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
-        {
-            pictureLoader.LoadPictures(dgvNajtrazeniji.DataSource as List<Oglas>, dgvNajtrazeniji);
         }
     }
 }

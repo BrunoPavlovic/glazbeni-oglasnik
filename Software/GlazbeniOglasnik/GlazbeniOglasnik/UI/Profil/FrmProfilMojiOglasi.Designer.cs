@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.btnObrisiOglas = new System.Windows.Forms.Button();
             this.btnUrediOglas = new System.Windows.Forms.Button();
             this.dgvMojiOglasi = new System.Windows.Forms.DataGridView();
@@ -52,21 +51,6 @@
             this.label1.Size = new System.Drawing.Size(110, 25);
             this.label1.TabIndex = 12;
             this.label1.Text = "Moji oglasi:";
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(583, 398);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(205, 40);
-            this.btnPregledOdabranog.TabIndex = 14;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
             // 
             // btnObrisiOglas
             // 
@@ -141,9 +125,10 @@
             this.dgvMojiOglasi.RowHeadersWidth = 51;
             this.dgvMojiOglasi.RowTemplate.Height = 50;
             this.dgvMojiOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMojiOglasi.Size = new System.Drawing.Size(776, 294);
+            this.dgvMojiOglasi.Size = new System.Drawing.Size(776, 340);
             this.dgvMojiOglasi.TabIndex = 24;
             this.dgvMojiOglasi.Visible = false;
+            this.dgvMojiOglasi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMojiOglasi_CellDoubleClick);
             this.dgvMojiOglasi.VisibleChanged += new System.EventHandler(this.dgvMojiOglasi_VisibleChanged);
             // 
             // SlikeOglasa
@@ -180,7 +165,6 @@
             this.Controls.Add(this.dgvMojiOglasi);
             this.Controls.Add(this.btnUrediOglas);
             this.Controls.Add(this.btnObrisiOglas);
-            this.Controls.Add(this.btnPregledOdabranog);
             this.Controls.Add(this.label1);
             this.Name = "FrmProfilMojiOglasi";
             this.Text = "FrmProfilMojiOglasi";
@@ -193,7 +177,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.Button btnObrisiOglas;
         private System.Windows.Forms.Button btnUrediOglas;
         private System.Windows.Forms.DataGridView dgvMojiOglasi;

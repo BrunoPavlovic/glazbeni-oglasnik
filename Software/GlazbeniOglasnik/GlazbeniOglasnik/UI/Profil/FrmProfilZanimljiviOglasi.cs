@@ -33,47 +33,49 @@ namespace GlazbeniOglasnik.UI.Profil
             korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
             ShowZanimljivi(korisnik.Id);
 
-            dgvZanimljivi.Visible = true;
+            if (oglasi.Count > 0)
+            {
+                dgvZanimljivi.Visible = true;
+            }
         }
 
         private void ShowZanimljivi(int korisnikId)
         {
             var zanimljivi = zanimljiviOglasiServices.GetZanimljiviOglasiForUser(korisnikId);
-            if (zanimljivi != null)
+            if (zanimljivi.Count > 0)
             {
                 foreach (var item in zanimljivi)
                 {
                     oglasi.Add(oglasServices.GetOglasById(item.Oglas_id));
                 }
 
-                if (oglasi.Count == 0)
-                {
-                    SetVisibility();
-                    return;
-                }
-
                 dgvZanimljivi.DataSource = oglasi;
                 new ManageDataGridView(dgvZanimljivi);
+            }
+            else
+            {
+                SetVisibility();
             }
         }
 
         private void SetVisibility()
         {
             btnObrisiZanimljivi.Visible = false;
-            btnPregledOdabranog.Visible = false;
+            dgvZanimljivi.Visible = false;
             labelObavijest.Visible = true;
         }
 
         private void btnObrisiZanimljivi_Click(object sender, EventArgs e)
         {
-            var oglas = dgvZanimljivi.CurrentRow.DataBoundItem as Oglas;
-            if (oglas != null)
+            if (dgvZanimljivi.CurrentRow.DataBoundItem != null)
             {
+                var oglas = dgvZanimljivi.CurrentRow.DataBoundItem as Oglas;
+
                 RemoveZanimljivi(oglas);
             }
             else
             {
-                MessageBox.Show("Niste odabrali zanimljivi oglas!","Upozorenje",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Niste odabrali zanimljivi oglas!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -98,10 +100,21 @@ namespace GlazbeniOglasnik.UI.Profil
             dgvZanimljivi.DataSource = null;
 
             ShowZanimljivi(korisnik.Id);
-            pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
+            if (oglasi.Count > 0)
+            {
+                pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
+            }
         }
 
-        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        private void dgvZanimljivi_VisibleChanged(object sender, EventArgs e)
+        {
+            if (oglasi.Count > 0)
+            {
+                pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
+            }
+        }
+
+        private void dgvZanimljivi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvZanimljivi.CurrentRow != null)
             {
@@ -121,11 +134,6 @@ namespace GlazbeniOglasnik.UI.Profil
             {
                 MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void dgvZanimljivi_VisibleChanged(object sender, EventArgs e)
-        {
-            pictureLoader.LoadPictures(dgvZanimljivi.DataSource as List<Oglas>, dgvZanimljivi);
         }
     }
 }

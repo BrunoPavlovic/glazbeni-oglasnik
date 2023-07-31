@@ -16,6 +16,7 @@ namespace GlazbeniOglasnik.UI.Profil
     public partial class FrmProfilMojiOglasi : Form
     {
         public OglasServices oglasServices = new OglasServices();
+        public SlikaServices slikaServices = new SlikaServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public PictureLoader pictureLoader = new PictureLoader();
         public Korisnik korisnik = new Korisnik();
@@ -53,7 +54,6 @@ namespace GlazbeniOglasnik.UI.Profil
         {
             btnObrisiOglas.Visible = false;
             btnUrediOglas.Visible = false;
-            btnPregledOdabranog.Visible = false;
 
             labelObavijest.Visible = true;
         }
@@ -63,6 +63,7 @@ namespace GlazbeniOglasnik.UI.Profil
             var oglas = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
             if (oglas != null)
             {
+                RemovePicturesForOglas(oglas.Id);
                 RemoveMyOglas(oglas);
             }
             else
@@ -71,25 +72,21 @@ namespace GlazbeniOglasnik.UI.Profil
             }
         }
 
+        private void RemovePicturesForOglas(int id)
+        {
+            var slikeOglasa = slikaServices.GetSlikeForOglas(id);
+            foreach (var slika in slikeOglasa)
+            {
+                slikaServices.RemoveSlika(slika);
+            }
+        }
+
         private void RemoveMyOglas(Oglas oglas)
         {
             oglasServices.RemoveOglas(oglas);
+
+            dgvMojiOglasi.Visible = false;
             SetData();
-        }
-
-        private void btnPregledOdabranog_Click(object sender, EventArgs e)
-        {
-            if (dgvMojiOglasi.CurrentRow != null)
-            {
-                Oglas odabrani = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
-
-                FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
-                frmPregledOdabranog.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnUrediOglas_Click(object sender, EventArgs e)
@@ -113,6 +110,21 @@ namespace GlazbeniOglasnik.UI.Profil
         private void dgvMojiOglasi_VisibleChanged(object sender, EventArgs e)
         {
             pictureLoader.LoadPictures(dgvMojiOglasi.DataSource as List<Oglas>, dgvMojiOglasi);
+        }
+
+        private void dgvMojiOglasi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvMojiOglasi.CurrentRow != null)
+            {
+                Oglas odabrani = dgvMojiOglasi.CurrentRow.DataBoundItem as Oglas;
+
+                FrmPregledOdabranog frmPregledOdabranog = new FrmPregledOdabranog(odabrani);
+                frmPregledOdabranog.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

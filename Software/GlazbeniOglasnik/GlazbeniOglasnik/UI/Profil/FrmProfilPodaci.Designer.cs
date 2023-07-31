@@ -139,6 +139,7 @@
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.labelKorime);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 400);

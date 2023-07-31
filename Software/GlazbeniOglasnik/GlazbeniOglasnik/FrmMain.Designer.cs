@@ -29,9 +29,9 @@ namespace GlazbeniOglasnik
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.pbLogOut = new System.Windows.Forms.PictureBox();
             this.pbLogIn = new System.Windows.Forms.PictureBox();
@@ -45,7 +45,6 @@ namespace GlazbeniOglasnik
             this.dgvNajtrazeniji = new System.Windows.Forms.DataGridView();
             this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
             this.labelOglasi = new System.Windows.Forms.Label();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogIn)).BeginInit();
@@ -198,7 +197,6 @@ namespace GlazbeniOglasnik
             // 
             this.panelForm.Controls.Add(this.dgvNajtrazeniji);
             this.panelForm.Controls.Add(this.labelOglasi);
-            this.panelForm.Controls.Add(this.btnPregledOdabranog);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelForm.Location = new System.Drawing.Point(0, 127);
             this.panelForm.Name = "panelForm";
@@ -209,22 +207,22 @@ namespace GlazbeniOglasnik
             // 
             this.dgvNajtrazeniji.AllowUserToAddRows = false;
             this.dgvNajtrazeniji.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvNajtrazeniji.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvNajtrazeniji.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvNajtrazeniji.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvNajtrazeniji.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvNajtrazeniji.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvNajtrazeniji.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvNajtrazeniji.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNajtrazeniji.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SlikeOglasa});
@@ -234,14 +232,14 @@ namespace GlazbeniOglasnik
             this.dgvNajtrazeniji.MultiSelect = false;
             this.dgvNajtrazeniji.Name = "dgvNajtrazeniji";
             this.dgvNajtrazeniji.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNajtrazeniji.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvNajtrazeniji.RowHeadersVisible = false;
             this.dgvNajtrazeniji.RowHeadersWidth = 51;
             this.dgvNajtrazeniji.RowTemplate.Height = 50;
@@ -249,6 +247,7 @@ namespace GlazbeniOglasnik
             this.dgvNajtrazeniji.Size = new System.Drawing.Size(794, 400);
             this.dgvNajtrazeniji.TabIndex = 9;
             this.dgvNajtrazeniji.Visible = false;
+            this.dgvNajtrazeniji.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNajtrazeniji_CellDoubleClick);
             this.dgvNajtrazeniji.VisibleChanged += new System.EventHandler(this.dgvNajtrazeniji_VisibleChanged);
             // 
             // SlikeOglasa
@@ -273,21 +272,6 @@ namespace GlazbeniOglasnik
             this.labelOglasi.Size = new System.Drawing.Size(223, 29);
             this.labelOglasi.TabIndex = 6;
             this.labelOglasi.Text = "Najtraženiji oglasi";
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(1031, 483);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(219, 40);
-            this.btnPregledOdabranog.TabIndex = 1;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
             // 
             // FrmMain
             // 
@@ -323,7 +307,6 @@ namespace GlazbeniOglasnik
         private System.Windows.Forms.TableLayoutPanel tablePanelIzbornik;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Panel panelForm;
-        private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.Button btnPocetna;
         private System.Windows.Forms.Button btnProfil;
         private System.Windows.Forms.Button btnNoviOglas;

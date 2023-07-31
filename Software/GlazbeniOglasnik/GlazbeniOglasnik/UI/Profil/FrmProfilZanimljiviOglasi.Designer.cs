@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelOglasi = new System.Windows.Forms.Label();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.btnObrisiZanimljivi = new System.Windows.Forms.Button();
             this.dgvZanimljivi = new System.Windows.Forms.DataGridView();
             this.SlikeOglasa = new System.Windows.Forms.DataGridViewImageColumn();
@@ -52,21 +51,6 @@
             this.labelOglasi.TabIndex = 7;
             this.labelOglasi.Text = "Zanimljivi oglasi:";
             // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(583, 398);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(205, 40);
-            this.btnPregledOdabranog.TabIndex = 9;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
-            // 
             // btnObrisiZanimljivi
             // 
             this.btnObrisiZanimljivi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -76,7 +60,7 @@
             this.btnObrisiZanimljivi.ForeColor = System.Drawing.Color.White;
             this.btnObrisiZanimljivi.Image = ((System.Drawing.Image)(resources.GetObject("btnObrisiZanimljivi.Image")));
             this.btnObrisiZanimljivi.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnObrisiZanimljivi.Location = new System.Drawing.Point(355, 398);
+            this.btnObrisiZanimljivi.Location = new System.Drawing.Point(573, 398);
             this.btnObrisiZanimljivi.Name = "btnObrisiZanimljivi";
             this.btnObrisiZanimljivi.Size = new System.Drawing.Size(215, 40);
             this.btnObrisiZanimljivi.TabIndex = 23;
@@ -125,6 +109,7 @@
             this.dgvZanimljivi.Size = new System.Drawing.Size(776, 294);
             this.dgvZanimljivi.TabIndex = 25;
             this.dgvZanimljivi.Visible = false;
+            this.dgvZanimljivi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZanimljivi_CellDoubleClick);
             this.dgvZanimljivi.VisibleChanged += new System.EventHandler(this.dgvZanimljivi_VisibleChanged);
             // 
             // SlikeOglasa
@@ -160,7 +145,6 @@
             this.Controls.Add(this.labelObavijest);
             this.Controls.Add(this.dgvZanimljivi);
             this.Controls.Add(this.btnObrisiZanimljivi);
-            this.Controls.Add(this.btnPregledOdabranog);
             this.Controls.Add(this.labelOglasi);
             this.Name = "FrmProfilZanimljiviOglasi";
             this.Text = "FrmProfilZanimljiviOglasi";
@@ -173,7 +157,6 @@
 
         #endregion
         private System.Windows.Forms.Label labelOglasi;
-        private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.Button btnObrisiZanimljivi;
         private System.Windows.Forms.DataGridView dgvZanimljivi;
         private System.Windows.Forms.DataGridViewImageColumn SlikeOglasa;
