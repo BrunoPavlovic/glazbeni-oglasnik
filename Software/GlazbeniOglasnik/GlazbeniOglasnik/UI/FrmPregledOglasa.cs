@@ -1,5 +1,6 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,8 @@ namespace GlazbeniOglasnik.UI
     {
         public OglasServices oglasServices = new OglasServices();
         public SlikaServices slikaServices = new SlikaServices();
+        public PictureLoader pictureLoader = new PictureLoader();
+        public bool isEverythingSelected = false;
 
         public FrmPregledOglasa()
         {
@@ -33,41 +36,56 @@ namespace GlazbeniOglasnik.UI
             cmbKategorija.SelectedIndex = 0;
         }
 
-        private void LoadPictures(List<Oglas> oglasi)
+        private void dgvOglasi_VisibleChanged(object sender, EventArgs e)
         {
-            int brojac = -1;
-            try
-            {
-                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
-                foreach (var item in oglasi)
-                {
-                    brojac++;
-                    if (slikeOglasId.Contains(item.Id))
-                    {
-                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
-                        if (slikeOglasa.Count > 0)
-                        {
-                            Slike slika = slikeOglasa[0];
-                            byte[] imageBytes = slika.Slika;
+            pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
+        }
 
-                            Image image;
-                            using (MemoryStream ms = new MemoryStream(imageBytes))
-                            {
-                                image = Image.FromStream(ms);
-                            }
-
-                            dgvOglasi.Rows[brojac].Cells[0].Value = image;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
+        private void cmbSortiraj_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isEverythingSelected)
             {
-                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSearch.Text = "";
+
+                dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
+                new ManageDataGridView(dgvOglasi);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
             }
         }
 
-        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        private void cmbKategorija_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (isEverythingSelected)
+            {
+                txtSearch.Text = "";
+                dgvOglasi.DataSource = oglasServices.FilterOglas(cmbSortiraj.SelectedItem.ToString(), cmbKategorija.SelectedItem.ToString());
+                new ManageDataGridView(dgvOglasi);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
+            }
+            else
+                isEverythingSelected = true;
+        }
+
+        private void pbSearch_Click(object sender, EventArgs e)
+        {
+            dgvOglasi.DataSource = oglasServices.SearchOglas(txtSearch.Text);
+
+            cmbKategorija.SelectedIndex = 0;
+            cmbSortiraj.SelectedIndex = 1;
+
+            if (dgvOglasi.Rows.Count == 0)
+            {
+                txtSearch.Text = "";
+                MessageBox.Show("Ne postoji oglas koji sadrži pretraženi pojam!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                new ManageDataGridView(dgvOglasi);
+                pictureLoader.LoadPictures(dgvOglasi.DataSource as List<Oglas>, dgvOglasi);
+            }
+        }
+
+        private void dgvOglasi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -92,11 +110,6 @@ namespace GlazbeniOglasnik.UI
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void dgvOglasi_VisibleChanged(object sender, EventArgs e)
-        {
-            LoadPictures(dgvOglasi.DataSource as List<Oglas>);
         }
     }
 }

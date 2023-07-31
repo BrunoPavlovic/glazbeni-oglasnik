@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace GlazbeniOglasnik.Helpers
 {
@@ -39,6 +40,41 @@ namespace GlazbeniOglasnik.Helpers
                 return false;
 
             return Regex.IsMatch(name, @"^[a-zA-Z]{1,50}$");
+        }
+
+        public bool ValidateKategorija(string kategorija)
+        {
+            if (string.IsNullOrEmpty(kategorija))
+                return false;
+
+            return true;
+        }
+
+        public bool ValidateLokacija(string lokacija)
+        {
+            if (string.IsNullOrEmpty(lokacija))
+                return false;
+
+            return Regex.IsMatch(lokacija, @"^[a-zA-Z]{1,50}$");
+        }
+
+        public bool ValidateCijena(string cijena)
+        {
+            if (!decimal.TryParse(cijena, out decimal cijenaParsed) || cijena.Contains("."))
+                return false;
+
+            if (cijenaParsed < 0)
+                return false;
+
+            return true;
+        }
+
+        public bool ValidateNaziv(string naziv)
+        {
+            if (string.IsNullOrEmpty(naziv) || naziv.Length > 100)
+                return false;
+
+            return true;
         }
     }
 }

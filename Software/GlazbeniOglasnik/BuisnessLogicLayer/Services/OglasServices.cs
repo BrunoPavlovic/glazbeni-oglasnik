@@ -19,11 +19,47 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public Oglas GetOglasById(int id)
+        {
+            using (var repo = new OglasRepository())
+            {
+                Oglas oglas = repo.GetOglasById(id).FirstOrDefault();
+                return oglas;
+            }
+        }
+
         public List<Oglas> GetMostWantedOglas()
         {
             using (var repo = new OglasRepository())
             {
                 List<Oglas> oglasi = repo.GetMostWantedOglas().ToList();
+                return oglasi;
+            }
+        }
+
+        public List<Oglas> FilterOglas(string filter, string kategorija)
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> filtriraniOglasi = repo.FilterOglas(filter, kategorija).ToList();
+                return filtriraniOglasi;
+            }
+        }
+
+        public List<Oglas> SearchOglas(string nazivOglasa)
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> oglasi = repo.GetOglasByName(nazivOglasa).ToList();
+                return oglasi;
+            }
+        }
+
+        public List<Oglas> GetOglasForKorisnik(int id) 
+        {
+            using (var repo = new OglasRepository())
+            {
+                List<Oglas> oglasi = repo.GetOglasForKorisnik(id).ToList();
                 return oglasi;
             }
         }

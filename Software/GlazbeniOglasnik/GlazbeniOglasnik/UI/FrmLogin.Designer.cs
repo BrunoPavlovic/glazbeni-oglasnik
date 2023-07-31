@@ -175,6 +175,7 @@
             this.Controls.Add(this.title);
             this.Controls.Add(this.txtLozinka);
             this.Controls.Add(this.txtKorime);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1400, 800);

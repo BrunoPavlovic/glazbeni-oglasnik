@@ -22,6 +22,15 @@ namespace DataAccessLayer.Repositories
             return query;
         }
 
+        public IQueryable<Korisnik> GetKorisnikByUsername(string username)
+        {
+              var query = from e in Entities
+                        where e.Korime == username
+                        select e;
+
+            return query;
+        }
+
         public IQueryable<Korisnik> PrijaviKorisnika(string korime, string lozinka)
         {
             var query = from e in Entities

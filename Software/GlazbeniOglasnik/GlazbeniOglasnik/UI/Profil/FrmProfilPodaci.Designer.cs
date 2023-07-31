@@ -66,6 +66,7 @@
             this.btnUrediProfil.TabIndex = 15;
             this.btnUrediProfil.Text = "Uredi profil";
             this.btnUrediProfil.UseVisualStyleBackColor = false;
+            this.btnUrediProfil.Click += new System.EventHandler(this.btnUrediProfil_Click);
             // 
             // labelTelefon
             // 
@@ -85,7 +86,7 @@
             this.labelPrezime.AutoSize = true;
             this.labelPrezime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelPrezime.ForeColor = System.Drawing.Color.White;
-            this.labelPrezime.Location = new System.Drawing.Point(264, 224);
+            this.labelPrezime.Location = new System.Drawing.Point(291, 224);
             this.labelPrezime.Name = "labelPrezime";
             this.labelPrezime.Size = new System.Drawing.Size(83, 25);
             this.labelPrezime.TabIndex = 13;
@@ -109,7 +110,7 @@
             this.labelKorime.AutoSize = true;
             this.labelKorime.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelKorime.ForeColor = System.Drawing.Color.White;
-            this.labelKorime.Location = new System.Drawing.Point(250, 165);
+            this.labelKorime.Location = new System.Drawing.Point(277, 165);
             this.labelKorime.Name = "labelKorime";
             this.labelKorime.Size = new System.Drawing.Size(97, 29);
             this.labelKorime.TabIndex = 11;
@@ -138,8 +139,16 @@
             this.Controls.Add(this.labelIme);
             this.Controls.Add(this.labelKorime);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "FrmProfilPodaci";
-            this.Text = "FrmProfilPodaci";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Podaci o prodavatelju";
+            this.Load += new System.EventHandler(this.FrmProfilPodaci_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

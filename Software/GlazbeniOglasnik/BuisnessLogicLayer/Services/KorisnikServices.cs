@@ -20,6 +20,16 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public Korisnik GetKorisnikByUsername(string username)
+        {
+            using (var repo = new KorisnikRepository())
+            {
+                Korisnik korisnik = repo.GetKorisnikByUsername(username).FirstOrDefault();
+
+                return korisnik;
+            }
+        }
+
         public Korisnik PrijaviKorisnika(string korime, string lozinka)
         {
             using (var repo = new KorisnikRepository())

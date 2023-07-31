@@ -23,6 +23,7 @@ namespace GlazbeniOglasnik
         public OglasServices oglasServices = new OglasServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public SlikaServices slikaServices = new SlikaServices();
+        public PictureLoader pictureLoader = new PictureLoader();
 
         public FrmMain()
         {
@@ -103,6 +104,7 @@ namespace GlazbeniOglasnik
         {
             if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
             {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli kreirati oglas", "Kreiranje oglasa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmLogin frmLogin = new FrmLogin(this);
                 frmLogin.Show();
 
@@ -117,8 +119,19 @@ namespace GlazbeniOglasnik
 
         private void btnProfil_Click(object sender, EventArgs e)
         {
-            LoadAnotherForm(new UI.FrmProfil(), sender, false);
-            title.Text = "Profil";
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() == null)
+            {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli pristupiti profilu","Profil",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                FrmLogin frmLogin = new FrmLogin(this);
+                frmLogin.Show();
+
+                this.Hide();
+            }
+            else
+            {
+                LoadAnotherForm(new UI.FrmProfil(), sender, false);
+                title.Text = "Profil";
+            }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -149,41 +162,28 @@ namespace GlazbeniOglasnik
             dgvNajtrazeniji.DataSource = oglasServices.GetMostWantedOglas();
         }
 
-        private void LoadPicturesForMostWantedOglas(List<Oglas> oglasi)
+        private void pbLogIn_Click(object sender, EventArgs e)
         {
-            int brojac = -1;
-            try
-            {
-                List<int> slikeOglasId = slikaServices.GetSlikaOglasId();
-                foreach (var item in oglasi)
-                {
-                    brojac++;
-                    if (slikeOglasId.Contains(item.Id))
-                    {
-                        var slikeOglasa = slikaServices.GetSlikeForOglas(item.Id);
-                        if (slikeOglasa.Count > 0)
-                        {
-                            Slike slika = slikeOglasa[0];
-                            byte[] imageBytes = slika.Slika;
+            FrmLogin frmLogin = new FrmLogin(this);
+            frmLogin.Show();
 
-                            Image image;
-                            using (MemoryStream ms = new MemoryStream(imageBytes))
-                            {
-                                image = Image.FromStream(ms);
-                            }
-
-                            dgvNajtrazeniji.Rows[brojac].Cells[0].Value = image;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            this.Hide();
         }
 
-        private void btnPregledOdabranog_Click(object sender, EventArgs e)
+        private void pbLogOut_Click(object sender, EventArgs e)
+        {
+            prijavljeniKorisnik.OdjaviKorisnika();
+            LoadPocetna(btnPocetna);
+            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            CheckLoggedUser();
+        }
+
+        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
+        {
+            pictureLoader.LoadPictures(dgvNajtrazeniji.DataSource as List<Oglas>, dgvNajtrazeniji);
+        }
+
+        private void dgvNajtrazeniji_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
@@ -208,27 +208,6 @@ namespace GlazbeniOglasnik
             {
                 MessageBox.Show("Došlo je do pogreške: " + ex.Message, "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void pbLogIn_Click(object sender, EventArgs e)
-        {
-            FrmLogin frmLogin = new FrmLogin(this);
-            frmLogin.Show();
-
-            this.Hide();
-        }
-
-        private void pbLogOut_Click(object sender, EventArgs e)
-        {
-            prijavljeniKorisnik.OdjaviKorisnika();
-            LoadPocetna(btnPocetna);
-            MessageBox.Show("Uspješno ste se odjavili!", "Odjava", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            CheckLoggedUser();
-        }
-
-        private void dgvNajtrazeniji_VisibleChanged(object sender, EventArgs e)
-        {
-            LoadPicturesForMostWantedOglas(dgvNajtrazeniji.DataSource as List<Oglas>);
         }
     }
 }

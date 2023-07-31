@@ -1,5 +1,7 @@
 ﻿using BuisnessLogicLayer.Services;
 using EntitiesLayer.Entities;
+using GlazbeniOglasnik.Helpers;
+using GlazbeniOglasnik.UI.Profil;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,12 @@ namespace GlazbeniOglasnik.UI
     {
         public Oglas oglas;
         public SlikaServices slikaServices = new SlikaServices();
+        public KorisnikServices korisnikServices = new KorisnikServices();
+        public OglasServices oglasServices = new OglasServices();
+        public ZanimljiviOglasiServices zanimljiviOglasiServices = new ZanimljiviOglasiServices();
+        public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
+        public Korisnik korisnik = new Korisnik();
+
         public int brojac = 0;
         public List<byte[]> slike = new List<byte[]>();
 
@@ -29,14 +37,83 @@ namespace GlazbeniOglasnik.UI
 
         private void pictureBoxUnchecked_Click(object sender, EventArgs e)
         {
-            pictureBoxUnchecked.Visible = false;
-            pictureBoxChecked.Visible = true;
+            if (prijavljeniKorisnik.DohvatiPrijavljenogKorisnika() != null)
+            {
+                pictureBoxUnchecked.Visible = false;
+                pictureBoxChecked.Visible = true;
+
+                DodajOglasUZanimljive();
+            }
+            else
+            {
+                MessageBox.Show("Morate biti prijavljeni kako bi mogli označiti oglas kao zanimljivi!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void DodajOglasUZanimljive()
+        {
+                try
+                {
+                    Zanimljivi_oglasi zanimljivi = new Zanimljivi_oglasi
+                    {
+                        Korisnik_id = korisnik.Id,
+                        Oglas_id = oglas.Id
+                    };
+
+                    zanimljiviOglasiServices.AddZanimljiviOglas(zanimljivi);
+
+                    MessageBox.Show("Oglas je označen zanimljivim, popis možete pogledati na stranici profila", "Uspjeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+        }
+
+        private void CheckZanimljivi(Korisnik korisnik)
+        {
+            var korisnikoviOglasi = oglasServices.GetOglasForKorisnik(korisnik.Id);
+
+            foreach (var item in korisnikoviOglasi)
+            {
+                if (item.Id == oglas.Id)
+                {
+                    pictureBoxUnchecked.Visible = false;
+                    pictureBoxChecked.Visible = false;
+
+                    labelKorime.Enabled = false;
+                    pictureBox2.Enabled = false;
+                }
+            }
+
+            var zanimljiviOglasiKorisnika = zanimljiviOglasiServices.GetZanimljiviOglasiForUser(korisnik.Id);
+            foreach (var item in zanimljiviOglasiKorisnika)
+            {
+                if (item.Oglas_id == oglas.Id)
+                {
+                    pictureBoxUnchecked.Visible = false;
+                    pictureBoxChecked.Visible = true;
+                }
+            }
         }
 
         private void pictureBoxChecked_Click(object sender, EventArgs e)
         {
             pictureBoxChecked.Visible = false;
             pictureBoxUnchecked.Visible = true;
+
+            RemoveZanimljivi();
+        }
+
+        private void RemoveZanimljivi()
+        {
+            var zanimljiviOglas = new Zanimljivi_oglasi
+            {
+                Korisnik_id = korisnik.Id,
+                Oglas_id = oglas.Id
+            };
+
+            zanimljiviOglasiServices.RemoveZanimljiviOglas(zanimljiviOglas);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -48,6 +125,12 @@ namespace GlazbeniOglasnik.UI
         {
             FillDetail();
             btnBack.Enabled = false;
+
+            korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            if (korisnik != null)
+            {
+                CheckZanimljivi(korisnik);
+            }
         }
 
         private void FillDetail()
@@ -90,7 +173,7 @@ namespace GlazbeniOglasnik.UI
 
         private void CheckPictures(List<Slike> slikeOglasa)
         {
-            if (slikeOglasa.Count==1)
+            if (slikeOglasa.Count == 1)
                 btnNext.Enabled = false;
             else
             {
@@ -104,8 +187,8 @@ namespace GlazbeniOglasnik.UI
 
         private void ShowPicture()
         {
-           pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
-           pbOglas.Image = Image.FromStream(new MemoryStream(slike[brojac]));
+            pbOglas.SizeMode = PictureBoxSizeMode.Zoom;
+            pbOglas.Image = Image.FromStream(new MemoryStream(slike[brojac]));
         }
 
         private void CheckIfFirst()
@@ -138,6 +221,13 @@ namespace GlazbeniOglasnik.UI
             btnNext.Enabled = true;
             CheckIfFirst();
             ShowPicture();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            var korisnikProdavatelj = korisnikServices.GetKorisnikByUsername(labelKorime.Text);
+            FrmProfilPodaci frmProfilPodaci = new FrmProfilPodaci(korisnikProdavatelj);
+            frmProfilPodaci.ShowDialog();
         }
     }
 }

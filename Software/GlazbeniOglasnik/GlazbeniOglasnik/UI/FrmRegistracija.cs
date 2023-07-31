@@ -21,6 +21,8 @@ namespace GlazbeniOglasnik.UI
         public KorisnikServices korisnikServices = new KorisnikServices();
         public LozinkaHash lozinkaHash = new LozinkaHash();
         public InputValidator inputValidator = new InputValidator();
+        private Korisnik korisnik;
+        public bool isUpdate = false;
         public int brojac = 0;
 
         public FrmRegistracija()
@@ -28,8 +30,21 @@ namespace GlazbeniOglasnik.UI
             InitializeComponent();
         }
 
+        public FrmRegistracija(Korisnik korisnik)
+        {
+            InitializeComponent();
+            this.korisnik = korisnik;
+            isUpdate = true;
+        }
+
         private void btnRegistracija_Click(object sender, EventArgs e)
         {
+            if (isUpdate)
+            {
+                UpdateKorisnik();
+                return;
+            }
+
             bool isValid = ValidateInput(txtIme.Text, txtPrezime.Text, txtKorime.Text, txtLozinka.Text, txtBrojTelefona.Text);
             if (isValid)
             {
@@ -42,7 +57,7 @@ namespace GlazbeniOglasnik.UI
 
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Korisničko ime već postoji!","Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -50,6 +65,49 @@ namespace GlazbeniOglasnik.UI
             else
             {
                 MessageBox.Show("Unesite ispravne podatke!");
+            }
+        }
+
+        private void UpdateKorisnik()
+        {
+            bool isValid = ValidateUpdateInput(txtIme.Text, txtPrezime.Text, txtKorime.Text, txtBrojTelefona.Text);
+            if (isValid)
+            {
+                try
+                {
+                    korisnik.Ime = txtIme.Text;
+                    korisnik.Prezime = txtPrezime.Text;
+                    korisnik.Korime = txtKorime.Text;
+                    korisnik.Broj_telefona = txtBrojTelefona.Text;
+
+                    korisnikServices.UpdateKorisnik(korisnik);
+                    MessageBox.Show("Uspješno ste ažurirali podatke!");
+
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Korisničko ime već postoji!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unesite ispravne podatke!");
+            }
+        }
+
+        private bool ValidateUpdateInput(string ime, string prezime, string korime, string brojTelefona)
+        {
+            if (inputValidator.ValidateImePrezime(ime) &&
+                inputValidator.ValidateImePrezime(prezime) &&
+                inputValidator.ValidateKorime(korime) &&
+                inputValidator.ValidateBrojTelefona(brojTelefona))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -89,6 +147,26 @@ namespace GlazbeniOglasnik.UI
         private void FrmRegistracija_Load(object sender, EventArgs e)
         {
             this.BringToFront();
+
+            if (isUpdate)
+            {
+                FillForm();
+            }
+        }
+
+        private void FillForm()
+        {
+            txtIme.Text = korisnik.Ime;
+            txtPrezime.Text = korisnik.Prezime;
+            txtKorime.Text = korisnik.Korime;
+            txtBrojTelefona.Text = korisnik.Broj_telefona;
+
+            btnRegistracija.Text = "Ažuriraj";
+            title.Text = "Ažuriraj podatke";
+            this.Text = "Ažuriraj podatke";
+
+            txtLozinka.Visible = false;
+            label1.Visible = false;
         }
 
         private void txtIme_Validating(object sender, CancelEventArgs e)

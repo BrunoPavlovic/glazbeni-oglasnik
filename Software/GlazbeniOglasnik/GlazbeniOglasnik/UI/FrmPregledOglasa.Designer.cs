@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnPregledOdabranog = new System.Windows.Forms.Button();
             this.pbSearch = new System.Windows.Forms.PictureBox();
             this.cmbSortiraj = new System.Windows.Forms.ComboBox();
             this.cmbKategorija = new System.Windows.Forms.ComboBox();
@@ -47,42 +46,27 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(12, 21);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(262, 27);
+            this.txtSearch.Size = new System.Drawing.Size(294, 27);
             this.txtSearch.TabIndex = 0;
-            // 
-            // btnPregledOdabranog
-            // 
-            this.btnPregledOdabranog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPregledOdabranog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
-            this.btnPregledOdabranog.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPregledOdabranog.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPregledOdabranog.ForeColor = System.Drawing.Color.White;
-            this.btnPregledOdabranog.Location = new System.Drawing.Point(1007, 447);
-            this.btnPregledOdabranog.Name = "btnPregledOdabranog";
-            this.btnPregledOdabranog.Size = new System.Drawing.Size(214, 40);
-            this.btnPregledOdabranog.TabIndex = 2;
-            this.btnPregledOdabranog.Text = "Pregled odabranog";
-            this.btnPregledOdabranog.UseVisualStyleBackColor = false;
-            this.btnPregledOdabranog.Click += new System.EventHandler(this.btnPregledOdabranog_Click);
             // 
             // pbSearch
             // 
-            this.pbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbSearch.Image = ((System.Drawing.Image)(resources.GetObject("pbSearch.Image")));
             this.pbSearch.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbSearch.InitialImage")));
-            this.pbSearch.Location = new System.Drawing.Point(275, 20);
+            this.pbSearch.Location = new System.Drawing.Point(323, 21);
             this.pbSearch.Name = "pbSearch";
             this.pbSearch.Size = new System.Drawing.Size(32, 33);
             this.pbSearch.TabIndex = 3;
             this.pbSearch.TabStop = false;
+            this.pbSearch.Click += new System.EventHandler(this.pbSearch_Click);
             // 
             // cmbSortiraj
             // 
-            this.cmbSortiraj.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbSortiraj.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSortiraj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortiraj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortiraj.FormattingEnabled = true;
@@ -95,10 +79,11 @@
             this.cmbSortiraj.Name = "cmbSortiraj";
             this.cmbSortiraj.Size = new System.Drawing.Size(246, 28);
             this.cmbSortiraj.TabIndex = 4;
+            this.cmbSortiraj.SelectedIndexChanged += new System.EventHandler(this.cmbSortiraj_SelectedIndexChanged);
             // 
             // cmbKategorija
             // 
-            this.cmbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbKategorija.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbKategorija.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKategorija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKategorija.FormattingEnabled = true;
@@ -110,10 +95,11 @@
             this.cmbKategorija.Name = "cmbKategorija";
             this.cmbKategorija.Size = new System.Drawing.Size(246, 28);
             this.cmbKategorija.TabIndex = 5;
+            this.cmbKategorija.SelectedIndexChanged += new System.EventHandler(this.cmbKategorija_SelectedIndexChanged);
             // 
             // labelNaziv
             // 
-            this.labelNaziv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelNaziv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelNaziv.AutoSize = true;
             this.labelNaziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelNaziv.ForeColor = System.Drawing.Color.White;
@@ -125,7 +111,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.ForeColor = System.Drawing.Color.White;
@@ -141,7 +127,10 @@
             this.dgvOglasi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvOglasi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOglasi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvOglasi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvOglasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOglasi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvOglasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -173,9 +162,10 @@
             this.dgvOglasi.RowHeadersWidth = 51;
             this.dgvOglasi.RowTemplate.Height = 50;
             this.dgvOglasi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOglasi.Size = new System.Drawing.Size(794, 302);
+            this.dgvOglasi.Size = new System.Drawing.Size(794, 361);
             this.dgvOglasi.TabIndex = 8;
             this.dgvOglasi.Visible = false;
+            this.dgvOglasi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOglasi_CellDoubleClick);
             this.dgvOglasi.VisibleChanged += new System.EventHandler(this.dgvOglasi_VisibleChanged);
             // 
             // SlikeOglasa
@@ -201,7 +191,6 @@
             this.Controls.Add(this.cmbKategorija);
             this.Controls.Add(this.cmbSortiraj);
             this.Controls.Add(this.pbSearch);
-            this.Controls.Add(this.btnPregledOdabranog);
             this.Controls.Add(this.txtSearch);
             this.Name = "FrmPregledOglasa";
             this.Text = "FrmPregledOglasa";
@@ -216,7 +205,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnPregledOdabranog;
         private System.Windows.Forms.PictureBox pbSearch;
         private System.Windows.Forms.ComboBox cmbSortiraj;
         private System.Windows.Forms.ComboBox cmbKategorija;
