@@ -20,6 +20,7 @@ namespace GlazbeniOglasnik.UI.Profil
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public PictureLoader pictureLoader = new PictureLoader();
         public Korisnik korisnik = new Korisnik();
+        public ManageDataGridView manageDataGridView;
 
         public FrmProfilMojiOglasi()
         {
@@ -35,7 +36,7 @@ namespace GlazbeniOglasnik.UI.Profil
         private void SetData()
         {
             dgvMojiOglasi.DataSource = oglasServices.GetOglasForKorisnik(korisnik.Id);
-            new ManageDataGridView(dgvMojiOglasi);
+            manageDataGridView = new ManageDataGridView(dgvMojiOglasi);
             CheckData();
         }
 
@@ -125,6 +126,11 @@ namespace GlazbeniOglasnik.UI.Profil
             {
                 MessageBox.Show("Odaberite oglas!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FrmProfilMojiOglasi_Resize(object sender, EventArgs e)
+        {
+            manageDataGridView?.CheckFormSize(dgvMojiOglasi, FrmMain.ActiveForm.WindowState == FormWindowState.Maximized);
         }
     }
 }

@@ -74,7 +74,9 @@
             this.dgvZanimljivi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvZanimljivi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvZanimljivi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvZanimljivi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvZanimljivi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvZanimljivi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvZanimljivi.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -150,6 +152,7 @@
             this.Name = "FrmProfilZanimljiviOglasi";
             this.Text = "FrmProfilZanimljiviOglasi";
             this.Load += new System.EventHandler(this.FrmProfilZanimljiviOglasi_Load);
+            this.Resize += new System.EventHandler(this.FrmProfilZanimljiviOglasi_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvZanimljivi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

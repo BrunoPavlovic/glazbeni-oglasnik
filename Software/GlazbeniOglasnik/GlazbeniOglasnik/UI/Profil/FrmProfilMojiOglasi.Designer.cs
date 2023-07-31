@@ -92,7 +92,9 @@
             this.dgvMojiOglasi.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvMojiOglasi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMojiOglasi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dgvMojiOglasi.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMojiOglasi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvMojiOglasi.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.dgvMojiOglasi.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -169,6 +171,7 @@
             this.Name = "FrmProfilMojiOglasi";
             this.Text = "FrmProfilMojiOglasi";
             this.Load += new System.EventHandler(this.FrmProfilMojiOglasi_Load);
+            this.Resize += new System.EventHandler(this.FrmProfilMojiOglasi_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojiOglasi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

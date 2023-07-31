@@ -213,10 +213,7 @@ namespace GlazbeniOglasnik
 
         private void FrmMain_Resize(object sender, EventArgs e)
         {
-            if (manageDataGridView != null)
-            {
-                manageDataGridView.CheckFormSize(dgvNajtrazeniji, this.WindowState == FormWindowState.Maximized);
-            }
+            manageDataGridView?.CheckFormSize(dgvNajtrazeniji, this.WindowState == FormWindowState.Maximized);
         }
     }
 }
