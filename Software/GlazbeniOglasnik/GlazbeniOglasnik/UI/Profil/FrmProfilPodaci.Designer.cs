@@ -52,6 +52,7 @@
             this.btnPromijeniLozinku.TabIndex = 16;
             this.btnPromijeniLozinku.Text = "Promijeni lozinku";
             this.btnPromijeniLozinku.UseVisualStyleBackColor = false;
+            this.btnPromijeniLozinku.Click += new System.EventHandler(this.btnPromijeniLozinku_Click);
             // 
             // btnUrediProfil
             // 

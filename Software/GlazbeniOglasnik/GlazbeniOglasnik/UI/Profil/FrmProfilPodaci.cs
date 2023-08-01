@@ -56,5 +56,11 @@ namespace GlazbeniOglasnik.UI.Profil
             korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
             FillDetail(korisnik);
         }
+
+        private void btnPromijeniLozinku_Click(object sender, EventArgs e)
+        {
+            FrmPromjenaLozinke frmPromjenaLozinke = new FrmPromjenaLozinke();
+            frmPromjenaLozinke.ShowDialog();
+        }
     }
 }
