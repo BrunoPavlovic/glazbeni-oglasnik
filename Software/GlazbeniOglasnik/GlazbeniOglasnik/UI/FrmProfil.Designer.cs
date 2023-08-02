@@ -74,11 +74,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(73, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(71, 22);
             this.label1.TabIndex = 1;
             this.label1.Text = "Izbornik";
             // 
@@ -116,7 +116,7 @@
             this.btnMojiOglasi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMojiOglasi.FlatAppearance.BorderSize = 0;
             this.btnMojiOglasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMojiOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMojiOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMojiOglasi.ForeColor = System.Drawing.Color.White;
             this.btnMojiOglasi.Image = ((System.Drawing.Image)(resources.GetObject("btnMojiOglasi.Image")));
             this.btnMojiOglasi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -134,7 +134,7 @@
             this.btnZanimljiviOglasi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnZanimljiviOglasi.FlatAppearance.BorderSize = 0;
             this.btnZanimljiviOglasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnZanimljiviOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZanimljiviOglasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnZanimljiviOglasi.ForeColor = System.Drawing.Color.White;
             this.btnZanimljiviOglasi.Image = ((System.Drawing.Image)(resources.GetObject("btnZanimljiviOglasi.Image")));
             this.btnZanimljiviOglasi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -152,7 +152,7 @@
             this.btnProfilPodaci.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProfilPodaci.FlatAppearance.BorderSize = 0;
             this.btnProfilPodaci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfilPodaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProfilPodaci.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProfilPodaci.ForeColor = System.Drawing.Color.White;
             this.btnProfilPodaci.Image = ((System.Drawing.Image)(resources.GetObject("btnProfilPodaci.Image")));
             this.btnProfilPodaci.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
