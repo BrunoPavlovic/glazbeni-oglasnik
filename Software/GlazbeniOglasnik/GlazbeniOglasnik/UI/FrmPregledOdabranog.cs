@@ -138,7 +138,7 @@ namespace GlazbeniOglasnik.UI
             title.Text = oglas.Naziv_oglasa;
             richTextOpis.Text = string.IsNullOrWhiteSpace(oglas.Opis) ? "Nema dodatnih informacija za oglas :)" : oglas.Opis;
             txtLokacija.Text = oglas.Lokacija;
-            labelCijena.Text = oglas.Cijena.ToString() + "$";
+            labelCijena.Text = oglas.Cijena.ToString() + "€";
             labelBrojPregleda.Text = oglas.Broj_pregleda.ToString();
             labelKorime.Text = oglas.Korisnik.Korime;
 

@@ -186,7 +186,7 @@
             this.labelCijena.Name = "labelCijena";
             this.labelCijena.Size = new System.Drawing.Size(69, 29);
             this.labelCijena.TabIndex = 30;
-            this.labelCijena.Text = "112$";
+            this.labelCijena.Text = "112€";
             // 
             // richTextOpis
             // 

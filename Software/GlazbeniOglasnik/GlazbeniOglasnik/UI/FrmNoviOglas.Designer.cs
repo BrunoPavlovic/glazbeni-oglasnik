@@ -70,11 +70,11 @@
             this.labelCijena.AutoSize = true;
             this.labelCijena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelCijena.ForeColor = System.Drawing.Color.White;
-            this.labelCijena.Location = new System.Drawing.Point(38, 45);
+            this.labelCijena.Location = new System.Drawing.Point(8, 46);
             this.labelCijena.Name = "labelCijena";
-            this.labelCijena.Size = new System.Drawing.Size(74, 25);
+            this.labelCijena.Size = new System.Drawing.Size(104, 25);
             this.labelCijena.TabIndex = 4;
-            this.labelCijena.Text = "Cijena:";
+            this.labelCijena.Text = "Cijena (€):";
             // 
             // labelLokacija
             // 

@@ -39,7 +39,7 @@ namespace GlazbeniOglasnik.Helpers
             if (string.IsNullOrWhiteSpace(name))
                 return false;
 
-            return Regex.IsMatch(name, @"^[a-zA-Z]{1,50}$");
+            return Regex.IsMatch(name, @"^[a-zA-ZćčđšžĆČĐŠŽ]{1,50}$");
         }
 
         public bool ValidateKategorija(string kategorija)
@@ -52,10 +52,10 @@ namespace GlazbeniOglasnik.Helpers
 
         public bool ValidateLokacija(string lokacija)
         {
-            if (string.IsNullOrEmpty(lokacija))
+            if (string.IsNullOrWhiteSpace(lokacija))
                 return false;
 
-            return Regex.IsMatch(lokacija, @"^[a-zA-Z]{1,50}$");
+            return Regex.IsMatch(lokacija, @"^[a-zA-ZćčđšžĆČĐŠŽ]{1,50}$");
         }
 
         public bool ValidateCijena(string cijena)
@@ -71,7 +71,7 @@ namespace GlazbeniOglasnik.Helpers
 
         public bool ValidateNaziv(string naziv)
         {
-            if (string.IsNullOrEmpty(naziv) || naziv.Length > 100)
+            if (string.IsNullOrWhiteSpace(naziv) || naziv.Length > 100)
                 return false;
 
             return true;

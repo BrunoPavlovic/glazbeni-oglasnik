@@ -109,7 +109,7 @@ namespace GlazbeniOglasnik.UI
             bool valid = inputValidator.ValidateKorime(txtKorime.Text);
             if (!valid)
             {
-                errorProvider.SetError(txtKorime, "Korisničko ime mora biti u rasponu od 6-50 znakova!");
+                errorProvider.SetError(txtKorime, "Korisničko ime mora biti u rasponu od 6-50 znakova");
                 correctProvider.SetError(txtKorime, null);
             }
             else
@@ -124,7 +124,7 @@ namespace GlazbeniOglasnik.UI
             bool valid = inputValidator.ValidateLozinka(txtLozinka.Text);
             if (!valid)
             {
-                errorProvider.SetError(txtLozinka, "Lozinka mora biti duža od 6 znakova!");
+                errorProvider.SetError(txtLozinka, "Lozinka mora biti duža od 6 znakova");
                 correctProvider.SetError(txtLozinka, null);
             }
             else
