@@ -191,6 +191,7 @@
             // richTextOpis
             // 
             this.richTextOpis.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.richTextOpis.Enabled = false;
             this.richTextOpis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextOpis.Location = new System.Drawing.Point(556, 31);
             this.richTextOpis.Name = "richTextOpis";
@@ -201,6 +202,7 @@
             // txtLokacija
             // 
             this.txtLokacija.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLokacija.Enabled = false;
             this.txtLokacija.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLokacija.Location = new System.Drawing.Point(556, 128);
             this.txtLokacija.Name = "txtLokacija";

@@ -38,7 +38,7 @@ namespace GlazbeniOglasnik.UI
             FrmRegistracija frmRegistracija = new FrmRegistracija();
             frmRegistracija.ShowDialog();
 
-            this.Close();
+            //this.Close();
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)

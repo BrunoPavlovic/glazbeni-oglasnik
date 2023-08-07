@@ -52,8 +52,8 @@ namespace GlazbeniOglasnik.UI
                 {
                     RegistrirajKorisnika();
 
-                    FrmLogin frmLogin = new FrmLogin();
-                    frmLogin.Show();
+                    //FrmLogin frmLogin = new FrmLogin();
+                    //frmLogin.Show();
 
                     this.Close();
                 }
