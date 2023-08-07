@@ -23,19 +23,19 @@ namespace DataAccessLayer
         {
             modelBuilder.Entity<Korisnik>()
                 .Property(e => e.Ime)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Korisnik>()
                 .Property(e => e.Prezime)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Korisnik>()
                 .Property(e => e.Korime)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Korisnik>()
                 .Property(e => e.Lozinka)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Korisnik>()
                 .Property(e => e.Broj_telefona)
@@ -54,19 +54,19 @@ namespace DataAccessLayer
 
             modelBuilder.Entity<Oglas>()
                 .Property(e => e.Naziv_oglasa)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Oglas>()
                 .Property(e => e.Opis)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Oglas>()
                 .Property(e => e.Lokacija)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Oglas>()
                 .Property(e => e.Kategorija)
-                .IsUnicode(false);
+                .IsUnicode(true);
 
             modelBuilder.Entity<Oglas>()
                 .HasMany(e => e.Slike)
