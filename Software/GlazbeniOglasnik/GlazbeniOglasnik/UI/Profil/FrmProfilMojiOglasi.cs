@@ -19,7 +19,7 @@ namespace GlazbeniOglasnik.UI.Profil
         public SlikaServices slikaServices = new SlikaServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public PictureLoader pictureLoader = new PictureLoader();
-        public Korisnik korisnik = new Korisnik();
+        public Korisnik korisnik = null;
         public ManageDataGridView manageDataGridView;
 
         public FrmProfilMojiOglasi()
@@ -27,9 +27,23 @@ namespace GlazbeniOglasnik.UI.Profil
             InitializeComponent();
         }
 
+        public FrmProfilMojiOglasi(Korisnik korisnik)
+        {
+            InitializeComponent();
+            this.korisnik = korisnik;
+
+            btnObrisiOglas.Visible = false;
+            btnUrediOglas.Visible = false;
+            label1.Visible = false;
+            this.Text = "Oglasi korisnika " + korisnik.Korime;
+        }
+
         private void FrmProfilMojiOglasi_Load(object sender, EventArgs e)
         {
-            korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            if (korisnik == null)
+            {
+                korisnik = prijavljeniKorisnik.DohvatiPrijavljenogKorisnika();
+            }
             SetData();
         }
 

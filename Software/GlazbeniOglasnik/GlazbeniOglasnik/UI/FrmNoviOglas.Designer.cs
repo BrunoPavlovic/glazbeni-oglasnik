@@ -210,7 +210,8 @@
             this.cmbKategorija.FormattingEnabled = true;
             this.cmbKategorija.Items.AddRange(new object[] {
             "Kupujem",
-            "Prodajem"});
+            "Prodajem",
+            "Mijenjam"});
             this.cmbKategorija.Location = new System.Drawing.Point(133, 129);
             this.cmbKategorija.Name = "cmbKategorija";
             this.cmbKategorija.Size = new System.Drawing.Size(235, 28);

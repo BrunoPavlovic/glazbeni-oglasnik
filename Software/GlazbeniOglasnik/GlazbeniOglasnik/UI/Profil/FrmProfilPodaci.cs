@@ -30,6 +30,7 @@ namespace GlazbeniOglasnik.UI.Profil
 
             btnUrediProfil.Visible = false;
             btnPromijeniLozinku.Visible = false;
+            btnOglasivac.Visible = true;
             this.Width = 400;
             this.Height = 400;
         }
@@ -61,6 +62,12 @@ namespace GlazbeniOglasnik.UI.Profil
         {
             FrmPromjenaLozinke frmPromjenaLozinke = new FrmPromjenaLozinke();
             frmPromjenaLozinke.ShowDialog();
+        }
+
+        private void btnOglasivac_Click(object sender, EventArgs e)
+        {
+            FrmProfilMojiOglasi frmProfilMojiOglasi = new FrmProfilMojiOglasi(korisnik);
+            frmProfilMojiOglasi.ShowDialog();
         }
     }
 }

@@ -36,6 +36,7 @@
             this.labelIme = new System.Windows.Forms.Label();
             this.labelKorime = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnOglasivac = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,12 +128,29 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // btnOglasivac
+            // 
+            this.btnOglasivac.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOglasivac.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.btnOglasivac.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOglasivac.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOglasivac.ForeColor = System.Drawing.Color.White;
+            this.btnOglasivac.Location = new System.Drawing.Point(203, 344);
+            this.btnOglasivac.Name = "btnOglasivac";
+            this.btnOglasivac.Size = new System.Drawing.Size(294, 39);
+            this.btnOglasivac.TabIndex = 17;
+            this.btnOglasivac.Text = "Pregled svih oglasa oglašivača";
+            this.btnOglasivac.UseVisualStyleBackColor = false;
+            this.btnOglasivac.Visible = false;
+            this.btnOglasivac.Click += new System.EventHandler(this.btnOglasivac_Click);
+            // 
             // FrmProfilPodaci
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(107)))), ((int)(((byte)(135)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOglasivac);
             this.Controls.Add(this.btnPromijeniLozinku);
             this.Controls.Add(this.btnUrediProfil);
             this.Controls.Add(this.labelTelefon);
@@ -165,5 +183,6 @@
         private System.Windows.Forms.Label labelIme;
         private System.Windows.Forms.Label labelKorime;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnOglasivac;
     }
 }
