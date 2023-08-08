@@ -19,6 +19,15 @@ namespace BuisnessLogicLayer.Services
             }
         }
 
+        public List<Zanimljivi_oglasi> GetZanimljiviOglasiForOglasId(int oglasId)
+        {
+            using (var repo = new ZanimljiviOglasiRepository())
+            {
+                List<Zanimljivi_oglasi> zanimljiviOglasi = repo.GetZanimljiviOglasiForOglasId(oglasId).ToList();
+                return zanimljiviOglasi;
+            }
+        }
+
         public bool AddZanimljiviOglas(Zanimljivi_oglasi zanimljivi)
         {
             bool isSuccesful = false;

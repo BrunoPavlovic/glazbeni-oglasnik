@@ -303,6 +303,7 @@
             this.Controls.Add(this.labelLokacija);
             this.Controls.Add(this.labelCijena);
             this.Controls.Add(this.labelNaziv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmNoviOglas";
             this.Text = "FrmNoviOglas";
             this.Load += new System.EventHandler(this.FrmNoviOglas_Load);

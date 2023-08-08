@@ -17,6 +17,7 @@ namespace GlazbeniOglasnik.UI.Profil
     {
         public OglasServices oglasServices = new OglasServices();
         public SlikaServices slikaServices = new SlikaServices();
+        public ZanimljiviOglasiServices zanimljiviOglasiServices = new ZanimljiviOglasiServices();
         public PrijavljeniKorisnik prijavljeniKorisnik = new PrijavljeniKorisnik();
         public PictureLoader pictureLoader = new PictureLoader();
         public Korisnik korisnik = null;
@@ -79,11 +80,21 @@ namespace GlazbeniOglasnik.UI.Profil
             if (oglas != null)
             {
                 RemovePicturesForOglas(oglas.Id);
+                RemoveZanimljiviForOglas(oglas.Id);
                 RemoveMyOglas(oglas);
             }
             else
             {
                 MessageBox.Show("Niste odabrali oglas za brisanje!", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void RemoveZanimljiviForOglas(int id)
+        {
+            var zanimljiviOglasi = zanimljiviOglasiServices.GetZanimljiviOglasiForOglasId(id);
+            foreach (var zanimljiv in zanimljiviOglasi)
+            {
+                zanimljiviOglasiServices.RemoveZanimljiviOglas(zanimljiv);
             }
         }
 
